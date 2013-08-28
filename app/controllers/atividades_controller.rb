@@ -36,6 +36,7 @@ class AtividadesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @atividade.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def edit
@@ -58,6 +59,7 @@ class AtividadesController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @atividade.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def destroy
@@ -66,5 +68,6 @@ class AtividadesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to listadeatividades_path }
       format.json { head :no_content }
+    end
   end
 end

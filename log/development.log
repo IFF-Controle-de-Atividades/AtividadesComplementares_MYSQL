@@ -7,3 +7,174 @@ Migrating to CreateAtividades (20130828095655)
   [1m[35m (79.4ms)[0m  CREATE TABLE `atividades` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nome` varchar(255), `modalidade` varchar(255), `descricao` text, `inicio` date, `termino` date, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
   [1m[36m (32.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130828095655')[0m
   [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/" for 127.0.0.1 at 2013-08-28 10:22:17 +0000
+Connecting to database specified by database.yml
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (3.2ms)
+Compiled atividades.css  (58ms)  (pid 6821)
+Compiled welcome.css  (2ms)  (pid 6821)
+Compiled application.css  (112ms)  (pid 6821)
+Compiled jquery.js  (2ms)  (pid 6821)
+Compiled jquery_ujs.js  (0ms)  (pid 6821)
+Compiled atividades.js  (686ms)  (pid 6821)
+Compiled welcome.js  (145ms)  (pid 6821)
+Compiled application.js  (1046ms)  (pid 6821)
+Completed 200 OK in 1442ms (Views: 1441.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/atividades/" for 127.0.0.1 at 2013-08-28 10:22:35 +0000
+
+SyntaxError - /home/allexonrails/_virtual_rails_environment_/AtividadesComplementares_MySql/app/controllers/atividades_controller.rb:70: syntax error, unexpected $end, expecting keyword_end:
+  app/controllers/atividades_controller.rb:70:in `'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:469:in `block in load_file'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:639:in `new_constants_in'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:468:in `load_file'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:353:in `require_or_load'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:192:in `block in const_missing'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:190:in `const_missing'
+  (gem) activesupport-3.2.11/lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  (gem) activesupport-3.2.11/lib/active_support/inflector/methods.rb:229:in `constantize'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:554:in `get'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:32:in `call'
+  (gem) journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  (gem) journey-1.0.4/lib/journey/router.rb:56:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:601:in `call'
+  (gem) warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+  (gem) warden-1.2.1/lib/warden/manager.rb:34:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  (gem) rack-1.4.5/lib/rack/etag.rb:23:in `call'
+  (gem) rack-1.4.5/lib/rack/conditionalget.rb:25:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/head.rb:14:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  (gem) rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+  (gem) rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/query_cache.rb:64:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `_run__664754588260843374__call__4516344750763849124__callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  (gem) better_errors-0.8.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+  (gem) better_errors-0.8.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+  (gem) better_errors-0.8.0/lib/better_errors/middleware.rb:56:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:32:in `call_app'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/tagged_logging.rb:22:in `tagged'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `call'
+  (gem) quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  (gem) rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+  (gem) rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+  (gem) activesupport-3.2.11/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  (gem) rack-1.4.5/lib/rack/lock.rb:15:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/static.rb:62:in `call'
+  (gem) railties-3.2.11/lib/rails/engine.rb:479:in `call'
+  (gem) railties-3.2.11/lib/rails/application.rb:223:in `call'
+  (gem) rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/log_tailer.rb:17:in `call'
+  (gem) rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+  /home/allexonrails/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/allexonrails/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/allexonrails/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/69928547054620/variables" for 127.0.0.1 at 2013-08-28 10:22:36 +0000
+
+
+Started GET "/atividades/" for 127.0.0.1 at 2013-08-28 10:23:44 +0000
+
+SyntaxError - /home/allexonrails/_virtual_rails_environment_/AtividadesComplementares_MySql/app/controllers/atividades_controller.rb:72: syntax error, unexpected $end, expecting keyword_end:
+  app/controllers/atividades_controller.rb:72:in `'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:469:in `block in load_file'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:639:in `new_constants_in'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:468:in `load_file'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:353:in `require_or_load'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:502:in `load_missing_constant'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:192:in `block in const_missing'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:190:in `const_missing'
+  (gem) activesupport-3.2.11/lib/active_support/inflector/methods.rb:230:in `block in constantize'
+  (gem) activesupport-3.2.11/lib/active_support/inflector/methods.rb:229:in `constantize'
+  (gem) activesupport-3.2.11/lib/active_support/dependencies.rb:554:in `get'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:69:in `controller_reference'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:54:in `controller'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:32:in `call'
+  (gem) journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  (gem) journey-1.0.4/lib/journey/router.rb:56:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/routing/route_set.rb:601:in `call'
+  (gem) warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+  (gem) warden-1.2.1/lib/warden/manager.rb:34:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  (gem) rack-1.4.5/lib/rack/etag.rb:23:in `call'
+  (gem) rack-1.4.5/lib/rack/conditionalget.rb:25:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/head.rb:14:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  (gem) rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+  (gem) rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/query_cache.rb:64:in `call'
+  (gem) activerecord-3.2.11/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `_run__664754588260843374__call__4516344750763849124__callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  (gem) activesupport-3.2.11/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  (gem) better_errors-0.8.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+  (gem) better_errors-0.8.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+  (gem) better_errors-0.8.0/lib/better_errors/middleware.rb:56:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:32:in `call_app'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `block in call'
+  (gem) activesupport-3.2.11/lib/active_support/tagged_logging.rb:22:in `tagged'
+  (gem) railties-3.2.11/lib/rails/rack/logger.rb:16:in `call'
+  (gem) quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  (gem) rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+  (gem) rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+  (gem) activesupport-3.2.11/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  (gem) rack-1.4.5/lib/rack/lock.rb:15:in `call'
+  (gem) actionpack-3.2.11/lib/action_dispatch/middleware/static.rb:62:in `call'
+  (gem) railties-3.2.11/lib/rails/engine.rb:479:in `call'
+  (gem) railties-3.2.11/lib/rails/application.rb:223:in `call'
+  (gem) rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+  (gem) railties-3.2.11/lib/rails/rack/log_tailer.rb:17:in `call'
+  (gem) rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+  /home/allexonrails/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/allexonrails/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/allexonrails/.rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/36077580/variables" for 127.0.0.1 at 2013-08-28 10:23:44 +0000
+
+
+Started GET "/atividades/" for 127.0.0.1 at 2013-08-28 10:24:02 +0000
+Processing by AtividadesController#index as HTML
+  [1m[36mAtividade Load (0.2ms)[0m  [1mSELECT `atividades`.* FROM `atividades` [0m
+  Rendered atividades/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 5.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/atividades/" for 127.0.0.1 at 2013-08-28 10:25:04 +0000
+Processing by AtividadesController#index as HTML
+  [1m[35mAtividade Load (0.3ms)[0m  SELECT `atividades`.* FROM `atividades` 
+  Rendered atividades/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.3ms)

@@ -1,2 +1,29 @@
-<h1>Atividades#index</h1>
-<p>Find me in app/views/atividades/index.html.erb</p>
+<h1>Listing atividades</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Descricao</th>
+    <th>Inicio</th>
+    <th>Termino</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @atividades.each do |atividade| %>
+  <tr>
+    <td><%= atividade.nome %></td>
+    <td><%= atividade.descricao %></td>
+    <td><%= atividade.inicio %></td>
+    <td><%= atividade.termino %></td>
+    <td><%= link_to 'Show', atividade %></td>
+    <td><%= link_to 'Edit', edit_atividade_path(atividade) %></td>
+    <td><%= link_to 'Destroy', atividade, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Atividade', new_atividade_path %>
