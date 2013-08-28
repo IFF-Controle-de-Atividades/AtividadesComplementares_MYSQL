@@ -1,0 +1,9 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (177.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (288.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (23.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAtividades (20130828095655)
+  [1m[35m (79.4ms)[0m  CREATE TABLE `atividades` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nome` varchar(255), `modalidade` varchar(255), `descricao` text, `inicio` date, `termino` date, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (32.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130828095655')[0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
