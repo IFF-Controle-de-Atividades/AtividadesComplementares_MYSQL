@@ -16,8 +16,8 @@ group :development, :test do
 	gem "devise", ">= 2.2.3"
 	gem 'pry'
 	gem 'pry-nav'
-	gem "rspec"
 	gem "rspec-rails", ">= 2.12.2"
+	gem 'guard-rspec'
 	gem "rb-fsevent"
 	gem "autotest-standalone"
 	gem "test_notifier"
