@@ -668,3 +668,12 @@ Migrating to RenameFieldDescricaoAtAtividades (20130828120324)
   [1m[36m (206.7ms)[0m  [1mALTER TABLE `atividades` CHANGE `descricao` `horasganhas` text DEFAULT NULL[0m
   [1m[35m (31.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130828120324')
   [1m[36m (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/atividades/new" for 127.0.0.1 at 2013-08-28 12:27:04 +0000
+Processing by AtividadesController#new as HTML
+  [1m[36mModalidade Load (0.1ms)[0m  [1mSELECT `modalidades`.* FROM `modalidades` [0m
+  Rendered atividades/_form.html.erb (54.3ms)
+  Rendered atividades/new.html.erb within layouts/application (61.5ms)
+Completed 200 OK in 162ms (Views: 140.7ms | ActiveRecord: 4.0ms)

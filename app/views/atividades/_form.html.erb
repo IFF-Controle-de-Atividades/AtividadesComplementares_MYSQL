@@ -1,4 +1,5 @@
 <%= form_for(@atividade) do |f| %>
+
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome, :size=>"36" %>
@@ -16,8 +17,8 @@
     <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
   </div><br />
   <div class="field">
-    <%= f.label :descricao %><br />
-    <%= f.text_area :descricao %>
+    <%= f.label :horasganhas %><br />
+    <%= f.text_field :horasganhas %>
   </div><br />
   <div class="actions">
     <%= f.submit %>
