@@ -505,3 +505,136 @@ Processing by AtividadesController#new as HTML
   Rendered atividades/_form.html.erb (7.7ms)
   Rendered atividades/new.html.erb within layouts/application (8.5ms)
 Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (2.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAtividades (20130828095655)
+Migrating to CreateModalidades (20130828111546)
+  [1m[35m (106.8ms)[0m  CREATE TABLE `modalidades` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (31.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130828111546')[0m
+Migrating to DeviseCreateAvaliadores (20130828112208)
+  [1m[35m (83.2ms)[0m  CREATE TABLE `avaliadores` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nome` varchar(255), `sexo` varchar(255), `matricula` varchar(255), `titulacao` varchar(255), `admin` tinyint(1) DEFAULT 0, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (144.7ms)[0m  [1mCREATE UNIQUE INDEX `index_avaliadores_on_nome` ON `avaliadores` (`nome`)[0m
+  [1m[35m (133.4ms)[0m  CREATE UNIQUE INDEX `index_avaliadores_on_matricula` ON `avaliadores` (`matricula`)
+  [1m[36m (144.2ms)[0m  [1mCREATE UNIQUE INDEX `index_avaliadores_on_email` ON `avaliadores` (`email`)[0m
+  [1m[35m (154.9ms)[0m  CREATE UNIQUE INDEX `index_avaliadores_on_reset_password_token` ON `avaliadores` (`reset_password_token`)
+  [1m[36m (32.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130828112208')[0m
+  [1m[35m (0.4ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAtividades (20130828095655)
+Migrating to CreateModalidades (20130828111546)
+Migrating to DeviseCreateAvaliadores (20130828112208)
+Migrating to AddAtivoToAvaliadores (20130828112926)
+  [1m[35m (184.3ms)[0m  ALTER TABLE `avaliadores` ADD `ativo` tinyint(1) DEFAULT 1
+  [1m[36m (32.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20130828112926')[0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Participação em Curso', '2013-08-28 11:33:05')[0m
+  [1m[35m (52.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Ministrante de Curso de Extensão', '2013-08-28 11:33:05')
+  [1m[36m (31.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Atividade de Iniciação Científica', '2013-08-28 11:33:05')[0m
+  [1m[35m (32.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Publicação de Artigo Científico', '2013-08-28 11:33:05')
+  [1m[36m (31.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Publicação de Produção Autoral', '2013-08-28 11:33:05')[0m
+  [1m[35m (61.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Participação em Concurso Acadêmico', '2013-08-28 11:33:05')
+  [1m[36m (36.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Serviço Voluntário', '2013-08-28 11:33:05')[0m
+  [1m[35m (32.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Apresentação de Trabalho Científico', '2013-08-28 11:33:05')
+  [1m[36m (32.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Viagem de Estudo e Visita Técnica', '2013-08-28 11:33:05')[0m
+  [1m[35m (30.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Realização de Curso de Idioma', '2013-08-28 11:33:05')
+  [1m[36m (31.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Participação como Ouvinte em banca de Trabalho de Conclusão', '2013-08-28 11:33:05')[0m
+  [1m[35m (31.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Participação em Comissão Organizadora', '2013-08-28 11:33:05')
+  [1m[36m (31.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Exercício de Cargo Eletivo na Diretoria do DCE', '2013-08-28 11:33:05')[0m
+  [1m[35m (30.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Exercício de Cargo Eletivo na Diretoria do CA do Curso', '2013-08-28 11:33:05')
+  [1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Participação em Equipe Esportiva do IFF', '2013-08-28 11:33:05')[0m
+  [1m[35m (31.6ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:33:05', 'Certificação Profissional na Área do Curso', '2013-08-28 11:33:05')
+  [1m[36m (30.8ms)[0m  [1mCOMMIT[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Participação em Curso', '2013-08-28 11:35:07')[0m
+  [1m[35m (43.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Ministrante de Curso de Extensão', '2013-08-28 11:35:07')
+  [1m[36m (27.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Atividade de Iniciação Científica', '2013-08-28 11:35:07')[0m
+  [1m[35m (30.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Publicação de Artigo Científico', '2013-08-28 11:35:07')
+  [1m[36m (19.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Publicação de Produção Autoral', '2013-08-28 11:35:07')[0m
+  [1m[35m (18.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Participação em Concurso Acadêmico', '2013-08-28 11:35:07')
+  [1m[36m (18.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Serviço Voluntário', '2013-08-28 11:35:07')[0m
+  [1m[35m (18.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Apresentação de Trabalho Científico', '2013-08-28 11:35:07')
+  [1m[36m (18.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Viagem de Estudo e Visita Técnica', '2013-08-28 11:35:07')[0m
+  [1m[35m (18.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Realização de Curso de Idioma', '2013-08-28 11:35:07')
+  [1m[36m (18.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Participação como Ouvinte em banca de Trabalho de Conclusão', '2013-08-28 11:35:07')[0m
+  [1m[35m (17.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Participação em Comissão Organizadora', '2013-08-28 11:35:07')
+  [1m[36m (18.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Exercício de Cargo Eletivo na Diretoria do DCE', '2013-08-28 11:35:07')[0m
+  [1m[35m (29.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Exercício de Cargo Eletivo na Diretoria do CA do Curso', '2013-08-28 11:35:07')
+  [1m[36m (29.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Participação em Equipe Esportiva do IFF', '2013-08-28 11:35:07')[0m
+  [1m[35m (29.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `modalidades` (`created_at`, `title`, `updated_at`) VALUES ('2013-08-28 11:35:07', 'Certificação Profissional na Área do Curso', '2013-08-28 11:35:07')
+  [1m[36m (31.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mAvaliador Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `avaliadores` WHERE `avaliadores`.`email` = BINARY 'admin@admin.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
