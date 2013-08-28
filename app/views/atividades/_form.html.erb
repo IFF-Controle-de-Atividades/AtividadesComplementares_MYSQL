@@ -5,7 +5,7 @@
   </div><br />
   <div class="field">
     <%= f.label :modalidade %><br />
-    <%= f.text_field :modalidade, :size=>"36" %>
+    <%= f.collection_select(:modalidade, Modalidade.all, :title, :title, {:prompt => 'Selecione'}) %>
   </div><br />
   <div class="field">
     <%= f.label :inicio %><br />

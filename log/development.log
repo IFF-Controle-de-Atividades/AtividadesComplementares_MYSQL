@@ -638,3 +638,33 @@ Connecting to database specified by database.yml
   [1m[35m (0.2ms)[0m  BEGIN
   [1m[36mAvaliador Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM `avaliadores` WHERE `avaliadores`.`email` = BINARY 'admin@admin.com' LIMIT 1[0m
   [1m[35m (0.2ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+
+
+Started GET "/atividades/new" for 127.0.0.1 at 2013-08-28 11:48:16 +0000
+Processing by AtividadesController#new as HTML
+  [1m[36mModalidade Load (0.5ms)[0m  [1mSELECT `modalidades`.* FROM `modalidades` [0m
+  Rendered atividades/_form.html.erb (55.1ms)
+  Rendered atividades/new.html.erb within layouts/application (87.6ms)
+Completed 200 OK in 168ms (Views: 144.0ms | ActiveRecord: 4.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/atividades/new" for 127.0.0.1 at 2013-08-28 12:01:40 +0000
+Processing by AtividadesController#new as HTML
+  [1m[36mModalidade Load (0.2ms)[0m  [1mSELECT `modalidades`.* FROM `modalidades` [0m
+  Rendered atividades/_form.html.erb (54.1ms)
+  Rendered atividades/new.html.erb within layouts/application (84.6ms)
+Completed 200 OK in 150ms (Views: 137.5ms | ActiveRecord: 4.1ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateAtividades (20130828095655)
+Migrating to CreateModalidades (20130828111546)
+Migrating to DeviseCreateAvaliadores (20130828112208)
+Migrating to AddAtivoToAvaliadores (20130828112926)
+Migrating to RenameFieldDescricaoAtAtividades (20130828120324)
+  [1m[35m (1.0ms)[0m  SHOW COLUMNS FROM `atividades` LIKE 'descricao'
+  [1m[36m (206.7ms)[0m  [1mALTER TABLE `atividades` CHANGE `descricao` `horasganhas` text DEFAULT NULL[0m
+  [1m[35m (31.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130828120324')
+  [1m[36m (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
