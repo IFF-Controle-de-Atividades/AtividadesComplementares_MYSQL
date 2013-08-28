@@ -1,0 +1,25 @@
+<%= form_for(@atividade) do |f| %>
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, :size=>"36" %>
+  </div><br />
+  <div class="field">
+    <%= f.label :modalidade %><br />
+    <%= f.text_field :modalidade, :size=>"36" %>
+  </div><br />
+  <div class="field">
+    <%= f.label :inicio %><br />
+    <%= f.date_select :inicio, :start_year => 2006, :order => [:day, :month, :year] %>
+  </div><br />
+  <div class="field">
+    <%= f.label :inicio %><br />
+    <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
+  </div><br />
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_area :descricao %>
+  </div><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div><br />
+<% end %>

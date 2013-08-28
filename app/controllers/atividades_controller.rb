@@ -18,24 +18,14 @@ class AtividadesController < ApplicationController
 
   def new
     @atividade = Atividade.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @atividade }
-    end
   end
 
   def create
     @atividade = Atividade.new(params[:atividade])
-    respond_to do |format|
-      if @atividade.save
-        format.html { redirect_to aluno_home_path }
-        flash[:notice] = "Sua Atividade foi inserida com sucesso"
-        format.json { render json: @atividade, status: :created, location: @atividade }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @atividade.errors, status: :unprocessable_entity }
-      end
+    if @atividade.save
+      flash[:notice] = "Sua Atividade foi inserida com sucesso"
+    else
+      render action: "new"
     end
   end
 
