@@ -1,2 +1,25 @@
-<h1>Atividades#show</h1>
-<p>Find me in app/views/atividades/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @atividade.title %>
+</p>
+
+<p>
+  <b>Horasganhas:</b>
+  <%= @atividade.horasganhas %>
+</p>
+
+<p>
+  <b>Inicio:</b>
+  <%= @atividade.inicio %>
+</p>
+
+<p>
+  <b>Termino:</b>
+  <%= @atividade.termino %>
+</p>
+
+
+<%= link_to 'Edit', edit_atividade_path(@atividade) %> |
+<%= link_to 'Back', atividades_path %>

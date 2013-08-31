@@ -1,0 +1,32 @@
+# encoding: UTF-8
+# pt-BR translations
+pt-BR:
+  atividades:
+    new:
+      title: Cadastro
+    edit:
+      title: Editar Atividade
+    show:
+      title: "Atividade: %{atividade_name}"
+      edit: Editar
+      modalidade: Modalidade
+      horasganhas: Horas
+  links:
+    back: Voltar 
+    edit: Editar
+    show: Exibir
+    destroy: Apagar
+  layout:
+    atividades: Atividades
+  general:
+    form_error: Há erros no formulário. Por-favor verifique-os.
+  activerecord:
+    model:
+      atividade: Atividades
+    attributes:
+      atividade:
+        title: Título
+        horasganhas: Horas
+        inicio: Início
+        termino: Término
+        location: Local

@@ -1,26 +1,28 @@
 <%= form_for(@atividade) do |f| %>
-
+  <% if @atividade.errors.any? %>
+    <div id="error_explanation">
+      <%= t 'general.form_error' %>
+    </div>
+  <% end %>
   <div class="field">
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome, :size=>"36" %>
-  </div><br />
-  <div class="field">
-    <%= f.label :modalidade %><br />
-    <%= f.collection_select(:modalidade, Modalidade.all, :title, :title, {:prompt => 'Selecione'}) %>
-  </div><br />
-  <div class="field">
-    <%= f.label :inicio %><br />
-    <%= f.date_select :inicio, :start_year => 2006, :order => [:day, :month, :year] %>
-  </div><br />
-  <div class="field">
-    <%= f.label :inicio %><br />
-    <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
-  </div><br />
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+    <%= error_tag @atividade, :title %>
+  </div>
   <div class="field">
     <%= f.label :horasganhas %><br />
     <%= f.text_field :horasganhas %>
-  </div><br />
+    <%= error_tag @atividade, :horasganhas %>
+  </div>
+  <div class="field">
+    <%= f.label :inicio %><br />
+    <%= f.date_select :inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :termino %><br />
+    <%= f.date_select :termino %>
+  </div>
   <div class="actions">
     <%= f.submit %>
-  </div><br />
+  </div>
 <% end %>

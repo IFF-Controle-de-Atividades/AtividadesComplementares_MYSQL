@@ -1,6 +1,14 @@
 AtividadesComplementares::Application.routes.draw do
-  devise_for :avaliadores
+  	
 
-  resources :atividades
-  root :to => "welcome#index"
+	LOCALES = /en|pt\-BR/
+
+  	scope "(:locale)", :locale=>LOCALES  do
+	  	resources :atividades
+		devise_for :avaliadores
+	end
+
+  	match '/:locale'=>'welcome#index',:locale=>LOCALES
+
+  	root :to => "welcome#index"
 end

@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Nome</th>
-    <th>Descricao</th>
+    <th>Title</th>
+    <th>Horasganhas</th>
     <th>Inicio</th>
     <th>Termino</th>
     <th></th>
@@ -13,13 +13,13 @@
 
 <% @atividades.each do |atividade| %>
   <tr>
-    <td><%= atividade.nome %></td>
-    <td><%= atividade.descricao %></td>
+    <td><%= atividade.title %></td>
+    <td><%= atividade.horasganhas %></td>
     <td><%= atividade.inicio %></td>
     <td><%= atividade.termino %></td>
     <td><%= link_to 'Show', atividade %></td>
     <td><%= link_to 'Edit', edit_atividade_path(atividade) %></td>
-    <td><%= link_to 'Destroy', atividade, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', atividade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
