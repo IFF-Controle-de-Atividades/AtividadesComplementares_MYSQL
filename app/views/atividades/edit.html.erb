@@ -1,6 +1,4 @@
-<h1>Editing atividade</h1>
-
+<h1><%= t '.title'%></h1><BR />
 <%= render 'form' %>
-
-<%= link_to 'Show', @atividade %> |
-<%= link_to 'Back', atividades_path %>
+<%= link_to t('links.show'), @atividade %>
+<%= link_to t('links.back'), atividades_path %>

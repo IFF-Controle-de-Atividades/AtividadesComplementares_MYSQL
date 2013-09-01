@@ -33,17 +33,17 @@ def inserindo_administrador
  	Avaliador.create(nome: 'Administrador', sexo: 'Masculino', matricula: 'Altere sua matricula', titulacao: 'Alterar sua titulação', email: 'admin@admin.com', password: 'admin', admin: 1, ativo: 1)
 end	
 
-print "######################################################################################"
+print "\n\n######################################################################################\n"
 print "##############  Inserindo Modalidades Padronizadas  ##################################\n"
-print "##############  Você pode inserir mais Modalidades de dentro do Sistema se assim desejar #######"
+print "####  Você pode inserir mais Modalidades de dentro do Sistema se assim desejar #######\n"
 
 thr = Thread.new {inserir_modalidades}
 thr.join
 sleep(5)
 
 print "############## Inserindo Administrador padrão do Sistema  ############################\n"
-print "############## Os dados do administrador podem ser alterados posteriormente  ##############\n"
-print "######################################################################################"
+print "######## Os dados do administrador podem ser alterados posteriormente  ###############\n"
+print "######################################################################################\n"
 threads << Thread.new {inserindo_administrador}
 sleep(5)
 threads.each { |thr| thr.join }

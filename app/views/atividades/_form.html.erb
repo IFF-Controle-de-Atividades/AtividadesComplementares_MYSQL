@@ -5,23 +5,33 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
     <%= error_tag @atividade, :title %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :horasganhas %><br />
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <%= error_tag @atividade, :location %>
+  </div><br />
+  <div class="field">
+    <%= f.label :modalidade %>
+    <%= f.collection_select(:modalidade, Modalidade.all, :title, :title, {:prompt => 'Selecione'}) %>
+    <%= error_tag @atividade, :location %>
+  </div><br />
+  <div class="field">
+    <%= f.label :horasganhas %>
     <%= f.text_field :horasganhas %>
     <%= error_tag @atividade, :horasganhas %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :inicio %><br />
-    <%= f.date_select :inicio %>
-  </div>
+    <%= f.label :inicio %>
+    <%= f.date_select :inicio, :start_year => 2006, :order=> [:day, :month, :year] %>
+  </div><br />
   <div class="field">
-    <%= f.label :termino %><br />
-    <%= f.date_select :termino %>
-  </div>
+    <%= f.label :termino %>
+    <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
+  </div><BR />
   <div class="actions">
     <%= f.submit %>
   </div>
