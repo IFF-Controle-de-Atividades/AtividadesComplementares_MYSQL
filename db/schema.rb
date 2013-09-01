@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130901000913) do
+ActiveRecord::Schema.define(:version => 20130901154939) do
 
   create_table "atividades", :force => true do |t|
     t.string   "title"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20130901000913) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-    t.boolean  "ativo",                  :default => true
+    t.boolean  "status",                 :default => true
   end
 
   add_index "avaliadores", ["email"], :name => "index_avaliadores_on_email", :unique => true

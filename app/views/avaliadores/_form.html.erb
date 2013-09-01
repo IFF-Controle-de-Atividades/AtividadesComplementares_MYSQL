@@ -1,0 +1,56 @@
+<%= form_for(@avaliador) do |f| %>
+  <% if @avaliador.errors.any? %>
+    <div id="error_explanation">
+      <%= t 'general.form_error' %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+    <%= error_tag @avaliador, :nome %>
+  </div><br />
+  <div class="field">
+    <%= f.label :matricula %>
+    <%= f.text_field :matricula %>
+    <%= error_tag @avaliador, :matricula %>
+  </div><br />
+  <div class="field">
+    <%= f.label :titulacao %>
+     <%= f.text_field :titulacao %>
+    <%= error_tag @avaliador, :titulacao %>
+  </div><br />
+  <div class="field">
+    <%= f.label :sexo %>
+    <%= l.radio_button :sexo, :masc %>
+    <%= l.label :masc %>
+    <%= l.radio_button :sexo, :feme %>
+    <%= l.label :feme %>
+    <%= error_tag @avaliador, :sexo %>
+  </div><br />
+  <div class="field">
+    <%= l.label :admin %>
+    <%= l.radio_button :admin, 1 %><%= l.label :yes %>
+    <%= l.radio_button :admin, 0 %><%= l.label :no %>
+  </div>
+
+  <div class="field">
+    <%= l.label :status %>
+    <%= l.radio_button :ativo, 1 %><%= l.label :on %>
+    <%= l.radio_button :ativo, 0 %><%= l.label :off %>
+  </div>
+
+  <div class="field">
+      <%= l.label :email %>
+      <%= l.email_field :email, :placeholder => "example@example.com" %>
+  </div>
+
+  <div class="field">
+      <%= l.label :password %>
+      <%= l.password_field :password, :placeholder => "Uma senha por favor", :size=>"33" %>
+  </div>
+
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -4462,3 +4462,60 @@ Connecting to database specified by database.yml
   [1m[36mAvaliador Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `avaliadores` WHERE `avaliadores`.`email` = BINARY 'admin@admin.com' LIMIT 1[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/atividades/new" for 127.0.0.1 at 2013-09-01 14:39:43 +0000
+Processing by AtividadesController#new as HTML
+  [1m[35mModalidade Load (0.6ms)[0m  SELECT `modalidades`.* FROM `modalidades` 
+  Rendered atividades/_form.html.erb (21.4ms)
+  Rendered atividades/new.html.erb within layouts/application (22.3ms)
+Compiled avaliadores.css  (64ms)  (pid 2942)
+Compiled application.css  (91ms)  (pid 2942)
+Compiled avaliadores.js  (922ms)  (pid 2942)
+Compiled application.js  (945ms)  (pid 2942)
+Completed 200 OK in 1186ms (Views: 1173.1ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/atividades" for 127.0.0.1 at 2013-09-01 14:40:23 +0000
+Processing by AtividadesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Vt2IxrZpaT8x3LV27OR/hBaWJSORtCdhe/QpR/f/DP8=", "atividade"=>{"title"=>"", "location"=>"", "modalidade"=>"", "horasganhas"=>"", "inicio(3i)"=>"1", "inicio(2i)"=>"9", "inicio(1i)"=>"2013", "termino(3i)"=>"1", "termino(2i)"=>"9", "termino(1i)"=>"2013"}, "commit"=>"Criar Atividade"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mModalidade Load (0.2ms)[0m  [1mSELECT `modalidades`.* FROM `modalidades` [0m
+  Rendered atividades/_form.html.erb (13.1ms)
+  Rendered atividades/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 30ms (Views: 20.4ms | ActiveRecord: 0.6ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateModalidades (20130828111546)
+Migrating to DeviseCreateAvaliadores (20130828112208)
+Migrating to AddAtivoToAvaliadores (20130828112926)
+Migrating to CreateAtividades (20130830124458)
+Migrating to AddLocationToAtividades (20130831235426)
+Migrating to AddModalidadeToAtividades (20130901000913)
+Migrating to RenameColumnAtivoAtAvaliadores (20130901154939)
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateModalidades (20130828111546)
+Migrating to DeviseCreateAvaliadores (20130828112208)
+Migrating to AddAtivoToAvaliadores (20130828112926)
+Migrating to CreateAtividades (20130830124458)
+Migrating to AddLocationToAtividades (20130831235426)
+Migrating to AddModalidadeToAtividades (20130901000913)
+Migrating to RenameColumnAtivoAtAvaliadores (20130901154939)
+Connecting to database specified by database.yml
+  [1m[36m (1.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateModalidades (20130828111546)
+Migrating to DeviseCreateAvaliadores (20130828112208)
+Migrating to AddAtivoToAvaliadores (20130828112926)
+Migrating to CreateAtividades (20130830124458)
+Migrating to AddLocationToAtividades (20130831235426)
+Migrating to AddModalidadeToAtividades (20130901000913)
+Migrating to RenameColumnAtivoAtAvaliadores (20130901154939)
+  [1m[35m (184.4ms)[0m  ALTER TABLE `avaliadores` DROP `ativo`
+  [1m[36m (242.1ms)[0m  [1mALTER TABLE `avaliadores` ADD `status` tinyint(1) DEFAULT 1[0m
+  [1m[35m (31.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20130901154939')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m

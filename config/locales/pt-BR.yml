@@ -16,6 +16,13 @@ pt-BR:
     edit: Editar
     show: Exibir
     destroy: Apagar
+  labels:
+    masc: Masculino
+    feme: Feminino
+    yes:  Sim
+    no:   Não
+    on:   Ativo
+    off:  Desativado
   layout:
     atividades: Atividades
   general:
@@ -23,6 +30,7 @@ pt-BR:
   activerecord:
     model:
       atividade: Atividades
+      avaliador: Avaliadores
     attributes:
       atividade:
         title: Título
@@ -31,3 +39,14 @@ pt-BR:
         termino: Término
         location: Local
         modalidade: Modalidade
+      avaliador:
+        nome: Nome
+        matricula: Matricula
+        sexo: Sexo
+        titulacao: Titulação
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme sua senha
+        remember_me: Manter conectado
+        admin: Administrador
+        status: Status
