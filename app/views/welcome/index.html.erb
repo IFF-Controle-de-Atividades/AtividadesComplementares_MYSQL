@@ -1,2 +1,31 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<section id="home">
+	<div class="AlunoBox">
+   		<div class="caixa_cantos_arredondados">
+      		<div class="topo_caixa">
+				<%= label_tag :aluno %>
+			</div>
+		 	<div id="alogin">
+		      <%= image_tag("03.png",:width=>"220px",:height=>"200px") %>
+		 	</div>
+		 	<div id="AlunoBoxButton">
+			   	<%= link_to image_tag("bootao22.png", :width => '300px',
+					:height =>'80px'),new_aluno_session_path %>
+		 	</div>
+ 		 	<div class="rodape_caixa">&nbsp;</div>
+	</div>
+	<div class="AvalidorBox">
+  		<div class="caixa_cantos_arredondados">
+	  		<div class="topo_caixa">
+				<%= label_tag :avaliador %>
+			</div>
+     		<div id="blogin">
+        		<%= image_tag("02.png",:width=>"250px",:height=>"200px") %>
+     		</div>
+     		<div id="AvaliadorBoxButton">
+        		<%= link_to image_tag("bootao22.png", :width => '300px',
+					:height =>'80px'),new_avaliador_session_path %>
+     		</div>
+     		<div class="rodape_caixa">&nbsp;</div>
+ 		</div>
+	</div>
+</section>

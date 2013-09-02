@@ -1,17 +1,42 @@
-<h2>Sign in</h2>
+<FIELDSET><LEGEND><h2 id="signin"><label><%= t('labels.log_in')%></h2></label></LEGEND>
+    <div id="sbar">
+        <div class="attention">
+        <h3><font id="registration">Senhor(a) Avaliador(a)</font></h3>
+        <p>Para continuar coloque suas credenciais. Se 
+           não foi autorizado por favor entre em contato com
+           o administrador.
+        </div>
+    </div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+    <SECTION class="session">
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div class="session">
+      <div>
+         <%= f.label :email, :class=>"small" %><br />
+         <%= f.email_field :email%>
+      </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "avaliadores/shared/links" %>
+      <div>
+          <%= f.label :password, :class=>"small"  %><br />
+          <%= f.password_field :password%>
+      </div>
+      <br />
+      <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me %>
+          <DIV class="remember_me">
+            <%= f.label :remember_me , :class=>"small"  %>
+          </DIV>
+      <%-end-%>
+    
+          <%= link_to t('links.forgotten_your_password'), 
+            new_password_path(resource_name), :class=>"small"  %>
+      <br />
+</FIELDSET>
+<div class="botao_left">
+    <span class="luz">
+        <%= f.submit "Enviar", :class=>"botao", :id=>'id_botao' %>
+    </span>
+</div>
+    
+<%- end -%>
+</SECTION>

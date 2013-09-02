@@ -1,0 +1,202 @@
+/* Css - Developed By
+*
+*  Alexandre Sampaio 
+*       &
+*  Lais Stellet 
+*/
+
+@mixin shadow($color, $x, $y, $radius){
+  -moz-box-shadow: $color $x $y $radius;
+  -webkit-box-shadow: $color $x $y $radius;
+  box-shadow: $color $x $y $radius;
+}
+
+form .session {
+  label {
+    display: block;
+    margin: 5px 0;
+    color: #444;
+  }
+  input[type=email], input[type=password] {
+    color: #444;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 200px;
+    height: 12px;
+    outline: 0;
+    @include shadow(rgba(0,0,0, 0.1), 0px, 0px, 8px);
+    &:focus { border: 2px solid #32CD32; }
+  }
+}
+
+section.session 
+{
+  margin-top: -220px;
+  margin-left: 20px;
+}
+
+font#registration
+{
+    font:bold 30px Arial, Helvetica, sans-serif;
+    text-align:left;
+    color:#3a3333;
+    border:0px solid #be2b2b;
+    text-shadow:-1px 1px 0px #fff;
+}
+
+/*
+*
+* Caixa Cinza no lado direito da tela
+*
+*/
+
+#sbar { margin: 0 9px 0 73%; }
+
+#sbar:after { content: "."; height: 1px; visibility: hidden; clear: left; display: block; }
+
+#sbar { position: relative; }
+
+.attention h3 
+{ 
+  font-weight: bold; 
+  margin-bottom: 6px; 
+  color: #fff;
+  text-align:center;
+}
+
+.attention 
+{ 
+  line-height: 100%;
+  background: #ccc; 
+  color: #555; 
+  padding: 6px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 0 5px 5px #888;
+  -webkit-box-shadow: 0 0 5px 5px#888;
+  box-shadow: 0 0 5px 5px #888;
+  text-align: justify;
+}
+
+.attention a { color: #fff; text-decoration: underline; }
+
+.attention .sidebar_button 
+{
+  margin-top: 10px;
+  margin-left: 22px;
+  display: block;
+}
+
+.attention .abutton:hover { background-color: #fff;  color: #000; }
+.attention p#loged_in{font-weight: bold;}
+
+.attention .button:hover 
+{ 
+  color: #333; 
+  background-color: #f7f7f7; 
+  border-color: #b4b4b4;
+}
+
+.attention .button:active 
+{ 
+  background-color: #99BCDD; 
+  border-color: #5785B1; 
+  color: #fff;
+  text-shadow: 0 -1px rgba(100,100,100, .8);
+}
+
+
+/*
+*
+* Menus da Home Page
+*
+*/
+section#home
+{
+  margin: auto;
+  margin-left: 50px;
+}
+
+div.AlunoBox
+{
+  margin: 0 0 0 20px; 
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-left: 100px; 
+}
+div.AvalidorBox
+{
+  margin: 0 0 0 20px;
+  margin-top: -363px; 
+  margin-left: 499px;
+}
+div#alogin
+{
+  position: relative; 
+  margin-right: 30px; 
+  margin-left:70px; 
+  margin-top: 30px;
+}
+div#blogin
+{
+  position: relative; 
+  margin-right: 30px; 
+  margin-left:45px; 
+  margin-top: 25px;
+}
+
+
+div.caixa_cantos_arredondados
+{
+    
+    height:352px;
+    background-image: -moz-linear-gradient(80% 80% 90deg,#2E8B57, #006400);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2E8B57), to(#ddd));
+/*    -webkit-border-radius:14px;*/
+/*    border-radius: 14px;*/
+/*    behavior:url(border-radius.htc);*/
+/*    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);*/
+/*    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);*/
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    font-family:arial;
+    font-weight:bold;
+}
+div.AlunoBox, .AvalidorBox, .caixa_cantos_arredondados { width:350px; }
+
+.topo_caixa
+{
+    width:100%;
+    height:12px;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    font-family:arial;
+    font-weight:bold;
+  font-size:18px;
+    text-align:center;
+    padding-top:5px;
+  margin-top:10px;
+}
+
+.meio_caixa
+{
+    height:2 0%;
+    width:90%;
+    margin: 0 auto;
+    background-image: -moz-linear-gradient(100% 100% 90deg, #ffff33,#ffcc00);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffcc00), to(#ffff33));
+    background-color:#ffff33;
+}
+
+.rodape_caixa {  width:40%;  height:15px; }
+
+div#AlunoBoxButton
+{
+  margin-left: 25px;
+}
+div#AvaliadorBoxButton
+{
+  margin-left:25px;
+}

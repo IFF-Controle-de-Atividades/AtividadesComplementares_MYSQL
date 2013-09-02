@@ -11,11 +11,17 @@ pt-BR:
       edit: Editar
       modalidade: Modalidade
       horasganhas: Horas
+  avaliadores:
+    edit:
+      title: Editar Status
+    notifications:
+      successfully_registrated: "%{user_name} criado com sucesso"
   links:
     back: Voltar 
     edit: Editar
     show: Exibir
     destroy: Apagar
+    forgotten_your_password: Esqueceu sua senha
   labels:
     masc: Masculino
     feme: Feminino
@@ -23,8 +29,10 @@ pt-BR:
     no:   Não
     on:   Ativo
     off:  Desativado
+    log_in: Login
   layout:
     atividades: Atividades
+    avaliadores: Avaliadores
   general:
     form_error: Há erros no formulário. Por-favor verifique-os.
   activerecord:

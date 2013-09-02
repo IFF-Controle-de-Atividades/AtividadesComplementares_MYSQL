@@ -11,24 +11,61 @@ class AvaliadoresController < ApplicationController
   def new
     if current_avaliador.admin
       @avaliador = Avaliador.new
-    unless current_avaliador.admin.nil?
-      flash[:notice] => t("avaliadores.new.admin_error")
     end
+
+    # unless current_avaliador.admin.empty?
+    #   flash[:notice] => t("avaliadores.notifications.admin_error")
+    # end
   end
 
   def create
     @avaliador = Avaliador.new(params[:avaliador])
     if @avaliador.save
-      redirect_to avaliador_index_path
-      flash[:notice] => t("avaliadores.create.notice")
+      redirect_to avaliador_index_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)
     else
       render :action => :new
     end
   end
 
-  def edit
+  #### Metodos para editar o Status de determinado avaliador #####
+
+    def edit
+        @avaliador = Avaliador.find(params[:id])
+        @admin = current_avaliador
+    end
+
+    def update
+        @avaliador = Avaliador.find(params[:id])
+        @admin = current_avaliador
+        if @avaliador.update_attributes(params[:avaliador])
+            redirect_to total_avaliadores_path
+            flash[:notice] = "Status  - atualizado"
+        else
+            render action: :edit
+        end
+    end
+
+  #################################################################
+
+  #### Localizador de elementos(aluno:, avaliador:, atividade:) ###
+
+  def localizar_atividade
+    @atividade_aluno = Atividade.where(:avalidor_id => current_avaliador.id ).paginate(
+    :page => params[:page], :per_page=>5)
   end
 
-  def update
+  def total_alunos
+    @alunos = Aluno.paginate(:page => params[:page], :per_page=>10)
   end
+
+  def total_avaliadores
+    @avaliadores = Avaliador.paginate(:page => params[:page], :per_page=>10)
+  end
+  
+  def listar_atividades
+    @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
+  end
+
+  #################################################################
+
 end

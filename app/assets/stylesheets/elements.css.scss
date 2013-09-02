@@ -1,0 +1,459 @@
+/* Css - Developed By
+*
+* Lais Stellet da Silva 
+*       &
+* Alexandre Sampaio 
+*  
+*/
+/* Menu com fotos em lIsta encadeada */
+
+.wrap {
+  width: 700px;
+  margin: 30px auto;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.wp-caption {
+  
+  overflow: hidden;
+  border: 1px outset #999;
+  width: 200px;
+  height:200px;
+}
+
+.wp-caption-text {
+  padding: 5px 10px;
+  border-top: 1px solid #666;
+}
+
+
+#nav{display:block;  margin:10px auto; text-align:center;  line-height: 100%;}
+#nav a{text-align:center; color: #555753; }
+#nav a:hover, #nav a.current { color: #3465a4; }
+
+/*
+#navx{ display:block; margin:12px auto; margin-left:40px; margin-top:2px; text-align:center; }
+#navx a{text-align:center; background: #3CB371; color: #000; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 10px; white-space: nowrap; }
+#navx a:hover, #navx a.current { background: #B5B5B5; }
+*/
+
+#nav li {
+    float: left;
+    width: 35%; 
+    margin:10px auto;
+    margin-top:10px;
+    list-style:none;
+}
+
+#nav a {
+    font-weight: bold;
+    /*color: #F0FFFF;*/
+    color: #555753;
+    text-decoration: none;
+    display: block;
+    padding:  8px 20px;
+    margin: 0;
+    -webkit-border-radius: 1.6em;
+    -moz-border-radius: 1.6em;
+    text-shadow: 0 1px 1px rgba(0,0,0, .3);
+}
+
+/* dropdown */
+#nav li:hover > ul {
+    display: block;
+}
+
+
+/* clearfix */
+#nav:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+#nav {
+    display: inline-block;
+} 
+html[xmlns] #nav {
+    display: block;
+}
+ 
+* html #nav {
+    height: 1%;
+}
+
+
+#menu {
+  width: 200px;
+  border-style: solid solid none solid;
+  border-color: #94AA74;
+  border-size: 1px;
+  border-width: 1px;
+  margin: 10px;
+}
+
+/*
+#menu li a {
+  height: 32px;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  height: 24px;
+  text-decoration: none;
+}*/
+
+#menu li a:link, #menu li a:visited {
+  color: #5E7830;
+  display: block;
+  background: #F0FFFF;
+  padding: 8px 0 0 10px;
+}
+
+#menu li a:hover {
+  color: #26370A;
+  background: url(images/menu1.gif) 0 -32px;
+  padding: 8px 0 0 10px;
+}
+
+#menu li a:active {
+  color: #26370A;
+  background: url(images/menu1.gif) 0 -64px;
+  padding: 8px 0 0 10px;
+}
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jimgMenu {
+  position:relative;
+  margin: 0px 0px 0px 50px;
+  padding: 0px;
+  width:475px;
+  height:200px;
+  overflow: hidden;
+}
+.jimgMenu ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  height: 200px;
+  position: relative;
+  } 
+.jimgMenu ul li {
+  width: 95px;
+  float: left;
+  display: block;
+  overflow: hidden;
+}
+.jimgMenu ul li a {
+  text-indent: -1000px;
+  background:#fff repeat scroll 0%;
+  border-right: 2px solid #fff;
+  cursor:pointer;
+  display:block;
+  overflow: hidden;
+  height: 200px;
+}
+.jimgMenu ul li#alunos a {
+  background: url(user-info.png) repeat scroll 0%; 
+}
+.jimgMenu ul li#professores a {
+  background: url(rails.png) repeat scroll 0%;
+}
+
+.jimgMenu ul li#atividades a {
+  background: url(02.png) repeat scroll 0%; 
+}
+
+
+/* Current User Session Menu */
+
+.headerMenu
+{
+  max-width: 90px; 
+}
+
+#cssmenu ul,
+#cssmenu li,
+#cssmenu span,
+
+#cssmenu a {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#cssmenu {
+  height: 49px;
+  border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  background: #228B22;
+/*  background: -moz-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #32323a), color-stop(100%, #141414));*/
+/*  background: -webkit-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: -o-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: linear-gradient(to bottom, #32323a 0%, #141414 100%);*/
+/*  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);*/
+  border-bottom: 2px solid #71b00c;
+}
+#cssmenu:after,
+#cssmenu ul:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+#cssmenu a {
+  background: #228B22;
+/*  background: -moz-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #32323a), color-stop(100%, #141414));*/
+/*  background: -webkit-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: -o-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: -ms-linear-gradient(top, #32323a 0%, #141414 100%);*/
+/*  background: linear-gradient(to bottom, #32323a 0%, #141414 100%);*/
+/*  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#32323a', EndColorStr='#141414', GradientType=0);*/
+  color: #ffffff;
+  display: inline-block;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 49px;
+  padding: 0 20px;
+  text-decoration: none;
+}
+#cssmenu a:hover{background: #CFCFCF; color: #7D26CD;}
+#cssmenu ul {
+  list-style: none;
+}
+#cssmenu > ul {
+  float: left;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu > ul > li:hover:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #71b00c;
+  margin-left: -10px;
+}
+#cssmenu > ul > li:first-child a {
+  border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+}
+#cssmenu > ul > li:last-child a {
+  border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+}
+#cssmenu > ul > li.active a {
+  box-shadow: inset 0 0 3px #000000;
+  -moz-box-shadow: inset 0 0 3px #000000;
+  -webkit-box-shadow: inset 0 0 3px #000000;
+  background: #070707;
+  background: -moz-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #26262c), color-stop(100%, #070707));
+  background: -webkit-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: -o-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: -ms-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: linear-gradient(to bottom, #26262c 0%, #070707 100%);
+  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
+  color:#ffffff;
+}
+#cssmenu > ul > li:hover > a {
+  background: #070707;
+  background: -moz-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #26262c), color-stop(100%, #070707));
+  background: -webkit-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: -o-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: -ms-linear-gradient(top, #26262c 0%, #070707 100%);
+  background: linear-gradient(to bottom, #26262c 0%, #070707 100%);
+  filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#26262c', EndColorStr='#070707', GradientType=0);
+  box-shadow: inset 0 0 3px #000000;
+  -moz-box-shadow: inset 0 0 3px #000000;
+  color:#ffffff;
+  -webkit-box-shadow: inset 0 0 3px #000000;
+}
+#cssmenu .has-sub {
+  z-index: 1;
+}
+#cssmenu .has-sub:hover > ul {
+  display: block;
+}
+#cssmenu .has-sub ul {
+  display: none;
+  position: absolute;
+  width: 200px;
+  top: 100%;
+  left: 0;
+}
+#cssmenu .has-sub ul li {
+  *margin-bottom: -1px;
+}
+#cssmenu .has-sub ul li a {
+  background: #228B22;
+  border-bottom: 1px dotted #aad06d;
+  filter: none;
+  font-size: 16px;
+  display: block;
+  line-height: 120%;
+  padding: 10px;
+  color:#ffffff;
+}
+#cssmenu .has-sub ul li:hover a {
+  background: #8FBC8F;
+}
+#cssmenu .has-sub .has-sub:hover > ul {
+  display: block;
+}
+#cssmenu .has-sub .has-sub ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+#cssmenu .has-sub .has-sub ul li a {
+  background: #528009;
+  border-bottom: 1px dotted #97b36b;
+}
+#cssmenu .has-sub .has-sub ul li a:hover {
+  background: #345105;
+}
+
+
+#cssHeadermenu ul { margin: 0; padding: 0;}
+#cssHeadermenu li { margin: 0; padding: 0;}
+#cssHeadermenu a { margin: 0; padding: 0;}
+#cssHeadermenu ul {list-style: none;}
+#cssHeadermenu a {text-decoration: none;}
+#cssHeadermenu {height: 70px; box-shadow: 0px 2px 3px rgba(0,0,0,.0);}
+
+#cssHeadermenu.headerMenu
+{
+	position:relative;
+	margin:0 auto;
+	left: -50px;
+}
+
+#cssHeadermenu > ul > li {
+    float: left;
+    margin-left: 15px;
+    position: relative;
+}
+
+#cssHeadermenu > ul > li > a {
+    color: rgb(160,160,160);
+    font-family: Verdana, 'Lucida Grande';
+    font-size: 15px;
+    line-height: 70px;
+    padding: 15px 20px;
+-webkit-transition: color .15s;
+   -moz-transition: color .15s;
+     -o-transition: color .15s;
+        transition: color .15s;
+}
+
+#cssHeadermenu > ul > li > a:hover {color: rgb(250,250,250); }
+
+
+#cssHeadermenu > ul > li > ul {
+    opacity: 0;
+    visibility: hidden;
+    padding: 16px 0 20px 0;
+    background-color: rgb(250,250,250);
+    text-align: left;
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    margin-left: -90px;
+    width: 180px;
+-webkit-transition: all .3s .1s;
+   -moz-transition: all .3s .1s;
+     -o-transition: all .3s .1s;
+        transition: all .3s .1s;
+-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+        border-radius: 5px;
+-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+   -moz-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+        box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+}
+
+#cssHeadermenu > ul > li:hover > ul {
+    opacity: 1;
+    top: 65px;
+    visibility: visible;
+}
+
+#cssHeadermenu > ul > li > ul:before{
+    content: '';
+    display: block;
+    border-color: transparent transparent rgb(250,250,250) transparent;
+    border-style: solid;
+    border-width: 10px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -10px;
+}
+
+#cssHeadermenu > ul ul > li { position: relative;}
+
+#cssHeadermenu ul ul a{
+    color: rgb(50,50,50);
+    font-family: Verdana, 'Lucida Grande';
+    font-size: 13px;
+    background-color: rgb(250,250,250);
+    padding: 5px 8px 7px 16px;
+    display: block;
+-webkit-transition: background-color .1s;
+   -moz-transition: background-color .1s;
+     -o-transition: background-color .1s;
+        transition: background-color .1s;
+}
+
+#cssHeadermenu ul ul a:hover {background-color: rgb(240,240,240);}
+
+
+#cssHeadermenu ul ul ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -16px;
+    left: 206px;
+    padding: 16px 0 20px 0;
+    background-color: rgb(250,250,250);
+    text-align: left;
+    width: 160px;
+-webkit-transition: all .3s;
+   -moz-transition: all .3s;
+     -o-transition: all .3s;
+        transition: all .3s;
+-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+        border-radius: 5px;
+-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+   -moz-box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+        box-shadow: 0px 1px 3px rgba(0,0,0,.4);
+}
+
+
+#cssHeadermenu ul ul > li:hover > ul { opacity: 1; left: 196px; visibility: visible;}
+
+
+#cssHeadermenu ul ul a:hover{
+    background-color: rgb(205,44,36);
+    color: rgb(240,240,240);
+}

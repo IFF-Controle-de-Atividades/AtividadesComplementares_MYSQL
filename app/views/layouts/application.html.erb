@@ -1,22 +1,58 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
 <html>
 	<head>
-	  <title>AtividadesComplementares</title>
-	  <%= stylesheet_link_tag    "application", :media => "all" %>
-	  <%= javascript_include_tag "application" %>
-	  <%= csrf_meta_tags %>
+  		<title><%= yield(:title) || "Atividades - Complementares" %></title>
+	  	<%= stylesheet_link_tag    :application, :media => :all %>
+	  	<%= javascript_include_tag :application %>
+	    <%= javascript_include_tag :defaults %>
+	  	<%= csrf_meta_tags %>
+
+	  	<%= yield(:head) %>
 	</head>
 <body>
-
-	<div id="content">
-		<% if notice.present? %>
-			<p id="notice"><%= notice %> </p>
-		<% end %>
-		<% if alert.present? %>
-			<p id="alert"><%= alert %> </p>
-		<% end %>
-		<%= yield %>
-	</div>
-
-</body>
+	<!-- container -->
+	<div class="container">    
+		<!-- header -->
+      	<div class="header">
+            <div id="imagelogo"></div>
+				<div>
+            	    <h1>
+            	    	<font face="NewStencil">
+            	    		<div class="headername"></div>
+            	    	</font>
+            	    </h1>
+                    <span class="signin">
+                        <%= render 'layouts/header' %>
+                    </span>
+            	</div>
+        	</div>
+            
+            <!-- content -->
+            <div class="conteudo">
+            	<%= render 'layouts/current_user' %>
+            	<!-- main -->
+	       		<div></div>
+				<div id="content">
+					<% if notice.present? %>
+						<p id="notice"><%= notice %> </p>
+					<% end %>
+					<% if alert.present? %>
+						<p id="alert"><%= alert %> </p>
+					<% end %>
+					<%= yield %>
+				</div>
+				<!-- end of main -->
+			</div>
+			<!-- /content -->
+			
+			<!-- footer -->
+			<div class="footer">
+				<div class="footer-cnt">
+					<ul class="ftr-links"><li class="entp"></li></ul>
+				</div>
+			</div>
+			<!-- /footer -->
+		</div>
+	</body>
 </html>

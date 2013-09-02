@@ -1,0 +1,38 @@
+<% if aluno_signed_in? and current_aluno %>
+    <div id='cssmenu'>
+        <ul>
+        <li><span><%= link_to 'Pagina Inicial', aluno_home_path%></span></li>
+            <li class='has-sub '><span><a>Minhas Atividades</a></span>
+                <ul>
+                    <li class='has-sub '>
+                        <li class='has-sub '>
+                            <span><%= link_to 'Nova Atividade' , new_atividade_path%></span>
+                        </li>
+                        <li class='has-sub '>
+                            <span><%= link_to 'Lista de atividades',listadeatividades_path%></span>
+                        </li>
+                </ul>
+            </li>
+            <li class='has-sub '>
+                <span><%= link_to 'Relatórios de atividades', alunoatividades_path %></span>
+            </li>
+            <li class='has-sub '>
+                <span><%= link_to 'Editar meus Dados', edit_aluno_registration_path %></span>
+            </li>
+        </ul>
+  </div>
+<% elsif avaliador_signed_in? and current_avaliador.admin %>
+    <div id='cssmenu'>
+        <ul>
+            <li><span><%= link_to 'Pagina Inicial', avaliadores_path %></span></li>
+            <li><span><%= link_to 'Editar seus Dados', edit_avaliador_registration_path %></span></li>
+        </ul>
+    </div>
+<% elsif avaliador_signed_in? %>
+    <div id='cssmenu'>
+        <ul>
+            <li><span><%= link_to 'Pagina Inicial',avaliadores_path%></span></li>
+            <li><span><%= link_to 'Editar seus Dados', edit_avaliador_registration_path%></span></li>
+        </ul>
+    </div>
+<% end %> 

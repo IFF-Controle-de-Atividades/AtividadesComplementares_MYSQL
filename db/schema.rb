@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130901154939) do
+ActiveRecord::Schema.define(:version => 20130902125817) do
+
+  create_table "alunos", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "nome"
+    t.string   "matricula"
+    t.string   "curso"
+    t.string   "periodo"
+    t.string   "sexo"
+  end
+
+  add_index "alunos", ["email"], :name => "index_alunos_on_email", :unique => true
+  add_index "alunos", ["reset_password_token"], :name => "index_alunos_on_reset_password_token", :unique => true
 
   create_table "atividades", :force => true do |t|
     t.string   "title"
@@ -43,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130901154939) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "status",                 :default => true
+    t.string   "image"
   end
 
   add_index "avaliadores", ["email"], :name => "index_avaliadores_on_email", :unique => true
