@@ -4,20 +4,8 @@ AtividadesComplementares::Application.routes.draw do
 	scope "(:locale)", :locale=>LOCALES  do
 	  	resources :atividades
 		devise_for :alunos
-		devise_for :avaliadores, skip: [:sessions]
+		devise_for :avaliadores
 		resources :avaliadores,  only: [:index, :new,:create,:edit,:update]
-
-		devise_scope :avaliador do 
-			get "/user/sessions/new" => "devise/sessions#new", :as => :new_avaliador_session
-			post "/user/sessions/create" => "devise/sessions#create", :as => :avaliador_session
-			get "/user/sessions/sign_out" => "devise/sessions#destroy",:as => :avaliador_session_out
-		end
-
-		devise_scope :aluno do 
-			get "/user/sessions/new" => "devise/sessions#new", :as => :new_aluno_session
-			post "/user/sessions/create" => "devise/sessions#create", :as => :aluno_session
-			get "/user/sessions/sign_out" => "devise/sessions#destroy",:as => :aluno_session_out
-		end
 
 		authenticated :avaliador do
     		root to: "avaliadores#index"

@@ -30,7 +30,7 @@ def inserir_modalidades
 end
 
 def inserindo_administrador
- 	Avaliador.create(nome: 'Administrador', sexo: 'Masculino', matricula: 'Altere sua matricula', titulacao: 'Alterar sua titulação', email: 'admin@admin.com', password: 'admin', admin: 1, ativo: 1)
+ 	Avaliador.create(nome: 'Administrador', sexo: 'Masculino', matricula: 'Altere sua matricula', titulacao: 'Alterar sua titulação', email: 'admin@admin.com', password: 'admin', admin: 1, status: 1)
 end	
 
 print "\n\n######################################################################################\n"
@@ -45,7 +45,7 @@ print "############## Inserindo Administrador padrão do Sistema  ##############
 print "######## Os dados do administrador podem ser alterados posteriormente  ###############\n"
 print "######################################################################################\n"
 threads << Thread.new {inserindo_administrador}
+threads.join
 sleep(5)
-threads.each { |thr| thr.join }
 
 print "\n\n<< Fim da excecução. Dados foram inseridos com sucesso >>\n\n"

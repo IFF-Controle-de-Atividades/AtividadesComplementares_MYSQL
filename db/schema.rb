@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902125817) do
+ActiveRecord::Schema.define(:version => 20130902162450) do
 
   create_table "alunos", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(:version => 20130902125817) do
   end
 
   create_table "avaliadores", :force => true do |t|
-    t.string   "nome"
-    t.string   "sexo"
-    t.string   "matricula"
-    t.string   "titulacao"
-    t.boolean  "admin",                  :default => false
     t.string   "email",                  :default => "",    :null => false
     t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
@@ -63,15 +58,16 @@ ActiveRecord::Schema.define(:version => 20130902125817) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.string   "nome"
+    t.string   "matricula"
+    t.string   "titulacao"
+    t.string   "sexo"
+    t.boolean  "admin",                  :default => false
     t.boolean  "status",                 :default => true
     t.string   "image"
   end
 
   add_index "avaliadores", ["email"], :name => "index_avaliadores_on_email", :unique => true
-  add_index "avaliadores", ["matricula"], :name => "index_avaliadores_on_matricula", :unique => true
-  add_index "avaliadores", ["nome"], :name => "index_avaliadores_on_nome", :unique => true
   add_index "avaliadores", ["reset_password_token"], :name => "index_avaliadores_on_reset_password_token", :unique => true
 
   create_table "modalidades", :force => true do |t|

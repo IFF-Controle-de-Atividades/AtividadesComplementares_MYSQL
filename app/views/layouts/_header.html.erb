@@ -1,10 +1,10 @@
 
 <div id='cssHeadermenu' class="headerMenu">
-	<% if aluno_signed_in? %>
+  <% if aluno_signed_in? %>
       <ul> 
         <li class='header-sub '><span>
             <center>
-             
+              
             </center></span>
           
             <ul>
@@ -22,24 +22,25 @@
         </li>
         </ul>
     <% elsif avaliador_signed_in? %>
-    	<ul> 
+      <ul> 
         <li>
           <div class="retrato">
             <center>
-             
+             <%= image_tag(current_avaliador.image, size:'90x90') %>
             </center>
           </div>
           <ul> 
+            
             <li class='header-sub '>
                 <span>
                   <%= link_to "Ajuda?" %></span>
             </li> 
             <li>
-              <%= link_to "Sair", avaliador_session_out_path, :method => :delete, :class=>"button1 fright p6" %>
+              <%= link_to('Sair', destroy_avaliador_session_path, :method => 'delete', :class=>"button1 fright p6") %>
+
             </li> 
           </ul> 
         </li>
         </ul>
     <% else %><% end %>
 </div>
-

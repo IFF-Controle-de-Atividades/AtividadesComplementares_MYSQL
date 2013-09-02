@@ -1,2 +1,25 @@
-<h1>Avaliadores#index</h1>
-<p>Find me in app/views/avaliadores/index.html.erb</p>
+<div id="aluno_logado" class="button">
+<fieldset>
+	<legend>Logado</legend>
+	<div id="facemenu">
+		<ul>
+			<li>
+				<div class="retrato"><center>
+				<%= image_tag(current_avaliador.image) %>
+				<!---->
+				</center></div>
+			<ul><li>
+<%= link_to "Atualizar Imagem","/avaliador/#{current_avaliador.id}/selecionar_imagem"   %>
+			</li>
+			<li>
+				<%= link_to 'Remover Imagem',  "/avaliador/#{current_avaliador.id}/remover_imagem" %>
+			</ul>
+</ul></div>
+<p id="loged_in">
+<%= label_tag :nome%> <%= current_avaliador.nome %><br />
+<%= label_tag :titulacao%> <%= current_avaliador.titulacao %><br />
+<%= label_tag :matricula%> <%= current_avaliador.matricula %>
+</p>
+<%= link_to("Sair", destroy_avaliador_session_path, :method => :delete, :class =>"button") %>
+</fieldset>
+</div> 

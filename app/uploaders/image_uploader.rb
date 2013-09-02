@@ -1,6 +1,11 @@
-# encoding: utf-8
+# --*-- coding:utf-8 --*--
+require 'carrierwave/processing/mime_types'
 
 class ImageUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+  include Sprockets::Helpers::RailsHelper
+  include Sprockets::Helpers::IsolatedHelper
+  include CarrierWave::MimeTypes
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -12,13 +17,33 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :file
+  process :set_content_type
+
+  def default_url
+    asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  end
+
+  process resize_to_fit: [100, 200]
+  version :thumb do
+     process :resize_to_fill => [90, 90]
+  end
+
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  #def store_dir
+  #  "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  #end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -51,5 +76,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
