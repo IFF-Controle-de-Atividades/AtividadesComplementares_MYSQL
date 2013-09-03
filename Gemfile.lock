@@ -68,11 +68,11 @@ GEM
       addressable
       rdoc
     debug_inspector (0.0.2)
-    devise (3.0.3)
+    devise (2.2.5)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      warden (~> 1.2.3)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
@@ -228,7 +228,7 @@ DEPENDENCIES
   capistrano
   carrierwave
   coffee-rails (~> 3.2.1)
-  devise (>= 3.0)
+  devise (= 2.2.5)
   figaro (>= 0.6.3)
   guard-rspec
   jquery-rails

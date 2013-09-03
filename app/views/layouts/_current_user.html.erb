@@ -24,15 +24,46 @@
 <% elsif avaliador_signed_in? and current_avaliador.admin %>
     <div id='cssmenu'>
         <ul>
-            <li><span><%= link_to 'Pagina Inicial', avaliadores_path %></span></li>
-            <li><span><%= link_to 'Editar seus Dados', edit_avaliador_registration_path %></span></li>
+            <li>
+                <span>
+                    <%= link_to(t('views.menu.links.home'), avaliadores_index_path) %>
+                </span>
+            </li>
+            <li><span><%= link_to(t('views.menu.links.activities'))%></span></li>
+            <li><span><%= link_to(t('views.menu.links.students'))%></span></li>
+            <li><span><%= link_to(t('views.menu.links.avaliators'), total_avaliadores_path)%></span></li>
+            <li class='has-sub '><span><%= link_to(t('views.menu.links.pdf_reports'))%></span>
+                <ul>
+                    <li class='has-sub '>
+                        <span>
+                            <%= link_to(t('views.menu.links.students'))%>
+                        </span>
+                    </li>
+                    <li class='has-sub '>
+                        <span>
+                            <%= link_to(t('views.menu.links.avaliators'))%>
+                        </span>
+                    </li>
+                    <li class='has-sub '>
+                        <span>
+                            <%= link_to(t('views.menu.links.activities'))%>
+                        </span>
+                    </li>
+                </ul>
+            </li>
+            <li><span><%= link_to(t('views.menu.links.profile'), edit_avaliador_registration_path) %></span></li>
         </ul>
     </div>
 <% elsif avaliador_signed_in? %>
     <div id='cssmenu'>
         <ul>
-            <li><span><%= link_to 'Pagina Inicial',avaliadores_path%></span></li>
-            <li><span><%= link_to 'Editar seus Dados', edit_avaliador_registration_path%></span></li>
+            <li>
+                <span>
+                    <%= link_to(t('views.menu.links.home'), avaliadores_path) %>
+                </span>
+            </li>
+            <li><span><%= link_to(t('views.menu.links.activities'))%></span></li>
+            <li><span><%= link_to(t('views.menu.links.avaliators'))%></span></li>
         </ul>
     </div>
 <% end %> 

@@ -12,24 +12,50 @@ pt-BR:
       modalidade: Modalidade
       horasganhas: Horas
   avaliadores:
+    index:
+      logout: Sair
     edit:
       title: Editar Status
     notifications:
       successfully_registrated: "%{user_name} criado com sucesso"
+      admin_error: Acesso restrito apenas ao administrador
+    list_avaliators:
+      new: Novo Avaliador
+      list_empty: Não foram encontrados avaliadores
+    status:
+      title: Editando Status
   links:
     back: Voltar 
     edit: Editar
     show: Exibir
     destroy: Apagar
+    status: Editar Status
     forgotten_your_password: Esqueceu sua senha
+    send: Enviar
+  form_messages:
+    password: Coloque sua senha
+  uploader:
+    update_image: Atualizar Imagem
+    remove_image: Remover Imagem
+  views:
+    menu:
+      links:
+        activities: Atividades
+        profile: Editar Perfil
+        home: Página Inicial
+        students: Alunos
+        avaliators: Avaliadores
+        pdf_reports: Relatórios em Pdf
   labels:
-    masc: Masculino
-    feme: Feminino
-    yes:  Sim
-    no:   Não
-    on:   Ativo
-    off:  Desativado
     log_in: Login
+    options: Opções
+    avaliacoes_progress: Progresso de Avaliações
+    _yes: Sim
+    _no: Não
+    _on: Ativo
+    _off: Desativado
+    _feme: Feminino
+    _masc: Masculino
   layout:
     atividades: Atividades
     avaliadores: Avaliadores

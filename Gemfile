@@ -13,7 +13,7 @@ gem 'mini_magick'
 
 group :development, :test do
 	gem 'mysql2'
-	gem "devise", ">=3.0"
+	gem 'devise', "2.2.5"
 	gem 'pry'
 	gem 'pry-nav'
 	gem "rspec-rails", ">= 2.12.2"

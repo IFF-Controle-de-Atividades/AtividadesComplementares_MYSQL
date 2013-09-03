@@ -1,0 +1,67 @@
+<BR />
+
+<FIELDSET>
+<LEGEND><h1><%= label_tag(t('.title')) %></h1></LEGEND>
+
+<%= form_for(@avaliador, :url=>{:action=>'update_status'}) do |f| %>
+  <% if @avaliador.errors.any? %>
+    <div id="error_explanation">
+      <%= t 'generaf.form_error' %>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+    <%= error_tag @avaliador, :nome %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :matricula %><br />
+    <%= f.text_field :matricula %>
+    <%= error_tag @avaliador, :matricula %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :titulacao %><br />
+     <%= f.text_field :titulacao %>
+    <%= error_tag @avaliador, :titulacao %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :admin %><br />
+    <DIV class="radio_component">
+      <%= f.radio_button :admin, 1 %><label id="ident">&nbsp<%= t('labels._yes')%></label>
+      <%= f.radio_button :admin, 0 %><label id="ident">&nbsp<%= t('labels._no')%></label>
+    </DIV>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %><br />
+    <DIV class="radio_component">
+      <%= f.radio_button :status, 1 %><label id="ident">&nbsp<%= t('labels._on')%></label>
+      <%= f.radio_button :status, 0 %><label id="ident">&nbsp<%= t('labels._off')%></label>
+    </DIV>
+  </div><br />
+
+  <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, :placeholder => "example@example.com" %>
+      <%= error_tag @avaliador, :email %>
+  </div>
+  
+  <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, :placeholder => "Uma senha por favor", :size=>"33" %>
+      <%= error_tag @avaliador, :password %>
+  </div>
+
+  <br></FIELDSET>
+  
+  <div class="botao_left">
+    <span class="luz"><%= f.submit :class=>"botao", :id=>'id_botao' %></span>
+  </div>
+<% end %>
+
+<%= link_to t('links.back'), avaliadores_index_path %>

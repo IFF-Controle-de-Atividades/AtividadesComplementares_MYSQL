@@ -1,0 +1,51 @@
+<table id="home" class='avaliacoes' summary="Atividades">
+    <caption>Avaliadores</caption>
+    <thead>
+       <tr>
+           <th><%= t('activerecord.attributes.avaliador.nome')%></th>
+            <th><%= t('activerecord.attributes.avaliador.titulacao')%></th>
+            <th><%= t('activerecord.attributes.avaliador.admin')%></th>
+            <th><%= t('activerecord.attributes.avaliador.email')%></th>
+            <th><%= t('activerecord.attributes.avaliador.status')%></th>
+            <% if avaliador_signed_in? and current_avaliador.admin %>
+                <th><%= t('labels.options')%></th>
+                <th><%= t('labels.avaliacoes_progress')%></th>
+            <%-end-%>
+        </tr>
+     </thead>
+
+     <tbody id="home">
+        <% @avaliadores.each do |avaliador| %>
+           <tr>
+              <td><center><%= avaliador.nome %></td></center>
+              <td><center><%= avaliador.titulacao %></td></center>
+              <td><center><%= yes_or_no?(avaliador.admin) %></td></center>
+              <td><center><%= avaliador.email %></td></center>
+              <td><center><%= status?(avaliador.status) %></td></center>
+              <% if avaliador_signed_in? and current_avaliador.admin %>
+                 <td>
+                    <center>
+                      <%= link_to(t('links.status'),editar_avaliador_status_path(avaliador)) %>
+                    </center>
+                 </td>
+                 <td>
+                    <center>
+                      
+                    </center>
+                  </td>
+                <%-end-%>
+           </tr>
+         <% end %>
+      </tbody>
+</table>
+<br />
+<div class="flickr_pagination pagination">
+    <div class="page_info">
+     <%= will_paginate @avaliadores, :previous_label => "&laquo; Anterior", :next_label => "Próxima &raquo;", :container => false%>
+     </div>
+</div>
+
+
+
+
+

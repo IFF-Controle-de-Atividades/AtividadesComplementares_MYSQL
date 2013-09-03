@@ -1,3 +1,5 @@
+<FIELDSET>
+  <LEGEND><h1><label><%= t 'avaliadores.list_avaliators.new'%></label></h1></LEGEND>
 <%= form_for(@avaliador) do |f| %>
   <% if @avaliador.errors.any? %>
     <div id="error_explanation">
@@ -5,52 +7,70 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :nome %>
+    <%= f.label :nome %><br />
     <%= f.text_field :nome %>
     <%= error_tag @avaliador, :nome %>
-  </div><br />
+  </div>
   <div class="field">
-    <%= f.label :matricula %>
+    <%= f.label :matricula %><br />
     <%= f.text_field :matricula %>
     <%= error_tag @avaliador, :matricula %>
   </div><br />
   <div class="field">
-    <%= f.label :titulacao %>
+    <%= f.label :titulacao %><br />
      <%= f.text_field :titulacao %>
     <%= error_tag @avaliador, :titulacao %>
-  </div><br />
+  </div>
+  
   <div class="field">
     <%= f.label :sexo %>
-    <%= l.radio_button :sexo, :masc %>
-    <%= l.label :masc %>
-    <%= l.radio_button :sexo, :feme %>
-    <%= l.label :feme %>
-    <%= error_tag @avaliador, :sexo %>
-  </div><br />
-  <div class="field">
-    <%= l.label :admin %>
-    <%= l.radio_button :admin, 1 %><%= l.label :yes %>
-    <%= l.radio_button :admin, 0 %><%= l.label :no %>
+    <DIV class="radio_component">
+      <%= f.radio_button :sexo, t('labels._masc') %>
+      <label id="ident">&nbsp<%= t('labels._masc') %></label>
+      <%= f.radio_button :sexo, t('labels._feme') %>
+      <label id="ident">&nbsp<%= t('labels._feme') %></label>
+      <%= error_tag @avaliador, :sexo %>
+    </DIV>
   </div>
 
   <div class="field">
-    <%= l.label :status %>
-    <%= l.radio_button :ativo, 1 %><%= l.label :on %>
-    <%= l.radio_button :ativo, 0 %><%= l.label :off %>
+    <%= f.label :admin %><br />
+    <DIV class="radio_component">
+      <%= f.radio_button :admin, 1 %><label id="ident">&nbsp<%= t('labels._yes')%></label>
+      <%= f.radio_button :admin, 0 %><label id="ident">&nbsp<%= t('labels._no')%></label>
+    </DIV>
   </div>
 
   <div class="field">
-      <%= l.label :email %>
-      <%= l.email_field :email, :placeholder => "example@example.com" %>
+    <%= f.label :status %><br />
+    <DIV class="radio_component">
+      <%= f.radio_button :status, 1 %><label id="ident">&nbsp<%= t('labels._on')%></label>
+      <%= f.radio_button :status, 0 %><label id="ident">&nbsp<%= t('labels._off')%></label>
+    </DIV>
   </div>
 
   <div class="field">
-      <%= l.label :password %>
-      <%= l.password_field :password, :placeholder => "Uma senha por favor", :size=>"33" %>
+      <%= f.label :email %><BR />
+      <%= f.email_field :email, :placeholder => "example@example.com" %>
+      <%= error_tag @avaliador, :email %>
   </div>
 
-  
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+      <%= f.label :password %><BR />
+      <%= f.password_field :password, :placeholder => t('form_messages.password'), :size=>"33" %>
+      <%= error_tag @avaliador, :password %>
   </div>
+
+  </FIELDSET>  
+  <div class="botao_left">
+    <span class="luz">
+      <%= f.submit t('links.send'), :class=>"botao", :id=>'id_botao' %>
+    </span>
+  </div>
+  <div class="botao_left">
+        <p>
+        <button type="button" class="botao", id='id_botao2' onclick="JavaScript:index()" >
+            <%= link_to t('links.back'), avaliadores_index_path %>
+        </button>
+    </div>
 <% end %>

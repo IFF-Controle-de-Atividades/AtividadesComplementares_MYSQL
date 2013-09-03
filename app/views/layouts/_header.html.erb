@@ -30,13 +30,17 @@
             </center>
           </div>
           <ul> 
-            
+            <li class='header-sub '>
+              <span>
+                <%= link_to t('uploader.update_image') %>
+              </span>
+            </li>
             <li class='header-sub '>
                 <span>
                   <%= link_to "Ajuda?" %></span>
             </li> 
             <li>
-              <%= link_to('Sair', destroy_avaliador_session_path, :method => 'delete', :class=>"button1 fright p6") %>
+              <%= link_to(t('avaliadores.index.logout'), :method => 'delete', :class=>"button1 fright p6") %>
 
             </li> 
           </ul> 

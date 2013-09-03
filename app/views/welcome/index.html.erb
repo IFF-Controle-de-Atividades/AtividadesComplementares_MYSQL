@@ -2,28 +2,28 @@
 	<div class="AlunoBox">
    		<div class="caixa_cantos_arredondados">
       		<div class="topo_caixa">
-				<%= label_tag :aluno %>
+				Aluno
 			</div>
 		 	<div id="alogin">
 		      <%= image_tag("03.png",:width=>"220px",:height=>"200px") %>
 		 	</div>
 		 	<div id="AlunoBoxButton">
 			   	<%= link_to image_tag("bootao22.png", :width => '300px',
-					:height =>'80px'),new_aluno_session_path %>
+				:height =>'80px'),'/aluno/sign_in' %>
 		 	</div>
  		 	<div class="rodape_caixa">&nbsp;</div>
 	</div>
 	<div class="AvalidorBox">
   		<div class="caixa_cantos_arredondados">
 	  		<div class="topo_caixa">
-				<%= label_tag :avaliador %>
+				Avaliador
 			</div>
      		<div id="blogin">
         		<%= image_tag("02.png",:width=>"250px",:height=>"200px") %>
      		</div>
      		<div id="AvaliadorBoxButton">
         		<%= link_to image_tag("bootao22.png", :width => '300px',
-					:height =>'80px'),avaliador_session_path %>
+					:height =>'80px'),'/avaliador/sign_in' %>
      		</div>
      		<div class="rodape_caixa">&nbsp;</div>
  		</div>

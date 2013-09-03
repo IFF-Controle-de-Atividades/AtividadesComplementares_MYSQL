@@ -1,0 +1,245 @@
+/*
+  Botoes e estruturas dos mesmos carregados a partir desse arquivo
+  @group buttons
+*/
+
+a.i2Style
+{
+  font:bold 24px Tahoma, Geneva, sans-serif;
+  font-style:normal;
+  color:#ffffff;
+  background:#d63511;
+  border:0px solid #ffffff;
+  text-shadow:0px 2px 5px #222222;
+  box-shadow:2px 2px 5px #000000;
+  -moz-box-shadow:2px 2px 5px #000000;
+  -webkit-box-shadow:2px 2px 5px #000000;
+  border-radius:10px 10px 10px 10px;
+  -moz-border-radius:10px 10px 10px 10px;
+  -webkit-border-radius:10px 10px 10px 10px;
+  padding: 15px 15px 15px;
+}
+a.i2Style:active
+{
+  cursor:pointer;
+  position:relative;
+  top:2px;
+}
+legend.i2Style {margin-left: -25px;}
+
+/* container da tabelas em volta dos botoes */
+div.atividades_table_container{margin-left: -5px; width: 250px; position: relative; left: -19px;}
+
+/*
+* Botao em forma de aba
+*/
+
+a.i2TableButtonStyle
+{
+    font:bold 15px Verdana, Geneva, sans-serif;
+    font-style:normal;
+    color:#ffffff;
+    background:#ff9500;
+    border:2px none #42f9ff;
+    text-shadow:0px 0px 8px #0a0a0a;
+    box-shadow:0px -1px 11px #000000;
+    -moz-box-shadow:0px -1px 11px #000000;
+    -webkit-box-shadow:0px -1px 11px #000000;
+    border-radius:30px 30px 5px 5px;
+    -moz-border-radius:30px 30px 5px 5px;
+    -webkit-border-radius:30px 30px 5px 5px;
+    width:78px;
+    padding:11px 56px;
+    cursor:pointer;
+    margin:0 auto;
+}
+a.i2TableButtonStyle:active
+{
+    cursor:pointer;
+    position:relative;
+    top:2px;
+}
+legend.i2TableButton {margin-left: -25px; margin-top:-4%;}
+
+
+/**
+*
+*
+*
+*
+* Botao 
+*
+* CSS 
+*
+*
+*  3
+*
+*
+**/
+
+.botao
+{
+    width: 130px;
+    height: 54px;
+    display:block;
+    color: #4a4a4a;
+    font-size: 1em;
+    line-height: 54px;
+    text-align:center;
+    text-shadow: 0 1px rgba(255, 255, 255, .75);
+    cursor: pointer;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-radius: 0.7em;
+    -moz-border-radius: 0.7em;
+    -webkit-border-radius: 0.7em;
+
+     background: -moz-linear-gradient(top, #DDDAE0 0%, #BEBEBE 100%); /* firefox */	
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DDDAE0), color-stop(100%,#C8C6CA)); /* webkit */	
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DDDAE0', endColorstr='#C8C6CA',GradientType=0 ); /* ie */
+    background: -o-linear-gradient(top, #DDDAE0 0%,#C8C6CA 100%); /* opera */
+    font-family: 'LibelSuitRegular';
+}
+
+.botao .luz 
+{
+    width: 130px;
+    height: 25px;
+    display:block;
+    background: #fff;
+    position:absolute;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    opacity:0.25;
+    -moz-opacity: 0.25;
+    filter: alpha(opacity=25);
+}
+
+.botao:hover 
+{
+    background: -moz-linear-gradient(top, #DDDAE0 0%, #EEE9E9 70%); /* firefox */	
+    -webkit-box-shadow: 0px 0px 2px #8e8e8e;
+    -moz-box-shadow: 0px 0px 2px #8e8e8e;
+    box-shadow: 0px 0px 2px #8e8e8e;
+}
+
+
+#id_botao
+{
+    position:relative;
+    top: -70px;
+    margin-left: 21%;
+}
+
+#id_botao2
+{
+    position:relative;
+    top: -70px;
+    margin-left: 50px;
+}
+
+.botao_left{float:left;}
+
+
+/*******/
+
+a.RegistrationStyle{color:#be2b2b;}
+.RegistrationStyle
+{
+    font:bold 18px Arial, Helvetica, sans-serif;
+    text-align:left;
+    background:#f2f2f2;
+    border:0px solid #ffffff;
+    text-shadow:-1px 1px 0px #fff;
+    box-shadow:0px 0px 2px #000000;
+    -moz-box-shadow:0px 0px 7px #000000;
+    -webkit-box-shadow:0px 0px 7px #000000;
+    border-radius:15px 15px 15px 15px;
+    -moz-border-radius:20px 20px 20px 20px;
+    -webkit-border-radius:20px 20px 20px 20px;
+    width:135px;
+    padding:10px 47px;
+    cursor:cross;
+    margin:0 auto;
+}
+a.RegistrationStyle:hover{color:#060101;}
+.RegistrationStyle:active
+{
+    cursor:pointer;
+    position:relative;
+    top:2px;
+}
+
+/**
+* Botao da caixa cinza quando logado
+**/
+
+div#FieldButton
+{
+    margin-left: -20px; 
+    margin-top:-4%;
+}
+
+a.buttonx
+{
+    font:normal 22px Verdana, Geneva, sans-serif;
+    font-style:normal;
+    color:#000000;
+    background:#f5f5f5;
+    border:1px solid #bbb;
+    text-shadow:4px -3px 6px #bababa;
+    box-shadow:0px 1px 10px #d1cfd1;
+    -moz-box-shadow:0px 1px 10px #d1cfd1;
+    -webkit-box-shadow:0px 1px 10px #d1cfd1;
+    border-radius:10px 10px 10px 10px;
+    -moz-border-radius:10px 10px 10px 10px;
+    -webkit-border-radius:10px 10px 10px 10px;
+    width:162px;
+    padding:5px 26px;
+    cursor:pointer;
+    margin:0 auto;
+    
+}
+a.buttonx:hover
+{
+    color:#f5f5f5;
+    background:#228B22;
+    border:2px solid #2e3436;
+    text-shadow:2px -1px 2px #bababa;
+}
+a.buttonx:active
+{
+    cursor:pointer;
+}
+
+a.button
+{
+    font:normal 19px Verdana, Geneva, sans-serif;
+    font-style:normal;
+    color:#4F4F4F;
+    background:#f5f5f5;
+    border:1px solid #bbb;
+    text-shadow:2px -2px 2px #bababa;
+    text-align:center;
+    box-shadow:0px 1px 10px #d1cfd1;
+    -moz-box-shadow:0px 1px 10px #d1cfd1;
+    -webkit-box-shadow:0px 1px 10px #d1cfd1;
+    border-radius:10px 10px 10px 10px;
+    -moz-border-radius:10px 10px 10px 10px;
+    -webkit-border-radius:10px 10px 10px 10px;
+    width:62px;
+    padding:5px 26px;
+    cursor:pointer;
+    margin:0 auto;
+    float: left;
+    position: relative;
+    left: 199px;
+    top: 25px;
+}
+a.button:hover
+{
+    color:#f5f5f5;
+    background:#228B22;
+    border:2px solid #2e3436;
+}

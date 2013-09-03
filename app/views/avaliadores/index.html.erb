@@ -1,6 +1,6 @@
 <div id="aluno_logado" class="button">
 <fieldset>
-	<legend>Logado</legend>
+	<legend >Logado</legend>
 	<div id="facemenu">
 		<ul>
 			<li>
@@ -12,7 +12,7 @@
 <%= link_to "Atualizar Imagem","/avaliador/#{current_avaliador.id}/selecionar_imagem"   %>
 			</li>
 			<li>
-				<%= link_to 'Remover Imagem',  "/avaliador/#{current_avaliador.id}/remover_imagem" %>
+<%= link_to 'Remover Imagem',"/avaliador/#{current_avaliador.id}/remover_imagem"%></li>
 			</ul>
 </ul></div>
 <p id="loged_in">
@@ -20,6 +20,6 @@
 <%= label_tag :titulacao%> <%= current_avaliador.titulacao %><br />
 <%= label_tag :matricula%> <%= current_avaliador.matricula %>
 </p>
-<%= link_to("Sair", destroy_avaliador_session_path, :method => :delete, :class =>"button") %>
+<%= link_to "Sair", avaliador_session_out_path, :method => :get, :class =>"button" %>
 </fieldset>
 </div> 

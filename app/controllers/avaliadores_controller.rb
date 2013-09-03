@@ -13,15 +13,15 @@ class AvaliadoresController < ApplicationController
       @avaliador = Avaliador.new
     end
 
-    # unless current_avaliador.admin.empty?
-    #   flash[:notice] => t("avaliadores.notifications.admin_error")
-    # end
+    unless current_avaliador.admin
+       redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.admin_error')
+    end  
   end
 
   def create
     @avaliador = Avaliador.new(params[:avaliador])
     if @avaliador.save
-      redirect_to avaliador_index_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)
+      redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)
     else
       render :action => :new
     end
@@ -29,12 +29,12 @@ class AvaliadoresController < ApplicationController
 
   #### Metodos para editar o Status de determinado avaliador #####
 
-    def edit
+    def status
         @avaliador = Avaliador.find(params[:id])
         @admin = current_avaliador
     end
 
-    def update
+    def update_status
         @avaliador = Avaliador.find(params[:id])
         @admin = current_avaliador
         if @avaliador.update_attributes(params[:avaliador])
@@ -49,22 +49,22 @@ class AvaliadoresController < ApplicationController
 
   #### Localizador de elementos(aluno:, avaliador:, atividade:) ###
 
-  def localizar_atividade
-    @atividade_aluno = Atividade.where(:avalidor_id => current_avaliador.id ).paginate(
-    :page => params[:page], :per_page=>5)
-  end
+    def localizar_atividade
+      @atividade_aluno = Atividade.where(:avalidor_id => current_avaliador.id ).paginate(
+      :page => params[:page], :per_page=>5)
+    end
 
-  def total_alunos
-    @alunos = Aluno.paginate(:page => params[:page], :per_page=>10)
-  end
+    def total_alunos
+      @alunos = Aluno.paginate(:page => params[:page], :per_page=>10)
+    end
 
-  def total_avaliadores
-    @avaliadores = Avaliador.paginate(:page => params[:page], :per_page=>10)
-  end
-  
-  def listar_atividades
-    @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
-  end
+    def total_avaliadores
+      @avaliadores = Avaliador.paginate(:page => params[:page], :per_page=>10)
+    end
+    
+    def listar_atividades
+      @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
+    end
 
   #################################################################
 
