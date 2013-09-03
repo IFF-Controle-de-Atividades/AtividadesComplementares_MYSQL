@@ -3,7 +3,7 @@ AtividadesComplementares::Application.routes.draw do
   LOCALES = /en|pt\-BR/
 
   scope "(:locale)", :locale=>LOCALES do
-    resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes]
+    resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :select_image]
     resources :atividades
 
     devise_for :alunos
@@ -47,9 +47,9 @@ AtividadesComplementares::Application.routes.draw do
      match "/avaliar_atividade/:id/avaliar", :controller => "avaliadores", :action=>"avaliar", :as => :update_avaliar_atividade
      match "/avaliador/editar_status/:id", :controller => "avaliadores", :action =>"status", :as => :editar_avaliador_status
      match "/avaliador/edit_status/:id/atualizar_status", :controller => "avaliadores", :action =>"update_status", :as => :atualizar_avaliador_status
-     match "/avaliador/:id/selecionar_imagem",:controller => "avaliadores", :action=>"selecionar_imagem", :as => :selecionar_imagem_avaliador
-     match "/avaliador/:id/salvar_imagem",:controller => "avaliadores", :action=>"load_imagem", :as => :salvar_imagem_avaliador
-     match "/avaliador/:id/remover_imagem",:controller => "avaliadores", :action=>"remover_imagem", :as => :remover_imagem_avaliador
+     match "/avaliador/:id/Profileimagem",:controller => "avaliadores", :action=>"profileImage", :as => :selecionar_imagem_avaliador
+     match "/avaliador/:id/salvar_imagem",:controller => "avaliadores", :action=>"reloadProfile", :as => :salvar_imagem_avaliador
+     match "/avaliador/:id/remover_imagem",:controller => "avaliadores", :action=>"remove_imageProfile", :as => :remover_imagem_avaliador
      match "/designar-avaliador/atividade/:id/avaliar",:controller => "avaliadores", :action => "avaliar", :as => :designar_atividade
   end
 

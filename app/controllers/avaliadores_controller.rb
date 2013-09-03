@@ -68,4 +68,30 @@ class AvaliadoresController < ApplicationController
 
   #################################################################
 
+  ##### Methods for load and remove the profile image #############
+
+    def profileImage
+      @avaliador = Avaliador.find(params[:id])
+    end
+
+    def reloadProfile
+      @avaliador = Avaliador.find(params[:id])
+      if @avaliador.update_attributes(params[:avaliador])
+        redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)
+      else
+        render action: :index
+      end
+    end
+
+    def remove_imageProfile
+        @avaliador = current_avaliador
+        @avaliador.remove_image!
+        @avaliador.remove_image = true
+        if @avaliador.save
+            flash[:notice] = "Sua imagem foi removida com sucesso"
+            redirect_to avaliadores_index_path
+        end
+    end
+  #################################################################
+
 end
