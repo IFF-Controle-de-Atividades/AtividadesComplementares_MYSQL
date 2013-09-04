@@ -40,7 +40,7 @@
                   <%= link_to "Ajuda?" %></span>
             </li> 
             <li>
-              <%= link_to(t('avaliadores.index.logout'), :method => 'delete', :class=>"button1 fright p6") %>
+              <%= link_to(t('avaliadores.index.logout'), avaliador_session_out_path, :method => :get, :class=>"button1 fright p6") %>
 
             </li> 
           </ul> 

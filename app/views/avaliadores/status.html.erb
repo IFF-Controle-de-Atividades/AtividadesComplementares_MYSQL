@@ -13,19 +13,19 @@
 
   <div class="field">
     <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome,:readonly=>:false %>
     <%= error_tag @avaliador, :nome %>
   </div>
   
   <div class="field">
     <%= f.label :matricula %><br />
-    <%= f.text_field :matricula %>
+    <%= f.text_field :matricula,:readonly=>:false %>
     <%= error_tag @avaliador, :matricula %>
   </div>
   
   <div class="field">
     <%= f.label :titulacao %><br />
-     <%= f.text_field :titulacao %>
+     <%= f.text_field :titulacao,:readonly=>:false %>
     <%= error_tag @avaliador, :titulacao %>
   </div>
   
@@ -43,21 +43,8 @@
       <%= f.radio_button :status, 1 %><label id="ident">&nbsp<%= t('labels._on')%></label>
       <%= f.radio_button :status, 0 %><label id="ident">&nbsp<%= t('labels._off')%></label>
     </DIV>
-  </div><br />
-
-  <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, :placeholder => "example@example.com" %>
-      <%= error_tag @avaliador, :email %>
   </div>
-  
-  <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password, :placeholder => "Uma senha por favor", :size=>"33" %>
-      <%= error_tag @avaliador, :password %>
-  </div>
-
-  <br></FIELDSET>
+  <br /></FIELDSET>
   
   <div class="botao_left">
     <span class="luz"><%= f.submit :class=>"botao", :id=>'id_botao' %></span>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902162450) do
+ActiveRecord::Schema.define(:version => 20130904153107) do
 
   create_table "alunos", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130902162450) do
     t.string   "curso"
     t.string   "periodo"
     t.string   "sexo"
+    t.string   "image"
   end
 
   add_index "alunos", ["email"], :name => "index_alunos_on_email", :unique => true
@@ -41,10 +42,16 @@ ActiveRecord::Schema.define(:version => 20130902162450) do
     t.float    "horasganhas"
     t.date     "inicio"
     t.date     "termino"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
-    t.string   "location",    :limit => 2
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "location",      :limit => 2
     t.string   "modalidade"
+    t.integer  "aluno_id"
+    t.date     "designada_em"
+    t.integer  "avaliador_id"
+    t.boolean  "avaliada"
+    t.float    "horas_aceitas"
+    t.string   "justificativa"
   end
 
   create_table "avaliadores", :force => true do |t|

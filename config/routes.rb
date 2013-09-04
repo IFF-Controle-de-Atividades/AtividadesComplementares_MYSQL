@@ -4,32 +4,26 @@ AtividadesComplementares::Application.routes.draw do
 
   scope "(:locale)", :locale=>LOCALES do
     resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :select_image]
+    resources :alunos,      :only => [:index, :profileimage, :changeimage, :removeimage, :password,:changepassword]
     resources :atividades
 
-    devise_for :alunos
+    devise_for :alunos,      :skip => [:sessions]
     devise_for :avaliadores, :skip => [:sessions]
   end
 
   as :aluno do
-     get "/aluno/sign_in" => "devise/sessions#new", :as => :new_aluno_session
-     post "/aluno/sign_in" => "devise/sessions#create", :as => :aluno_session
-     get "/aluno/sign_out" => "devise/sessions#destroy", :as => :aluno_session_out
-     get "/aluno/home/" => "alunos#home", :as => :aluno_home
+     get "/user/sign_in" => "devise/sessions#new", :as => :new_aluno_session
+     post "/user/sign_in" => "devise/sessions#create", :as => :aluno_session
+     get "/user/sign_out" => "devise/sessions#destroy", :as => :aluno_session_out
+     get "/user/home/" => "alunos#home", :as => :aluno_home
      get "/listadeatividades" => "alunos#atividades", :as => :listadeatividades
-
-     match "/selecionar_imagem/:id/selecionar_imagem",:controller => "alunos",
-              :action=>"selecionar_imagem", :as => :selecionar_imagem
-
-     match "/selecionar_imagem/:id/salvar_imagem",
-            :controller => "alunos", :action=>"load_imagem",:as => :salvar_imagem
-
-     match "/selecionar_imagem/:id/remover_imagem",:controller => "alunos",
-          :action=>"remover_imagem", :as => :remover_imagem
+     get "/imagemdoperfil"  => "alunos#profileimage", :as => :profile_image
+     get "/imagemdoperfilpadrao"=> "alunos#removeimage", :as => :default_image
+     get "/alterarsenha/:id"=> "alunos#password", :as => :password
   end
 
   as :avaliador do
      post "/avaliador/sign_in" => "devise/sessions#create", :as => :avaliador_session
-
      get "/avaliador/sign_in" => "devise/sessions#new", :as => :new_avaliador_session
      get "/avaliador/sign_out" => "devise/sessions#destroy",:as => :avaliador_session_out
      get "/avaliador/sign_up" => "avaliadores#new", :as => :novo_avaliador_cadastro
@@ -52,6 +46,11 @@ AtividadesComplementares::Application.routes.draw do
      match "/avaliador/:id/remover_imagem",:controller => "avaliadores", :action=>"remove_imageProfile", :as => :remover_imagem_avaliador
      match "/designar-avaliador/atividade/:id/avaliar",:controller => "avaliadores", :action => "avaliar", :as => :designar_atividade
   end
+
+  get "/minhas-atividades" => "pdf_reports#atividadealuno", :format=> :pdf, :as=>:alunoatividades
+  get "/total-avaliadores" => "pdf_reports#avaliadores_pdf", :format => :pdf, :as=> :avaliadores_pdf
+  get "/total-alunos" => "pdf_reports#alunos_pdf", :format => :pdf, :as=> :alunos_pdf
+  get "/total-atividades" => "pdf_reports#total_atividades", :format => :pdf, :as=> :total_atividades
 
   match "/atividades/:id/delete", :controller => "atividades", :action => "destroy", :as => :excluir_atividade
   resources :pdf_reports, :only => [:pdf_reports, :avaliadores_report, :alunos_report, :atividades_report, :relatorioAtividades_report]

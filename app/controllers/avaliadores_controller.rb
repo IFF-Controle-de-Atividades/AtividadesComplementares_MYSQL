@@ -26,7 +26,7 @@ class AvaliadoresController < ApplicationController
       render :action => :new
     end
   end
-
+  
   #### Metodos para editar o Status de determinado avaliador #####
 
     def status
@@ -41,7 +41,7 @@ class AvaliadoresController < ApplicationController
             redirect_to total_avaliadores_path
             flash[:notice] = "Status  - atualizado"
         else
-            render action: :edit
+            render action: :status
         end
     end
 

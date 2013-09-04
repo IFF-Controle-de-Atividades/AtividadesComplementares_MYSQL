@@ -17,7 +17,7 @@ form .session {
     margin: 5px 0;
     color: #444;
   }
-  input[type=email], input[type=password] {
+  input[type=text], input[type=email], input[type=password] {
     color: #444;
     font-size: 12px;
     border: 1px solid #ccc;
@@ -79,8 +79,6 @@ font#registration
   box-shadow: 0 0 5px 5px #888;
   text-align: justify;
 }
-
-.attention a { color: #fff; text-decoration: underline; }
 
 .attention .sidebar_button 
 {

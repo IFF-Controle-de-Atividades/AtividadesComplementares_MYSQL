@@ -1,25 +1,37 @@
-<h2>Sign in</h2>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class= 'session'> 
-  	<div>
-  		<%= f.label :email %><br />
-  		<%= f.email_field :email, :autofocus => true %>
-  	</div>
-
-  	<div>
-  		<%= f.label :password %><br />
-  		<%= f.password_field :password %>
-  	</div>
-
-  	<% if devise_mapping.rememberable? -%>
-    	<div>
-    		<%= f.check_box :remember_me %> <%= f.label :remember_me %>
-    	</div>
-  	<% end -%>
+<FIELDSET><LEGEND><h2 id="signin"><label><%= t('sessions.students.signin') %></h2></label></LEGEND>
+<div id="sbar">
+  <div class="attention">
+    <h3><font id="registration"><%= t('sessions.students.title') %></h3></font>
+	<p><%= t('sessions.students.message') %>
+	<%= link_to t('sessions.students.registration'), new_aluno_registration_path, :class=>"sidebar_button RegistrationStyle" %>
+	</p>
   </div>
+</div>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+<SECTION class="session">
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		<div class="session">
+			   <%= f.label :email %>
+			   <%= f.email_field :email %>
+		</div>
+		<div class="session">
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</div>
 
-<%= render "alunos/shared/links" %>
+		<% if devise_mapping.rememberable? -%>
+			<div>
+				<%= f.check_box :remember_me %> <%= f.label :remember_me, :class=>"small"  %>
+		<%-end-%>    
+		<%= link_to t('links.forgotten_your_password'), new_password_path(resource_name), :class=>"small"  %>
+			</div>
+			<br></FIELDSET>
+		    <div class="botao_left">
+				<%= f.submit t('links.send'), :class=>"botao", :id=>'id_botao' %>
+			</div>
+			<div class="botao_left">
+		        <%= link_to t('links.back'), root_path, :class=>"botao", :id=>'id_botao' %>
+		    </div>
+
+<%- end -%>
+</SECTION>

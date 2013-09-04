@@ -1,18 +1,76 @@
-<h2>Sign up</h2>
+<%
+    cursos = ['BSI - Bacharelado - Sistemas de Informação']
+%>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<BR />
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<strong><p><font size="9" color="red">*</font><label>&nbsp Campos Obrigatórios</strong></label></p>
+<FIELDSET><LEGEND><h2><label>Cadastrar-se</label></h2></LEGEND>
+<DIV id="localization">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:multipart => true}) do |l| %>
+    
+    <% if resource.errors.any? %>
+        <div id="error_explanation">
+            <%= t 'general.form_error' %>
+        </div>
+    <% end %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <%= l.label :nome %><i id="red">*</i><BR />
+    <div class="session">
+      <%= l.text_field :nome %>
+      <%= error_tag @aluno, :nome %>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div class="field">
+        <%= l.label :sexo %>
+        <DIV class="radio_component">
+              <%= l.radio_button :sexo, t('labels._masc') %>
+              <label id="ident">&nbsp<%= t('labels._masc') %></label>
+              <%= l.radio_button :sexo, t('labels._feme') %>
+              <label id="ident">&nbsp<%= t('labels._feme') %></label>
+              <%= error_tag @aluno, :sexo %>
+        </DIV>
+    </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <%= l.label :matricula %><i id="red">*</i>
+    <div class="session">
+          <%= l.text_field :matricula %>
+    </div>
 
-<%= render "alunos/shared/links" %>
+    <div class="field">
+       <%= l.label :curso %><BR />
+       <%= l.select :curso, options_for_select(cursos) %> 
+    </div>
+
+    <div class="field">
+       <%= l.label :periodo, :id=>"aperiodo"%><BR />
+            <%= l.select :periodo,
+                options_for_select(%w{ 1ºperiodo 2ºperiodo 3ºperiodo 4ºperiodo 
+                5ºperiodo 6ºperiodo 7ºperiodo 8ºperiodo}) %> 
+    </div>
+
+    <%= l.label :email %><i id="red">*</i>
+    <div class="session">
+        <%= l.email_field :email %>
+    </div>
+
+    <%= l.label :password %><i id="red">*</i>
+    <div class="session">
+        <%= l.password_field :password %>
+    </div>
+
+    <%= l.label :password_confirmation %><i id="red">*</i>
+    <div class="field">
+        <%= l.password_field :password_confirmation %>
+    </div>
+    <br>
+    <br></FIELDSET>
+
+    <div class="botao_left">
+        <span class="luz"><%= l.submit "Enviar", :class=>"botao", :id=>'id_botao' %></span>
+    </div>
+
+    <div class="botao_left">
+        <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+    </div>
+<%- end -%>

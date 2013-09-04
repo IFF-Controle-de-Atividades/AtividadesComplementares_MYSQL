@@ -1,29 +1,105 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% @user = current_avaliador.nome %>
+
+<strong>
+  <p>
+    <font size="9" color="red"></font>
+    <label>
+      &nbsp <%= t('form_messages.requiredfields')%>
+    </label>
+  </p>
+</strong>
+
+<FIELDSET>
+    <LEGEND>
+    <h2><%= label_tag I18n.t('avaliadores.edit.profile', :name=> @user) %></h2>
+    </LEGEND>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  
+  <% if resource.errors.any? %>
+    <div id="error_explanation">
+      <%= t 'general.form_error' %>
+    </div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div class="session">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+    <%= error_tag @avaliador, :nome %>
+  </div>
+  <div class="session">
+    <%= f.label :matricula %><br />
+    <%= f.text_field :matricula %>
+    <%= error_tag @avaliador, :matricula %>
+  </div><br />
+  <div class="session">
+    <%= f.label :titulacao %><br />
+     <%= f.text_field :titulacao %>
+    <%= error_tag @avaliador, :titulacao %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :sexo %>
+    <DIV class="radio_component">
+      <%= f.radio_button :sexo, t('labels._masc') %>
+      <label id="ident">&nbsp<%= t('labels._masc') %></label>
+      <%= f.radio_button :sexo, t('labels._feme') %>
+      <label id="ident">&nbsp<%= t('labels._feme') %></label>
+      <%= error_tag @avaliador, :sexo %>
+    </DIV>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="field">
+    <%= f.label :admin %><br />
+    <DIV class="radio_component">
+      <%= f.radio_button :admin, 1 %><label id="ident">&nbsp<%= t('labels._yes')%></label>
+      <%= f.radio_button :admin, 0 %><label id="ident">&nbsp<%= t('labels._no')%></label>
+    </DIV>
+  </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <DIV class="radio_component">
+      <%= f.radio_button :status, 1 %><label id="ident">&nbsp<%= t('labels._on')%></label>
+      <%= f.radio_button :status, 0 %><label id="ident">&nbsp<%= t('labels._off')%></label>
+    </DIV>
+  </div>
 
-  <div><%= f.submit "Update" %></div>
+  <div class="session">
+      <%= f.label :email %>
+      <%= f.email_field :email, :placeholder => "example@example.com" %>
+      <%= error_tag(@avaliador, :email)%>
+  </div>
+
+  <div class="session">
+      <%= f.label :password %>
+      <i id="blue" class="small"><%= t('form_messages.password_message') %></i><BR />
+      <%= f.password_field :password, :placeholder => t('form_messages.password') %>
+      <%= error_tag(@avaliador, :password)%>
+  </div>
+
+  <div class="session">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, :placeholder => t('form_messages.password') %>
+      <%= error_tag(@avaliador, :password_confirmation)%>
+  </div><BR />
+
+  <div class="session">
+      <%= f.label :current_password %>
+      <!-- <i id="blue" class="small"><%= t('form_messages.current_password') %></i><br />  -->
+      <%= f.password_field :current_password %>
+      <%= error_tag(@avaliador, :current_password)%>
+  </div>
+
+
+
+</FIELDSET>  
+<div class="botao_left">
+  <span class="luz">
+    <%= f.submit t('links.send'), :class=>"botao", :id=>'id_botao' %>
+  </span>
+</div>
+<div class="botao_left">
+    <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+</div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>

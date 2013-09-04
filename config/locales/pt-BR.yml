@@ -14,8 +14,12 @@ pt-BR:
   avaliadores:
     index:
       logout: Sair
+      signed_in: Logado
+      ProfileImage: Atualizar Imagem
+      RemoveProfileImage: Remover Imagem
     edit:
       title: Editar Status
+      profile: "Editando perfil de %{name}"
     notifications:
       successfully_registrated: "%{user_name} criado com sucesso"
       admin_error: Acesso restrito apenas ao administrador
@@ -24,6 +28,22 @@ pt-BR:
       list_empty: Não foram encontrados avaliadores
     status:
       title: Editando Status
+  alunos:
+    index:
+      title: Página Inicial
+    changeimage:
+      image_updated: Sua imagem de perfil foi atualizada
+    changepassword:
+      password_updated: Sua senha foi atualizada
+  sessions:
+    students:
+      title: Crie uma conta
+      message: |
+                 Para continuar se ainda não tiver um Perfil,
+                 você deve antes se registrar para então poder
+                 inserir suas atividades.
+      registration: Cadastre-se aqui
+      signin: Entrar
   links:
     back: Voltar 
     edit: Editar
@@ -34,6 +54,9 @@ pt-BR:
     send: Enviar
   form_messages:
     password: Coloque sua senha
+    requiredfields: Campos Obrigatórios
+    password_message: (Deixe em branco se não quiser alterar a sua senha)
+    current_password: Por-favor informe a sua senha atual
   uploader:
     update_image: Atualizar Imagem
     remove_image: Remover Imagem
@@ -65,6 +88,7 @@ pt-BR:
     model:
       atividade: Atividades
       avaliador: Avaliadores
+      aluno: Alunos
     attributes:
       atividade:
         title: Título
@@ -81,6 +105,16 @@ pt-BR:
         email: E-mail
         password: Senha
         password_confirmation: Confirme sua senha
+        current_password: Senha atual
         remember_me: Manter conectado
         admin: Administrador
         status: Status
+      aluno:
+        nome: Nome
+        matricula: Matricula
+        curso: Curso
+        periodo: Período
+        sexo: Sexo
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme sua senha

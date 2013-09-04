@@ -3,9 +3,9 @@ module ApplicationHelper
   		if model.errors.has_key? attribute
   			content_tag :div, model.errors[attribute].first, :class => 'error_message'
   		end
-  	end
+  end
 
-  	def yes_or_no?(value)
+  def yes_or_no?(value)
 		value ? I18n.t('labels._yes') : I18n.t('labels._no')
 	end
 
@@ -14,12 +14,12 @@ module ApplicationHelper
 	end
 	
 	def flash_message
-        messages = ""
-        [:warning, :error].each {|type|
-          if flash[type]
-            messages += "<p class=\"#{type}\">#{flash[type]}</p>"
-          end
-        }
-        messages.html_safe
-    end
+    messages = ""
+    [:warning, :error].each {|type|
+      if flash[type]
+        messages += "<p class=\"#{type}\">#{flash[type]}</p>"
+      end
+    }
+    messages.html_safe
+  end
 end
