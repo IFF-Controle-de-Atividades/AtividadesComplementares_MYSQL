@@ -1,6 +1,6 @@
 <div id="aluno_logado" class="button">
 <fieldset>
-    <legend >Logado</legend>
+    <legend ><%= t '.signed_in' %></legend>
       <div id="facemenu">
         <ul> 
           <li>
@@ -11,13 +11,13 @@
             </div>
             <ul> 
               <li>
-                <%= link_to "Atualizar imagem", profile_image_path %>
+                <%= link_to t('.ProfileImage'), profile_image_path %>
               </li>
               <li>
-                <%= link_to "Alterar senha", password_path(current_aluno.id) %>
+                <%= link_to t('.RemoveProfileImage'), default_image_path %>
               </li>
               <li>
-                <%= link_to "Remover imagem", default_image_path %>
+                <%= link_to t('.RemoveProfileImage'), password_path(current_aluno.id) %>
               </li>
             </ul> 
           </li>
@@ -28,7 +28,7 @@
         <%= label_tag :curso%> <%= current_aluno.curso %><br />
         <%= label_tag :matricula%> <%= current_aluno.matricula %>
       </p>
-    <%= link_to "Sair", aluno_session_out_path, :method => :delete, :class =>"button" %>
+    <%= link_to t('.logout'), aluno_session_out_path, :method => :get, :class =>"button" %>
 </fieldset>
 </div>
 <div id="HomeAtividadesPage">

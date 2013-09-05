@@ -2,20 +2,20 @@
 AtividadesComplementares::Application.routes.draw do
   LOCALES = /en|pt\-BR/
 
-  scope "(:locale)", :locale=>LOCALES do
+  # scope "(:locale)", :locale=>LOCALES do
     resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :select_image]
     resources :alunos,      :only => [:index, :profileimage, :changeimage, :removeimage, :password,:changepassword]
-    resources :atividades
+    resources :atividades  
 
     devise_for :alunos,      :skip => [:sessions]
     devise_for :avaliadores, :skip => [:sessions]
-  end
+  # end
 
   as :aluno do
-     get "/user/sign_in" => "devise/sessions#new", :as => :new_aluno_session
-     post "/user/sign_in" => "devise/sessions#create", :as => :aluno_session
-     get "/user/sign_out" => "devise/sessions#destroy", :as => :aluno_session_out
-     get "/user/home/" => "alunos#home", :as => :aluno_home
+     get "/aluno/sign_in" => "devise/sessions#new", :as => :new_aluno_session
+     post "/aluno/sign_in" => "devise/sessions#create", :as => :aluno_session
+     get "/aluno/sign_out" => "devise/sessions#destroy", :as => :aluno_session_out
+     get "/aluno/home/" => "alunos#index", :as => :aluno_index
      get "/listadeatividades" => "alunos#atividades", :as => :listadeatividades
      get "/imagemdoperfil"  => "alunos#profileimage", :as => :profile_image
      get "/imagemdoperfilpadrao"=> "alunos#removeimage", :as => :default_image

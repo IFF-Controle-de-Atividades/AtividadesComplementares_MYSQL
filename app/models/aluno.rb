@@ -25,7 +25,7 @@ class Aluno < ActiveRecord::Base
   def contar_horas_enviadas(aluno_atual)
     aluno = aluno_atual  
     total_horas = Atividade.where(:aluno_id => aluno)
-    total_horas = total_horas.sum(:carga_horaria)
+    total_horas = total_horas.sum(:horasganhas)
     if total_horas >= 360 
          return "Horas cumpridas = #{$total_horas} - Você possui horas suficientes!"
      else 
@@ -36,7 +36,7 @@ class Aluno < ActiveRecord::Base
   def contar_horas_aceitas(aluno_atual)
     aluno = aluno_atual
     total_horas = Atividade.where(:aluno_id => aluno)
-    total_horas = total_horas.sum(:carga_horaria_aceita)
+    total_horas = total_horas.sum(:horas_aceitas)
     if total_horas >= 360
        return "Total de Horas = #{total_horas} - Você possui horas suficientes!"
     else

@@ -4,6 +4,9 @@ pt-BR:
   atividades:
     new:
       title: Cadastro
+      successfully_registrated: "%{user_name} sua atividade foi criada com sucesso"
+      successfully_updated: "%{user_name} sua atividade foi atualizada com sucesso"
+      deleted: "%{user_name} sua atividade foi deletada"
     edit:
       title: Editar Atividade
     show:
@@ -31,10 +34,23 @@ pt-BR:
   alunos:
     index:
       title: Página Inicial
+      logout: Sair
+      signed_in: Logado
+      ProfileImage: Atualizar Imagem
+      RemoveProfileImage: Remover Imagem
     changeimage:
       image_updated: Sua imagem de perfil foi atualizada
     changepassword:
       password_updated: Sua senha foi atualizada
+    menu:
+      links:
+        activities: Minhas atividades
+        new_activities: Nova atividade
+        list_activities: Listar atividades
+        activities_report: Relatório de atividades
+    atividades:
+      notEvaluated: Esta atividade ainda não foi avaliada
+      comprovante: Não há comprovante
   sessions:
     students:
       title: Crie uma conta
@@ -97,6 +113,9 @@ pt-BR:
         termino: Término
         location: Local
         modalidade: Modalidade
+        comprovante: Comprovante
+        view_comprovante: Visualizar comprovante
+        horas_aceitas: Horas aceitas
       avaliador:
         nome: Nome
         matricula: Matricula

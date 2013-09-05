@@ -1,4 +1,8 @@
+#--*-- coding:utf-8 --*--
 class AtividadesController < ApplicationController
+  before_filter :authenticate_aluno!
+  before_filter :current_aluno
+
   # GET /atividades
   # GET /atividades.json
   def index
@@ -25,6 +29,7 @@ class AtividadesController < ApplicationController
   # GET /atividades/new.json
   def new
     @atividade = Atividade.new
+    @current_aluno = current_aluno
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,16 +40,17 @@ class AtividadesController < ApplicationController
   # GET /atividades/1/edit
   def edit
     @atividade = Atividade.find(params[:id])
+    @current_aluno = current_aluno
   end
 
   # POST /atividades
   # POST /atividades.json
   def create
     @atividade = Atividade.new(params[:atividade])
-
+    @current_aluno = current_aluno
     respond_to do |format|
       if @atividade.save
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully created.' }
+        format.html { redirect_to aluno_index_path, notice: I18n.t('atividades.new.successfully_registrated', :user_name=> @current_aluno.nome) }
         format.json { render json: @atividade, status: :created, location: @atividade }
       else
         format.html { render action: "new" }
@@ -57,10 +63,10 @@ class AtividadesController < ApplicationController
   # PUT /atividades/1.json
   def update
     @atividade = Atividade.find(params[:id])
-
+    @current_aluno = current_aluno
     respond_to do |format|
       if @atividade.update_attributes(params[:atividade])
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully updated.' }
+        format.html { redirect_to aluno_index_path, notice: I18n.t('atividades.update.successfully_updated', :user_name=> @current_aluno.nome) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,11 +78,11 @@ class AtividadesController < ApplicationController
   # DELETE /atividades/1
   # DELETE /atividades/1.json
   def destroy
-    @atividade = Atividade.find(params[:id])
-    @atividade.destroy
+    @atividade = Atividade.find(params[:id]).destroy
+    @current_aluno = current_aluno
 
     respond_to do |format|
-      format.html { redirect_to atividades_url }
+      format.html { redirect_to listadeatividades_path, notice: I18n.t('atividades.deleted', :user_name=> @current_aluno.nome) }
       format.json { head :no_content }
     end
   end

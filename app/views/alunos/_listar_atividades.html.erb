@@ -1,0 +1,75 @@
+<section>
+<div id="MyAtividades"><table id="home" summary="Atividades"><caption>Atividades</caption>
+    <thead >
+    <tr>
+        <th><%= t('activerecord.attributes.atividade.title') %></th>
+        <th><%= t('activerecord.attributes.atividade.location') %></th>
+        <th><%= t('activerecord.attributes.atividade.horasganhas') %></th>
+        <th><%= t('activerecord.attributes.atividade.horas_aceitas') %></th>
+        <th><%= t('activerecord.attributes.atividade.comprovante') %></th>
+        <th><%= t('activerecord.attributes.atividade.view_comprovante') %></th>
+        <th>Avaliada</th>
+        <th>Avaliada por</th>
+        <th>Justificativa</th>
+        <th>Excluir</th>
+    </tr>
+    </thead>
+    <tbody id="home">
+        <% for atividade in atividades %>
+            <tr id="home">
+            <th><label class="large"><center><%= atividade.title %></center></th></label>
+            <td><label class="large"><center><%= atividade.location %></center></td></label>
+            <td><label class="large"><center><%= atividade.horasganhas %></center></td></label>
+            <% if atividade.horas_aceitas.nil? %>
+                <td><label class="large"><center>Esta atividade ainda não foi avaliada</center></td></label>
+            <% else %>
+                <td><label class="large"><center><%= atividade.horasganhas %></center></td></label>
+            <% end %>
+            <td><center>
+                <a href = "<%= edit_atividade_path(atividade) %>" alt="Anexar Comprovante">
+                    <%= image_tag("fallback/pdf.png", :width=>"60",:height=>"50", :alt=>"Anexar Comprovante") %>
+                </a></center>
+            </td>
+            <% if atividade.comprovante.path.nil? %>
+                    <label class="large"><center><TD><label class="large">Sem Comprovante!</label></TD></center></label>
+                <% else %>
+                    <td><center>
+                        <a href = "<%= atividade.comprovante %>" alt="Anexar Comprovante">
+                        <%= image_tag("fallback/pdf-icon.png", :width=>"60",:height=>"50", :alt=>"Ver
+Comprovante") %>
+                        </center></a>
+                    </td>
+                <%-end-%>
+                <td><center><label class="large"><%= yes_or_no?(atividade.avaliada) %></center></label></td>
+                <td>
+                    <center>
+                        <% if atividade.avaliador.nil?  %>
+                            <label class="large">Não possui avaliador!</label>
+                        <% else %>
+                            <%= atividade.avaliador.nome %>
+                        <%-end-%>
+                    </center>
+                </td>
+
+                <td><%= link_to 'Exibir', atividade %></td>
+                <td>
+                   <%= link_to 'Excluir', excluir_atividade_path(atividade), :method => :delete, :confirm => 'Tem Certeza?'  %>
+                </td>
+             </tr>
+
+    <%- end -%>
+    </tbody>
+    </table>
+
+<table id="bottom" summary="Atividades">
+    <CAPTION>
+        <%= current_aluno.contar_horas_aceitas(current_aluno.id) %>
+   </CAPTION>
+</table>
+</div> 
+<br />
+<div class="flickr_pagination pagination">
+    <div class="page_info">
+        <%= will_paginate atividades, :previous_label => "&laquo; Anterior", :next_label => "Próxima &raquo;", :container => false%>
+    </div><br />
+</div>

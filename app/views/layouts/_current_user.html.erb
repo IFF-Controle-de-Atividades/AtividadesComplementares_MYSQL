@@ -1,23 +1,31 @@
 <% if aluno_signed_in? and current_aluno %>
     <div id='cssmenu'>
         <ul>
-        <li><span><%= link_to 'Pagina Inicial', aluno_home_path%></span></li>
-            <li class='has-sub '><span><a>Minhas Atividades</a></span>
+        <li>
+            <span>
+                <%= link_to t('views.menu.links.home'), aluno_index_path%>
+            </span></li>
+            <li class='has-sub '>
+                <span><a><%= t('alunos.menu.links.activities') %></a></span>
                 <ul>
                     <li class='has-sub '>
                         <li class='has-sub '>
-                            <span><%= link_to 'Nova Atividade' , new_atividade_path%></span>
+                            <span>
+                                <%= link_to t('alunos.menu.links.new_activities') , new_atividade_path%>
+                            </span>
                         </li>
                         <li class='has-sub '>
-                            <span><%= link_to 'Lista de atividades',listadeatividades_path%></span>
+                            <span>
+                                <%= link_to t('alunos.menu.links.list_activities'),listadeatividades_path%>
+                            </span>
                         </li>
                 </ul>
             </li>
             <li class='has-sub '>
-                <span><%= link_to 'Relatórios de atividades', alunoatividades_path %></span>
+                <span><%= link_to t('alunos.menu.links.activities_report'), alunoatividades_path %></span>
             </li>
             <li class='has-sub '>
-                <span><%= link_to 'Editar meus Dados', edit_aluno_registration_path %></span>
+                <span><%= link_to t('views.menu.links.profile'), edit_aluno_registration_path %></span>
             </li>
         </ul>
   </div>

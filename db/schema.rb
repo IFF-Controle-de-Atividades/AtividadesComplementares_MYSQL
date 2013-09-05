@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904153107) do
+ActiveRecord::Schema.define(:version => 20130905230952) do
 
   create_table "alunos", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -45,13 +45,14 @@ ActiveRecord::Schema.define(:version => 20130904153107) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.string   "location",      :limit => 2
-    t.string   "modalidade"
+    t.string   "modalidade_id"
     t.integer  "aluno_id"
     t.date     "designada_em"
     t.integer  "avaliador_id"
     t.boolean  "avaliada"
     t.float    "horas_aceitas"
     t.string   "justificativa"
+    t.string   "comprovante"
   end
 
   create_table "avaliadores", :force => true do |t|

@@ -1,0 +1,36 @@
+<br />
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<meta charset="UTF-8">
+    <% if current_aluno.atividades.empty? %>
+		<head>
+	       	<script language="JavaScript" type="text/javascript">
+				function Redirect(){
+				    window.location.href = "<%= aluno_index_path %>" 
+				}
+				document.write("<% flash[:alert]='Você não possui atividades'%>");
+				document.write("<label>Você será redirecionado para a pagina inicial em <span id='tempo'>0</span> segundos.</label>");
+			</script>
+		</head>
+		<div class= 'MyActivities' height='150px'>
+			<label>Se não foi redirecionado(a), siga por aqui&nbsp&nbsp</label><a href='<%= aluno_index_path %>'>Página inicial</a>
+			<script language="JavaScript" type="text/javascript">relogio();</script>
+		</div>
+	<% else %>
+		<%= render :partial=>'listar_atividades', :locals=>{:atividades=>current_aluno.atividades.paginate(:page => params[:page], :per_page=>20)}  %>
+	<% end %>
+</html>
+
+<script type="text/javascript">
+	var segundos = 3;
+	function relogio() {
+		document.getElementById('tempo').innerHTML=segundos;
+		if(segundos == 0) {	
+			top.location.href="<%= aluno_index_path %>";
+		}
+		if (segundos != 0){
+			segundos = segundos-1;
+			setTimeout('Redirect()', 3000)
+		}
+	}relogio();
+</script>

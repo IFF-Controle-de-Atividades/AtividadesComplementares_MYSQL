@@ -1,38 +1,67 @@
-<%= form_for(@atividade) do |f| %>
-  <% if @atividade.errors.any? %>
-    <div id="error_explanation">
-      <%= t 'general.form_error' %>
+<div id="my_id" >
+ <%= @aluno = current_aluno  %>
+</div>
+
+<strong>
+  <p>
+    <font size="5" color="red">*</font>
+    <label>
+      &nbsp <%= t('form_messages.requiredfields')%>
+    </label>
+  </p>
+</strong>
+<FIELDSET>
+   <LEGEND>
+      <label><%= t 'atividades.new.title'%></label>
+    </LEGEND>
+  <%= form_for(@atividade) do |f| %>
+    <% if @atividade.errors.any? %>
+      <div id="error_explanation">
+        <%= t 'general.form_error' %>
+      </div>
+    <% end %>
+    <div class="field">
+          <%= f.hidden_field :aluno_id, :readonly => "true", :value => @aluno.id %>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= error_tag @atividade, :title %>
-  </div><br />
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <%= error_tag @atividade, :location %>
-  </div><br />
-  <div class="field">
-    <%= f.label :modalidade %>
-    <%= f.collection_select(:modalidade, Modalidade.all, :title, :title, {:prompt => 'Selecione'}) %>
-    <%= error_tag @atividade, :location %>
-  </div><br />
-  <div class="field">
-    <%= f.label :horasganhas %>
-    <%= f.text_field :horasganhas %>
-    <%= error_tag @atividade, :horasganhas %>
-  </div><br />
-  <div class="field">
-    <%= f.label :inicio %>
-    <%= f.date_select :inicio, :start_year => 2006, :order=> [:day, :month, :year] %>
-  </div><br />
-  <div class="field">
-    <%= f.label :termino %>
-    <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
-  </div><BR />
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :title %><i id="red">*</i><BR />
+      <%= f.text_field :title %>
+      <%= error_tag @atividade, :title %>
+    </div><br />
+    <div class="field">
+      <%= f.label :location %><i id="red">*</i><BR />
+      <%= f.text_field :location %>
+      <%= error_tag @atividade, :location %>
+    </div><br />
+    <div class="field">
+      <%= f.label :modalidade_id %><i id="red">*</i><BR />
+      <%= f.collection_select(:modalidade_id, Modalidade.all, :id, :title, {:prompt => 'Selecione'}) %>
+      <%= error_tag @atividade, :modalidade_id %>
+    </div><br />
+    <div class="field">
+      <%= f.label :horasganhas %><i id="red">*</i><BR />
+      <%= f.text_field :horasganhas %>
+      <%= error_tag @atividade, :horasganhas %>
+    </div><br />
+    <div class="field">
+      <%= f.label :inicio %><BR />
+      <%= f.date_select :inicio, :start_year => 2006, :order=> [:day, :month, :year] %>
+    </div><br />
+    <div class="field">
+      <%= f.label :termino %><BR />
+      <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
+    </div><BR />
+    <div class="field">
+      <%= f.label :comprovante %><BR />
+      <%= f.file_field :comprovante %><br ><br >
+    </div>
+</FIELDSET>
+
+<div class="botao_left">
+    <%= f.submit "Enviar", :class=>"botao", :id=>'id_botao' %>
+</div>
+
+<div class="botao_left">
+    <%= link_to t('links.back'), aluno_index_path, :class=>"botao", :id=>'id_botao' %>
+</div>
 <% end %>

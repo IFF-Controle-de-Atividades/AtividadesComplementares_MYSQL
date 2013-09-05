@@ -1,0 +1,49 @@
+<div class="flickr_pagination pagination">
+	<div class="page_info" id="homealuno">
+		<%= will_paginate atividades, :previous_label => "&laquo; Anterior", 
+            :next_label => "Próxima &raquo;", :container => false%>
+	</div>
+</div>
+
+<div><table id="home" summary="Atividades"><caption>Atividades</caption>
+	<thead >
+            <tr>
+                <th>Nome</th>
+		<th>Carga horária</th>
+		<th>Anexar Comprovante</th>
+		<th>Ver Comprovante</th>
+		<th>Excluir</th>
+            </tr>
+	</thead>
+	<tbody id="home">
+		<% for atividade in atividades %>
+		<tr id="home">
+                    <td id="td1"><center><%= atividade.title %></center></td>
+                    <% if atividade.horas_aceitas.nil? %>
+                        <td id="td1"><center><%= t('alunos.atividades.notEvaluated')%></center></td>
+                    <% else %>
+                        <td id="td1"><center><%= atividade.carga_horaria_aceita %></center></td>
+                    <% end %>
+                    <td cellspacing=2>
+                        <center>
+                            <%= link_to t('links.edit'), edit_atividade_path(atividade) %>
+                        </center>
+                    </td>
+                    <% if atividade.comprovante.path.nil? %>
+                        <TD id="td1"><%= t('alunos.atividades.comprovante')%></TD>
+                    <% else %>
+                        <td id="td1"><center>
+                            <a href = "<%= atividade.comprovante %>" alt="Anexar Comprovante">              
+                                <%= image_tag("fallback/pdf-icon.png", :width=>"60",:height=>"50", :alt=>"Ver Comprovante") %>
+                            </center></a>
+                        </td>
+                    <% end %>
+                    <td id="td1">
+                        <%= link_to t('links.destroy'), excluir_atividade_path(atividade), 
+                        :method => :delete, :confirm => 'Tem Certeza?'  %>
+                    </td>
+		</tr>
+		<%- end -%>
+	</tbody>
+    </table>
+</div>
