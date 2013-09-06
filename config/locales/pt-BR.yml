@@ -51,6 +51,10 @@ pt-BR:
     atividades:
       notEvaluated: Esta atividade ainda não foi avaliada
       comprovante: Não há comprovante
+  reviews:
+    activities_appointed: "Atividade(s) desiganada(s) para %{appraiser}"
+    activitie_evaluated: "Atividade avaliada"
+    not_hanking: "%{appraiser} não fez nenhuma avaliação"
   sessions:
     students:
       title: Crie uma conta
@@ -77,6 +81,7 @@ pt-BR:
     areyousure: Você tem certeza?
     without_avaliador: Sem Avaliador
     without_receipt: Sem comprovante
+    accessrestricted: Acesso restrito
   uploader:
     update_image: Atualizar Imagem
     remove_image: Remover Imagem
