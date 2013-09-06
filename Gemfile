@@ -24,6 +24,8 @@ group :development, :test do
 	gem 'tlsmail'
 	gem 'prawn'
 	gem 'bcrypt-ruby', '~> 3.0.0'
+	gem 'capybara'
+	gem 'cucumber'
 end
 
 # Deploy with Capistrano
@@ -40,4 +42,15 @@ group :development do
 	gem "figaro", ">= 0.6.3"
 	gem "better_errors", ">= 0.7.2"
 	gem "binding_of_caller", ">= 0.7.1", :platforms => [:mri_19, :rbx] 
+end
+
+group :test do
+	gem 'cucumber-rails'
+	gem 'guard-cucumber'
+  	gem "spork"
+  	gem "guard-spork"
+	gem 'database_cleaner'
+	gem 'growl'
+	gem 'rb-fsevent'
+	gem 'turn'
 end
