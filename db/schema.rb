@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(:version => 20130905230952) do
     t.float    "horasganhas"
     t.date     "inicio"
     t.date     "termino"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.string   "location",      :limit => 2
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "location"
     t.string   "modalidade_id"
     t.integer  "aluno_id"
     t.date     "designada_em"

@@ -1,26 +1,69 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%
+    cursos = ['BSI - Bacharelado - Sistemas de Informação']
+%>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<BR />
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<strong><p><font size="9" color="red">*</font><label>&nbsp<%= t 'form_messages.requiredfields' %></strong></label></p>
+<FIELDSET><LEGEND><h2><label></label></h2></LEGEND>
+<DIV id="localization">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:multipart => true}) do |l| %>
+    
+    <% if resource.errors.any? %>
+        <div id="error_explanation">
+            <%= t 'general.form_error' %>
+        </div>
+    <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <%= l.label :nome %><i id="red">*</i><BR />
+    <div class="session">
+      <%= l.text_field :nome %>
+      <%= error_tag @aluno, :nome %>
+    </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+    <div class="field">
+        <%= l.label :sexo %>
+        <DIV class="radio_component">
+              <%= l.radio_button :sexo, t('labels._masc') %>
+              <label id="ident">&nbsp<%= t('labels._masc') %></label>
+              <%= l.radio_button :sexo, t('labels._feme') %>
+              <label id="ident">&nbsp<%= t('labels._feme') %></label>
+              <%= error_tag @aluno, :sexo %>
+        </DIV>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <%= l.label :matricula %><i id="red">*</i>
+    <div class="session">
+          <%= l.text_field :matricula %>
+          <%= error_tag @aluno, :matricula %>
+    </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+    <div class="field">
+       <%= l.label :curso %><BR />
+       <%= l.text_field :curso %> 
+    </div>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+    <div class="field">
+       <%= l.label :periodo, :id=>"aperiodo"%><BR />
+            <%= l.text_field :periodo %> 
+    </div>
+
+    <%= l.label :current_password %><i id="red">*</i>
+    <div class="field">
+        <%= l.password_field :current_password %>
+        <%= error_tag @aluno, :current_password %>
+    </div>
+    <br>
+    <br></FIELDSET>
+
+    <div class="botao_left">
+        <span class="luz"><%= l.submit "Enviar", :class=>"botao", :id=>'id_botao' %></span>
+    </div>
+
+    <div class="botao_left">
+        <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+    </div>
+<%- end -%>
 
 <h3>Cancel my account</h3>
 

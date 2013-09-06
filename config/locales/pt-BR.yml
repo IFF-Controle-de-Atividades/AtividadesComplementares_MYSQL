@@ -73,6 +73,10 @@ pt-BR:
     requiredfields: Campos Obrigatórios
     password_message: (Deixe em branco se não quiser alterar a sua senha)
     current_password: Por-favor informe a sua senha atual
+  messages:
+    areyousure: Você tem certeza?
+    without_avaliador: Sem Avaliador
+    without_receipt: Sem comprovante
   uploader:
     update_image: Atualizar Imagem
     remove_image: Remover Imagem
@@ -85,6 +89,11 @@ pt-BR:
         students: Alunos
         avaliators: Avaliadores
         pdf_reports: Relatórios em Pdf
+    list_activities:
+      evaluated: Avaliada
+      evaluated_by: Avaliada por
+      explanation: Justificativa
+      destroy: Excluir
   labels:
     log_in: Login
     options: Opções

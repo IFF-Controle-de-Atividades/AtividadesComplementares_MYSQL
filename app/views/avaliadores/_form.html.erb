@@ -42,14 +42,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :status %><br />
-    <DIV class="radio_component">
-      <%= f.radio_button :status, 1 %><label id="ident">&nbsp<%= t('labels._on')%></label>
-      <%= f.radio_button :status, 0 %><label id="ident">&nbsp<%= t('labels._off')%></label>
-    </DIV>
-  </div>
-
-  <div class="field">
       <%= f.label :email %><BR />
       <%= f.email_field :email, :placeholder => "example@example.com" %>
       <%= error_tag @avaliador, :email %>

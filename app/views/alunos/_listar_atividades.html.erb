@@ -8,10 +8,10 @@
         <th><%= t('activerecord.attributes.atividade.horas_aceitas') %></th>
         <th><%= t('activerecord.attributes.atividade.comprovante') %></th>
         <th><%= t('activerecord.attributes.atividade.view_comprovante') %></th>
-        <th>Avaliada</th>
-        <th>Avaliada por</th>
-        <th>Justificativa</th>
-        <th>Excluir</th>
+        <th><%= t('views.list_activities.evaluated') %></th>
+        <th><%= t('views.list_activities.evaluated_by') %></th>
+        <th><%= t('views.list_activities.explanation') %></th>
+        <th><%= t('views.list_activities.destroy') %></th>
     </tr>
     </thead>
     <tbody id="home">
@@ -31,7 +31,7 @@
                 </a></center>
             </td>
             <% if atividade.comprovante.path.nil? %>
-                    <label class="large"><center><TD><label class="large">Sem Comprovante!</label></TD></center></label>
+                    <label class="large"><center><TD><label class="large"><%= t('messages.without_receipt')%></label></TD></center></label>
                 <% else %>
                     <td><center>
                         <a href = "<%= atividade.comprovante %>" alt="Anexar Comprovante">
@@ -44,27 +44,21 @@ Comprovante") %>
                 <td>
                     <center>
                         <% if atividade.avaliador.nil?  %>
-                            <label class="large">Não possui avaliador!</label>
+                            <label class="large"><%= t('messages.without_avaliador')%></label>
                         <% else %>
                             <%= atividade.avaliador.nome %>
                         <%-end-%>
                     </center>
                 </td>
 
-                <td><%= link_to 'Exibir', atividade %></td>
+                <td><%= link_to t('links.show'), atividade %></td>
                 <td>
-                   <%= link_to 'Excluir', excluir_atividade_path(atividade), :method => :delete, :confirm => 'Tem Certeza?'  %>
+                   <%= link_to t('links.destroy'), excluir_atividade_path(atividade), :method => :delete, :confirm => t('messages.areyousure')  %>
                 </td>
              </tr>
 
     <%- end -%>
     </tbody>
-    </table>
-
-<table id="bottom" summary="Atividades">
-    <CAPTION>
-        <%= current_aluno.contar_horas_aceitas(current_aluno.id) %>
-   </CAPTION>
 </table>
 </div> 
 <br />
@@ -73,3 +67,7 @@ Comprovante") %>
         <%= will_paginate atividades, :previous_label => "&laquo; Anterior", :next_label => "Próxima &raquo;", :container => false%>
     </div><br />
 </div>
+
+<CAPTION>
+        <%= current_aluno.contar_horas_aceitas(current_aluno.id) %>
+</CAPTION>

@@ -17,7 +17,7 @@
 			<script language="JavaScript" type="text/javascript">relogio();</script>
 		</div>
 	<% else %>
-		<%= render :partial=>'listar_atividades', :locals=>{:atividades=>current_aluno.atividades.paginate(:page => params[:page], :per_page=>20)}  %>
+		<%= render :partial=>'listar_atividades', :locals=>{:atividades=>current_aluno.atividades.paginate(:page => params[:page], :per_page=>10)}  %>
 	<% end %>
 </html>
 
