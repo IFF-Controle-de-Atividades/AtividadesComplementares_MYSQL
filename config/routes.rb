@@ -1,5 +1,19 @@
 # --*-- coding:utf-8 --*--
 AtividadesComplementares::Application.routes.draw do
+  get "avaliacoes/listar_atividades"
+
+  get "avaliacoes/designar"
+
+  get "avaliacoes/list"
+
+  get "avaliacoes/x_list"
+
+  get "avaliacoes/avaliar_atividade"
+
+  get "avaliacoes/list_avaliacoes"
+
+  get "avaliacoes/exibir_avaliacoes"
+
   LOCALES = /en|pt\-BR/
 
   # scope "(:locale)", :locale=>LOCALES do
