@@ -51,6 +51,19 @@ pt-BR:
     atividades:
       notEvaluated: Esta atividade ainda não foi avaliada
       comprovante: Não há comprovante
+  avaliacoes:
+    title: Atividades Complementares
+    form:
+      select_tag: Selecione
+      aluno_tag:  Aluno
+      activitie_tag: Atividade
+      beginDate_tag: Inicio
+      endDate_tag: Término
+      horas_tag: Horas
+      horasaceitas_tag: Horas aceitas
+      receip_tag: Comprovante
+      evaluate_tag: Avaliada
+      evaluated_by_tag: Avaliada por
   reviews:
     activities_appointed: "Atividade(s) desiganada(s) para %{appraiser}"
     activitie_evaluated: "Atividade avaliada"
@@ -72,6 +85,7 @@ pt-BR:
     status: Editar Status
     forgotten_your_password: Esqueceu sua senha
     send: Enviar
+    save_changes: Salvar Alterações
   form_messages:
     password: Coloque sua senha
     requiredfields: Campos Obrigatórios
@@ -82,6 +96,7 @@ pt-BR:
     without_avaliador: Sem Avaliador
     without_receipt: Sem comprovante
     accessrestricted: Acesso restrito
+    neither: Nenhuma
   uploader:
     update_image: Atualizar Imagem
     remove_image: Remover Imagem

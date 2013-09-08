@@ -1,0 +1,126 @@
+<BR />
+<CENTER>
+
+<% if avaliador_signed_in? and current_avaliador.admin %>
+    <%= form_tag designar_path,  :method => :put do %>
+
+
+<table id="home" class='avaliacoes' summary="Atividades">
+    <caption>Atividades de <%= @aluno.nome.capitalize %></caption>
+    <thead>
+        <tr>
+            <% if avaliador_signed_in? and current_avaliador.admin %>
+                <th>Selecione</th>
+            <% else %>
+                <th>Avaliar</th>
+            <%- end -%>
+            
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Inicio</th>
+            <th>Termino</th>
+            <th>CH - Enviada</th>
+            <th>CH - Aceita</th>
+            <th>Comprovante</th>
+            <th>Avaliada</th>
+            <th>Avaliada por</th>
+        </tr>
+     </thead>
+     <tbody id="home">
+        <% for atividade in atividades %>
+           <tr>
+                <% if avaliador_signed_in? and current_avaliador.admin %>
+                    <td>
+                       <center>
+                          <%= check_box_tag "atividades_ids[]", atividade.id %>
+                       </center>
+                   </td>
+                <% elsif avaliador_signed_in? and current_avaliador.admin == false %>
+                    Avaliar
+                <%- end -%>
+
+               <td>
+                  <center>
+                     <%= atividade.nome %>
+                  </center>
+               </td>
+
+                <td>
+                    <center>
+                        <%= atividade.modalidade_nome %>
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        <%= atividade.inicio %>
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        <%= atividade.termino %>
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        <%= atividade.carga_horaria %>
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        <%= atividade.carga_horaria_aceita %>
+                    </center>
+                </td>
+
+                <% if atividade.comprovante_file_name.nil? %>
+                    <center>
+                        <TD>Nao há comprovante</TD>
+                    </center>
+                <% else %>
+                    <td>
+                        <center>
+                            <a href = "<%= atividade.comprovante %>" >
+                                <%= image_tag("samples/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante") %>
+                            </a>
+                        </center>
+                    </td>
+                <%-end-%>
+
+                <td>
+                    <center>
+                        <%= yes_or_no?(atividade.avaliada) %>
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        <% if atividade.avaliador.nil? %>
+                            <div>Sem avaliador</div>
+                        <% else %>
+                            <%= atividade.avaliador.nome %>
+                        <%-end-%>
+                    </center>
+                </td>
+        <%- end -%>
+        </tr>
+</table>
+<% if avaliador_signed_in? and current_avaliador.admin %>
+    <div class="field">
+      <td>
+         <center>
+            <%= select_tag 'avaliador_id', options_for_select(@avaliadores.collect{ |u| [u.nome, u.id] }) %>
+            <%= submit_tag "Enviar"%>
+       </td>
+    </div>
+<% end %>
+
+<% end %>
+<% else %>
+    Acesso restrito apenas ao administrador
+<%- end -%>
+
+<br /> 
+</CENTER>

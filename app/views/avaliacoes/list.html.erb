@@ -1,2 +1,11 @@
-<h1>Avaliacoes#list</h1>
-<p>Find me in app/views/avaliacoes/list.html.erb</p>
+<%if  @aluno.atividades.empty? %>
+        <div class="infobar" >
+                <center id="navx">
+                    <%= @aluno.nome %> não possui atividades.
+                    <%= link_to "Voltar", total_alunos_path, :alt=>"voltar para a pagina anterior" %>
+                </center>
+        </div>
+<% else %>
+    <%= render :partial=>"listagem_de_atividades_do_aluno_x", :locals=>{:atividades=>@atividade_aluno}%>
+<% end %>
+

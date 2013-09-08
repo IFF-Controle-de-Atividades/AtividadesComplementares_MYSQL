@@ -9,7 +9,7 @@ class AvaliacoesController < ApplicationController
       redirect_to avaliador_index_path, :notice=> I18n.t('messages.accessrestricted')
     else
       @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
-      @avaliadores= Avaliador.all
+      @avaliadores= Avaliador.where(:admin => 0)
     end
   end
 

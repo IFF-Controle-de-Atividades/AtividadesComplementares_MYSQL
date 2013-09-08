@@ -1,77 +1,77 @@
 <% if aluno_signed_in? and current_aluno %>
-    <div id='cssmenu'>
+<div id='cssmenu'>
+  <ul>
+    <li>
+      <span>
+        <%= link_to t('views.menu.links.home'), aluno_index_path%>
+      </span></li>
+      <li class='has-sub '>
+        <span><a><%= t('alunos.menu.links.activities') %></a></span>
         <ul>
-        <li>
-            <span>
-                <%= link_to t('views.menu.links.home'), aluno_index_path%>
-            </span></li>
+          <li class='has-sub '>
             <li class='has-sub '>
-                <span><a><%= t('alunos.menu.links.activities') %></a></span>
-                <ul>
-                    <li class='has-sub '>
-                        <li class='has-sub '>
-                            <span>
-                                <%= link_to t('alunos.menu.links.new_activities') , new_atividade_path%>
-                            </span>
-                        </li>
-                        <li class='has-sub '>
-                            <span>
-                                <%= link_to t('alunos.menu.links.list_activities'),listadeatividades_path%>
-                            </span>
-                        </li>
-                </ul>
+                <span>
+                    <%= link_to t('alunos.menu.links.new_activities') , new_atividade_path%>
+                </span>
             </li>
             <li class='has-sub '>
-                <span><%= link_to t('alunos.menu.links.activities_report'), alunoatividades_path %></span>
+                <span>
+                    <%= link_to t('alunos.menu.links.list_activities'),listadeatividades_path%>
+                </span>
             </li>
-            <li class='has-sub '>
-                <span><%= link_to t('views.menu.links.profile'), edit_aluno_registration_path %></span>
-            </li>
+          </ul>
+      </li>
+      <li class='has-sub '>
+          <span><%= link_to t('alunos.menu.links.activities_report'), alunoatividades_path %></span>
+      </li>
+          <li class='has-sub '>
+              <span><%= link_to t('views.menu.links.profile'), edit_aluno_registration_path %></span>
+          </li>
         </ul>
   </div>
 <% elsif avaliador_signed_in? and current_avaliador.admin %>
-    <div id='cssmenu'>
-        <ul>
-            <li>
-                <span>
-                    <%= link_to(t('views.menu.links.home'), avaliadores_index_path) %>
-                </span>
-            </li>
-            <li><span><%= link_to(t('views.menu.links.activities'))%></span></li>
-            <li><span><%= link_to(t('views.menu.links.students'))%></span></li>
-            <li><span><%= link_to(t('views.menu.links.avaliators'), total_avaliadores_path)%></span></li>
-            <li class='has-sub '><span><%= link_to(t('views.menu.links.pdf_reports'))%></span>
-                <ul>
-                    <li class='has-sub '>
-                        <span>
-                            <%= link_to(t('views.menu.links.students'))%>
-                        </span>
-                    </li>
-                    <li class='has-sub '>
-                        <span>
-                            <%= link_to(t('views.menu.links.avaliators'))%>
-                        </span>
-                    </li>
-                    <li class='has-sub '>
-                        <span>
-                            <%= link_to(t('views.menu.links.activities'))%>
-                        </span>
-                    </li>
-                </ul>
-            </li>
-            <li><span><%= link_to(t('views.menu.links.profile'), edit_avaliador_registration_path) %></span></li>
-        </ul>
-    </div>
+  <div id='cssmenu'>
+    <ul>
+      <li>
+        <span>
+          <%= link_to(t('views.menu.links.home'), avaliadores_index_path) %>
+        </span>
+      </li>
+      <li><span><%= link_to(t('views.menu.links.activities'), atividades_complementares_path)%></span></li>
+      <li><span><%= link_to(t('views.menu.links.students'), total_alunos_path)%></span></li>
+      <li><span><%= link_to(t('views.menu.links.avaliators'),total_avaliadores_path)%></span></li>
+      <li class='has-sub '><span><%= link_to(t('views.menu.links.pdf_reports'))%></span>
+      <ul>
+        <li class='has-sub '>
+          <span>
+              <%= link_to(t('views.menu.links.students'))%>
+          </span>
+        </li>
+        <li class='has-sub '>
+            <span>
+                <%= link_to(t('views.menu.links.avaliators'))%>
+            </span>
+        </li>
+        <li class='has-sub '>
+            <span>
+                <%= link_to(t('views.menu.links.activities'))%>
+            </span>
+        </li>
+      </ul>
+    </li>
+    <li><span><%= link_to(t('views.menu.links.profile'),edit_avaliador_registration_path)%></span></li>
+  </ul>
+</div>
 <% elsif avaliador_signed_in? %>
-    <div id='cssmenu'>
-        <ul>
-            <li>
-                <span>
-                    <%= link_to(t('views.menu.links.home'), avaliadores_path) %>
-                </span>
-            </li>
-            <li><span><%= link_to(t('views.menu.links.activities'))%></span></li>
-            <li><span><%= link_to(t('views.menu.links.avaliators'))%></span></li>
-        </ul>
-    </div>
+  <div id='cssmenu'>
+      <ul>
+          <li>
+              <span>
+                  <%= link_to(t('views.menu.links.home'), avaliadores_path) %>
+              </span>
+          </li>
+          <li><span><%= link_to(t('views.menu.links.activities'))%></span></li>
+          <li><span><%= link_to(t('views.menu.links.avaliators'))%></span></li>
+      </ul>
+  </div>
 <% end %> 

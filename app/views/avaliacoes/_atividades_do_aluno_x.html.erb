@@ -1,0 +1,111 @@
+<BR />
+<CENTER>
+
+
+<% if avaliador_signed_in? and current_avaliador.admin == false%>
+
+    <table id="home" class='avaliacoes' summary="Atividades">
+        <caption>Atividades de <%= @aluno.nome.capitalize %></caption>
+        <thead>
+            <tr>
+                <th>Avaliar</th>
+                <th>Nome</th>
+                <th>Descricao</th>
+                <th>Inicio</th>
+                <th>Termino</th>
+                <th>CH - Enviada</th>
+                <th>CH - Aceita</th>
+                <th>Comprovante</th>
+                <th>Avaliada</th>
+                <th>Avaliada por</th>
+            </tr>
+         </thead>
+
+         <tbody id="home">
+            <% for atividade in atividades %>
+               <%if atividade.avaliador == current_avaliador %>
+                   <tr>
+                       <td>
+                            <center>
+                                <a href = "<%= avaliar_atividade_path(atividade) %>" alt="Avaliar atividade">
+                                    <%= image_tag atividade.comprovante.url(:tamanho_pequeno) %>
+                                </a>
+                            </center>
+                       </td>
+
+                       <td>
+                          <center>
+                             <%= atividade.nome %>
+                          </center>
+                       </td>
+
+                        <td>
+                            <center>
+                                <%= atividade.modalidade_nome %>
+                            </center>
+                        </td>
+
+                        <td>
+                            <center>
+                                <%= atividade.inicio %>
+                            </center>
+                        </td>
+
+                        <td>
+                            <center>
+                                <%= atividade.termino %>
+                            </center>
+                        </td>
+
+                        <td>
+                            <center>
+                                <%= atividade.carga_horaria %>
+                            </center>
+                        </td>
+
+                        <td>
+                            <center>
+                                <%= atividade.carga_horaria_aceita %>
+                            </center>
+                        </td>
+
+                        <% if atividade.comprovante_file_name.nil? %>
+                            <center>
+                                <TD>Nao há comprovante</TD>
+                            </center>
+                        <% else %>
+                            <td>
+                                <center>
+                                    <a href = "<%= atividade.comprovante %>" >
+                                        <%= image_tag("samples/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante") %>
+                                    </a>
+                                </center>
+                            </td>
+                        <%-end-%>
+
+                        <td>
+                            <center>
+                                <%= yes_or_no?(atividade.avaliada) %>
+                            </center>
+                        </td>
+
+                        <td>
+                            <center>
+                                <% if atividade.avaliador.nil? %>
+                                    <div>Sem avaliador</div>
+                                <% else %>
+                                    <%= atividade.avaliador.nome %>
+                                <%-end-%>
+                            </center>
+                        </td>
+                <%- end -%>
+            <%- end -%>
+            </tr>
+    </table>
+    
+<% else %>
+    Acesso restrito apenas ao avaliador
+<%- end -%>
+
+<br /> 
+</CENTER>
