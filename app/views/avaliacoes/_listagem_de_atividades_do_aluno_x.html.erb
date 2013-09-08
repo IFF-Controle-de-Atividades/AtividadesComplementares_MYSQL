@@ -2,125 +2,94 @@
 <CENTER>
 
 <% if avaliador_signed_in? and current_avaliador.admin %>
-    <%= form_tag designar_path,  :method => :put do %>
+  <%= form_tag designar_path,  :method => :put do %>
+    <table id="home" class='avaliacoes' summary="Atividades">
+      <caption><%= t('avaliacoes.title')%></caption>
 
-
-<table id="home" class='avaliacoes' summary="Atividades">
-    <caption>Atividades de <%= @aluno.nome.capitalize %></caption>
-    <thead>
-        <tr>
+      <thead>
+          <tr>
             <% if avaliador_signed_in? and current_avaliador.admin %>
-                <th>Selecione</th>
+              <th><%= t('avaliacoes.form.select_tag')%></th>
             <% else %>
-                <th>Avaliar</th>
+              <th><%= t('avaliacoes.form.rate_tag')%></th>
             <%- end -%>
-            
-            <th>Nome</th>
-            <th>Descricao</th>
-            <th>Inicio</th>
-            <th>Termino</th>
-            <th>CH - Enviada</th>
-            <th>CH - Aceita</th>
-            <th>Comprovante</th>
-            <th>Avaliada</th>
-            <th>Avaliada por</th>
-        </tr>
-     </thead>
-     <tbody id="home">
-        <% for atividade in atividades %>
-           <tr>
-                <% if avaliador_signed_in? and current_avaliador.admin %>
-                    <td>
-                       <center>
-                          <%= check_box_tag "atividades_ids[]", atividade.id %>
-                       </center>
-                   </td>
+            <th><%= t('avaliacoes.form.aluno_tag')%></th>
+            <th><%= t('avaliacoes.form.activitie_tag')%></th>
+            <th><%= t('avaliacoes.form.beginDate_tag')%></th>
+            <th><%= t('avaliacoes.form.endDate_tag')%></th>
+            <th><%= t('avaliacoes.form.horas_tag')%></th>
+            <th><%= t('avaliacoes.form.horasaceitas_tag')%></th>
+            <th><%= t('avaliacoes.form.receip_tag')%></th>
+            <th><%= t('avaliacoes.form.evaluate_tag')%></th>
+            <th><%= t('avaliacoes.form.evaluated_by_tag')%></th>
+          </tr>
+      </thead>
+
+      <tbody id="home">
+          <% @atividades.each do |atividade| %>
+      
+            <tr>
+              <% if avaliador_signed_in? and current_avaliador.admin %>
+                <td>
+                  <center><%= check_box_tag "atividades_ids[]",atividade.id%></center>
+                </td>
                 <% elsif avaliador_signed_in? and current_avaliador.admin == false %>
                     Avaliar
-                <%- end -%>
+              <%- end -%>
 
-               <td>
-                  <center>
-                     <%= atividade.nome %>
-                  </center>
-               </td>
+              <td><center><%= atividade.aluno.nome %></center></td>
 
-                <td>
-                    <center>
-                        <%= atividade.modalidade_nome %>
-                    </center>
-                </td>
+              <td><center><%= atividade.title %></center></td>
 
-                <td>
-                    <center>
-                        <%= atividade.inicio %>
-                    </center>
-                </td>
+              <td><center><%= atividade.inicio %></center></td>
 
-                <td>
-                    <center>
-                        <%= atividade.termino %>
-                    </center>
-                </td>
+              <td><center><%= atividade.termino %></center></td>
 
-                <td>
-                    <center>
-                        <%= atividade.carga_horaria %>
-                    </center>
-                </td>
+              <td><center><%= atividade.horasganhas %></center></td>
 
-                <td>
-                    <center>
-                        <%= atividade.carga_horaria_aceita %>
-                    </center>
-                </td>
-
-                <% if atividade.comprovante_file_name.nil? %>
-                    <center>
-                        <TD>Nao há comprovante</TD>
-                    </center>
+              <td><center>
+                <% if atividade.horas_aceitas.nil? %>
+                  <%= t('messages.neither') %>
                 <% else %>
-                    <td>
-                        <center>
-                            <a href = "<%= atividade.comprovante %>" >
-                                <%= image_tag("samples/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante") %>
-                            </a>
-                        </center>
-                    </td>
+                  <%= atividade.horas_aceitas %>
+                <% end %>
+              </center></td>
+
+              <% unless atividade.comprovante.nil? %>
+                  <center><TD><%= t('messages.without_receipt')%></TD></center>
+              <% else %>
+                  <td><center><%= link_to "#{image_tag("samples/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante")}".html_safe, "atividade.comprovante"%></center>
+                  </td>
+              <%-end-%>
+
+              <td><center><%= yes_or_no?(atividade.avaliada) %></center></td>
+
+              <td><center>
+                <% if atividade.avaliador.nil? %>
+                    <div><%= t('messages.without_avaliador')%></div>
+                <% else %>
+                    <%= atividade.avaliador.nome %>
                 <%-end-%>
-
-                <td>
-                    <center>
-                        <%= yes_or_no?(atividade.avaliada) %>
-                    </center>
-                </td>
-
-                <td>
-                    <center>
-                        <% if atividade.avaliador.nil? %>
-                            <div>Sem avaliador</div>
-                        <% else %>
-                            <%= atividade.avaliador.nome %>
-                        <%-end-%>
-                    </center>
-                </td>
-        <%- end -%>
-        </tr>
+              </center></td>
+          <%- end -%>
+    <%- end -%>
+  </tr>
 </table>
 <% if avaliador_signed_in? and current_avaliador.admin %>
     <div class="field">
-      <td>
-         <center>
-            <%= select_tag 'avaliador_id', options_for_select(@avaliadores.collect{ |u| [u.nome, u.id] }) %>
-            <%= submit_tag "Enviar"%>
-       </td>
-    </div>
+      <td><center>
+        <%= select_tag 'avaliador_id', options_for_select(@avaliadores.collect{ |u| [u.nome, u.id] }) %>
+        <%= submit_tag I18n.t('links.save_changes') %>
+      </td></div>
 <% end %>
 
-<% end %>
-<% else %>
-    Acesso restrito apenas ao administrador
-<%- end -%>
 
 <br /> 
+<div class="flickr_pagination pagination">
+    <div class="page_info" id="homealuno">
+        <%= will_paginate @atividades, :previous_label => "&laquo; Anterior", 
+            :next_label => "Próxima &raquo;", :container => false%>
+    </div>
+</div>
 </CENTER>
+<%- end -%>

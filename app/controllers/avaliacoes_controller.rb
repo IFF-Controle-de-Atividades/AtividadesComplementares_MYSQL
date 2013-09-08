@@ -14,21 +14,16 @@ class AvaliacoesController < ApplicationController
   end
 
   def designar
-    @avaliador = params[:avaliador_id]
     Atividade.where(:id => params[:atividades_ids]).update_all(:designada_em => Time.now, :avaliador_id => params[:avaliador_id])
+    @avaliador = Avaliador.find(params[:avaliador_id])
     @atividade = Atividade.where(:id => :atividades_ids)
-    redirect_to :listar_atividades, :notice => t('reviews.activities_appointed', :appraiser=> @avaliador.nome)
+    redirect_to atividades_complementares_path, :notice => t('reviews.activities_appointed', :appraiser=> @avaliador.nome)
   end
 
   def list
     @aluno = Aluno.find(params[:id])
-    @avaliadores= Avaliador.all
-    @atividade = Atividade.where(:aluno_id => @aluno ).paginate(:page => params[:page], :per_page=>4)
-  end
-
-  def x_list
-    @aluno = Aluno.find(params[:id])
-    @atividade = Atividade.where(:aluno_id => @aluno ).paginate(:page => params[:page], :per_page=>4)    
+    @avaliadores= Avaliador.where(:admin => 0)
+    @atividades = Atividade.where(:aluno_id => @aluno ).paginate(:page => params[:page], :per_page=>4)
   end
 
   def avaliar_atividade

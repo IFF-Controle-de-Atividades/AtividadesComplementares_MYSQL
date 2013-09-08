@@ -64,6 +64,7 @@ pt-BR:
       receip_tag: Comprovante
       evaluate_tag: Avaliada
       evaluated_by_tag: Avaliada por
+      rate_tag: Avaliar
   reviews:
     activities_appointed: "Atividade(s) desiganada(s) para %{appraiser}"
     activitie_evaluated: "Atividade avaliada"
@@ -97,6 +98,7 @@ pt-BR:
     without_receipt: Sem comprovante
     accessrestricted: Acesso restrito
     neither: Nenhuma
+    without_students: Sem Alunos
   uploader:
     update_image: Atualizar Imagem
     remove_image: Remover Imagem

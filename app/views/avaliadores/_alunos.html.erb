@@ -1,0 +1,26 @@
+<fieldset>
+<% @alunos.each do |aluno| %>
+  <table id="nav">
+    <th id="nav">    
+      <div class="wp-caption wrap">
+        <center>
+          <%= image_tag(aluno.image) %>
+          <p class="wp-caption-text">
+            <% if avaliador_signed_in? and current_avaliador.admin %>
+              <%= link_to aluno.nome, listagem_de_atividades_do_aluno_x_path(aluno.id),:id =>aluno %>
+            <% elsif avaliador_signed_in? and current_avaliador.admin == false %>
+              <%= link_to aluno.nome, "/atividades_de/#{aluno.nome}/#{aluno.id}",:id =>aluno %>
+            <%- end -%>
+          </p>
+        </center>
+    </div>
+  </th>
+</table>   
+<% end %>    
+</fieldset>
+
+<div class="flickr_pagination">
+	<div clas="page_info">
+		<%= will_paginate @alunos, :previous_label => "&laquo; Anterior", :next_label => "Próxima &raquo;", :container => false%>
+	</div>
+</div>

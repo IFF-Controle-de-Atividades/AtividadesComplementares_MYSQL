@@ -1,0 +1,5 @@
+<% if @alunos.empty? %>
+	<%= flash[:notice] = t('messages.without_students') %>
+<% else %>
+	<div><%= render :partial=>"alunos", :locals=>{:alunos=>@alunos}%></div>
+<% end %>
