@@ -1,2 +1,34 @@
-<h1>Alunos#profileimage</h1>
-<p>Find me in app/views/alunos/profileimage.html.erb</p>
+<FIELDSET>
+    <LEGEND><H1><label> Editar Imagem do Perfil </label></H1></LEGEND>
+<DIV id="localization">
+
+<%= form_for(@aluno, :url=>{:action=>'reloadimageprofile'}, :html => { :multipart => true }) do |l| %>
+     <% if @aluno.errors.any? %>
+        <div id="error_explanation">
+          <%= t 'general.form_error' %>
+        </div>
+    <% end %>
+
+    <div class="field">
+       <b><%= l.label t('.changeImage') %></b>
+       <i id="blue" class="small"><%= t('.readmecarefully') %></i>
+       <br>
+       <%= l.file_field :image %><BR /></b>
+       <%= error_tag @aluno, :image %>
+    </div>
+  
+    <br>
+    <br></FIELDSET>
+    <div class="botao_left">
+        <span class="luz"><%= l.submit "Enviar", :class=>"botao", :id=>'id_botao' %></span>
+    </div>
+    
+    <div class="botao_left">
+        <p>
+        <button type="button" class="botao", id='id_botao2' onclick="JavaScript:index()" >
+            <%= link_to t('links.back'), avaliadores_index_path %>
+        </button>
+    </div>
+<%- end -%>
+
+

@@ -11,7 +11,7 @@ class AlunosController < ApplicationController
     @aluno = current_aluno
   end
 
-  def changeimage
+  def reloadimageprofile
     @aluno = current_aluno
     if @aluno.update_attributes(params[:aluno])
         redirect_to aluno_index_path, :notice => t('alunos.changeimage.image_updated')

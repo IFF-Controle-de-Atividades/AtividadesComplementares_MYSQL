@@ -74,7 +74,7 @@ class AvaliadoresController < ApplicationController
       @avaliador = Avaliador.find(params[:id])
     end
 
-    def reloadProfile
+    def reload
       @avaliador = Avaliador.find(params[:id])
       if @avaliador.update_attributes(params[:avaliador])
         redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)

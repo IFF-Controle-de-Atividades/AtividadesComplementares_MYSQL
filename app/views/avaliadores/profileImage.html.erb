@@ -2,7 +2,7 @@
     <LEGEND><H1><label> Editar Imagem do Perfil </label></H1></LEGEND>
 <DIV id="localization">
 
-<%= form_for(@avaliador, :url=>{:action=>'reloadProfile'}, :html => { :multipart => true }) do |l| %>
+<%= form_for(@avaliador, :url=>{:action=>'reload'}, :html => { :multipart => true }) do |l| %>
      <% if @avaliador.errors.any? %>
         <div id="error_explanation">
           <%= t 'general.form_error' %>

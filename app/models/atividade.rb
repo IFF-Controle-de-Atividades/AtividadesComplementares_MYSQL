@@ -7,6 +7,7 @@ class Atividade < ActiveRecord::Base
   belongs_to :aluno
   has_many :modalidades
   belongs_to :avaliador
+  belongs_to :modalidade
 
   def full_name
   	"#{title} , #{location}"

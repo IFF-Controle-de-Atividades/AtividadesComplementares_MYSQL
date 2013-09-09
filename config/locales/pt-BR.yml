@@ -53,6 +53,9 @@ pt-BR:
     atividades:
       notEvaluated: Esta atividade ainda não foi avaliada
       comprovante: Não há comprovante
+    profileimage:
+      changeImage: Imagem
+      readmecarefully: (Deixe em branco se não quiser alterar a sua imagem!)
   avaliacoes:
     title: Atividades Complementares
     form:
@@ -82,6 +85,9 @@ pt-BR:
                  inserir suas atividades.
       registration: Cadastre-se aqui
       signin: Entrar
+  registration:
+    unhappy: Não está contente
+    cancel_account: Cancelar conta
   links:
     back: Voltar 
     edit: Editar

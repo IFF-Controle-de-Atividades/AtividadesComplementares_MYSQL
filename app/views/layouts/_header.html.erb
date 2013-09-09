@@ -1,24 +1,28 @@
 
 <div id='cssHeadermenu' class="headerMenu">
   <% if aluno_signed_in? %>
-      <ul> 
-        <li class='header-sub '><span>
+        <ul> 
+        <li>
+          <div class="retrato">
             <center>
-              
-            </center></span>
-          
-            <ul>
-              
-              <li class='header-sub '>
+             <%= image_tag(current_aluno.image, size:'90x90') %>
+            </center>
+          </div>
+          <ul> 
+            <li class='header-sub '>
+              <span>
+                <%= link_to t('uploader.update_image'), profile_image_path(current_aluno.id) %>
+              </span>
+            </li>
+            <li class='header-sub '>
                 <span>
                   <%= link_to "Ajuda?" %></span>
-              </li>
+            </li> 
+            <li>
+              <%= link_to(t('alunos.index.logout'), aluno_session_out_path, :method => :get, :class=>"button1 fright p6") %>
 
-              <li class='header-sub '>
-                <span><%= link_to "Sair", aluno_session_out_path, :method => :delete,:class=>"button1 fright p6" %>
-                </span>
-              </li>
-            </ul>
+            </li> 
+          </ul> 
         </li>
         </ul>
     <% elsif avaliador_signed_in? %>

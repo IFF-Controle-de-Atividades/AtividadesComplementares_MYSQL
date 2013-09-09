@@ -11,10 +11,10 @@
             </div>
             <ul> 
               <li>
-                <%= link_to t('.ProfileImage'), profile_image_path %>
+                <%= link_to t('.ProfileImage'), profile_image_path(current_aluno.id) %>
               </li>
               <li>
-                <%= link_to t('.RemoveProfileImage'), default_image_path %>
+                <%= link_to t('.RemoveProfileImage'), default_image_path(current_aluno.id) %>
               </li>
               <li>
                 <%= link_to t('.RemoveProfileImage'), password_path(current_aluno.id) %>
@@ -23,11 +23,11 @@
           </li>
         </ul>
       </div>
-      <p id="loged_in">
+      <div class="loged_in">
         <%= label_tag :nome%>  <%= current_aluno.nome %><br />
         <%= label_tag :curso%> <%= current_aluno.curso %><br />
         <%= label_tag :matricula%> <%= current_aluno.matricula %>
-      </p>
+      </div>
     <%= link_to t('.logout'), aluno_session_out_path, :method => :get, :class =>"button" %>
 </fieldset>
 </div>
