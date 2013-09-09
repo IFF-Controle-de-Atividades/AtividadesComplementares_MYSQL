@@ -65,12 +65,8 @@
 <% elsif avaliador_signed_in? %>
   <div id='cssmenu'>
       <ul>
-          <li>
-              <span>
-                  <%= link_to(t('views.menu.links.home'), avaliadores_path) %>
-              </span>
-          </li>
-          <li><span><%= link_to(t('views.menu.links.activities'))%></span></li>
+          <li><span><%= link_to(t('views.menu.links.home'), avaliadores_path) %></span></li>
+          <li><span><%= link_to(t('views.menu.links.activities'),appraiser_activities_path)%></span></li>
           <li><span><%= link_to(t('views.menu.links.avaliators'))%></span></li>
       </ul>
   </div>

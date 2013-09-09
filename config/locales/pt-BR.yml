@@ -97,6 +97,7 @@ pt-BR:
     without_avaliador: Sem Avaliador
     without_receipt: Sem comprovante
     accessrestricted: Acesso restrito
+    accesserror: Sem Atividades para serem avaliadas
     neither: Nenhuma
     without_students: Sem Alunos
   uploader:

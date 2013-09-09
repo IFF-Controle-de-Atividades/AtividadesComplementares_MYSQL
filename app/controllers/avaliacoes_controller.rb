@@ -26,6 +26,22 @@ class AvaliacoesController < ApplicationController
     @atividades = Atividade.where(:aluno_id => @aluno ).paginate(:page => params[:page], :per_page=>4)
   end
 
+  ######### appraiser_activities Destinado apenas a quem vai avaliar ############
+
+  def appraiser_activities
+    unless current_avaliador && avaliador_signed_in?
+      redirect_to avaliadores_index_path, :notice => t('messages.accessrestricted')
+    else
+      @avaliador = current_avaliador
+      @atividades = Atividade.where(:avaliador_id => @avaliador.id).paginate(:page => params[:page], :per_page=>4)
+      #if Atividade.where(:avaliador_id != @avaliador.id)
+      #  redirect_to avaliadores_index_path, :notice => t('messages.accesserror')
+      #end  
+    end
+  end
+
+  ################################################################################
+
   def avaliar_atividade
     @atividade = Atividade.find(params[:id])
   end
