@@ -19,10 +19,10 @@
 		<% for atividade in atividades %>
 		<tr id="home">
                     <td id="td1"><center><%= atividade.title %></center></td>
-                    <% if atividade.horas_aceitas.nil? %>
+                    <% if atividade.horasganhas.nil? %>
                         <td id="td1"><center><%= t('alunos.atividades.notEvaluated')%></center></td>
                     <% else %>
-                        <td id="td1"><center><%= atividade.carga_horaria_aceita %></center></td>
+                        <td id="td1"><center><%= atividade.horas_aceitas %></center></td>
                     <% end %>
                     <td cellspacing=2>
                         <center>

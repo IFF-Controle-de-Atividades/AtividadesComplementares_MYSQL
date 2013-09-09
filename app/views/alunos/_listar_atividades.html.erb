@@ -1,5 +1,5 @@
 <section>
-<div id="MyAtividades"><table id="home" summary="Atividades"><caption>Atividades</caption>
+<div id="MyAtividades"><table id="home" summary="Atividades"><caption><%= t('activerecord.model.atividade') %></caption>
     <thead >
     <tr>
         <th><%= t('activerecord.attributes.atividade.title') %></th>
@@ -17,34 +17,28 @@
     <tbody id="home">
         <% for atividade in atividades %>
             <tr id="home">
-            <th><label class="large"><center><%= atividade.title %></center></th></label>
-            <td><label class="large"><center><%= atividade.location %></center></td></label>
-            <td><label class="large"><center><%= atividade.horasganhas %></center></td></label>
+            <th><center><%= atividade.title %></center></th>
+            <td><center><%= atividade.location %></center></td>
+            <td><center><%= atividade.horasganhas %></center></td>
             <% if atividade.horas_aceitas.nil? %>
-                <td><label class="large"><center>Esta atividade ainda não foi avaliada</center></td></label>
+                <td><center><%= t('alunos.atividades.notEvaluated')%></center></td>
             <% else %>
-                <td><label class="large"><center><%= atividade.horasganhas %></center></td></label>
+                <td><center><%= atividade.horas_aceitas %></center></td>
             <% end %>
-            <td><center>
-                <a href = "<%= edit_atividade_path(atividade) %>" alt="Anexar Comprovante">
-                    <%= image_tag("fallback/pdf.png", :width=>"60",:height=>"50", :alt=>"Anexar Comprovante") %>
-                </a></center>
-            </td>
+            <td><center><%= link_to "#{image_tag("fallback/pdf.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante")}".html_safe, edit_atividade_path(atividade)%></center></td>
             <% if atividade.comprovante.path.nil? %>
-                    <label class="large"><center><TD><label class="large"><%= t('messages.without_receipt')%></label></TD></center></label>
+                    <center><TD><%= t('messages.without_receipt')%></TD></center>
                 <% else %>
                     <td><center>
-                        <a href = "<%= atividade.comprovante %>" alt="Anexar Comprovante">
-                        <%= image_tag("fallback/pdf-icon.png", :width=>"60",:height=>"50", :alt=>"Ver
-Comprovante") %>
-                        </center></a>
+                        <%= link_to "#{image_tag("fallback/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante")}".html_safe, "atividade.comprovante"%></center></td>
+                        </center>
                     </td>
                 <%-end-%>
-                <td><center><label class="large"><%= yes_or_no?(atividade.avaliada) %></center></label></td>
+                <td><center><%= yes_or_no?(atividade.avaliada) %></center></td>
                 <td>
                     <center>
                         <% if atividade.avaliador.nil?  %>
-                            <label class="large"><%= t('messages.without_avaliador')%></label>
+                            <%= t('messages.without_avaliador')%>
                         <% else %>
                             <%= atividade.avaliador.nome %>
                         <%-end-%>
@@ -60,6 +54,11 @@ Comprovante") %>
     <%- end -%>
     </tbody>
 </table>
+<table id="bottom" summary="Atividades">
+    <CAPTION>
+        <%= current_aluno.contar_horas_aceitas(current_aluno.id) %>
+   </CAPTION>
+</table>
 </div> 
 <br />
 <div class="flickr_pagination pagination">
@@ -67,7 +66,4 @@ Comprovante") %>
         <%= will_paginate atividades, :previous_label => "&laquo; Anterior", :next_label => "Próxima &raquo;", :container => false%>
     </div><br />
 </div>
-
-<CAPTION>
-        <%= current_aluno.contar_horas_aceitas(current_aluno.id) %>
-</CAPTION>
+</section>

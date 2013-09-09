@@ -82,7 +82,7 @@ class AtividadesController < ApplicationController
     @current_aluno = current_aluno
 
     respond_to do |format|
-      format.html { redirect_to listadeatividades_path, notice: I18n.t('atividades.deleted', :user_name=> @current_aluno.nome) }
+      format.html { redirect_to listadeatividades_path, notice: I18n.t('atividades.destroy.deleted', :user_name=> @current_aluno.nome) }
       format.json { head :no_content }
     end
   end

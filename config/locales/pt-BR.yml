@@ -5,7 +5,9 @@ pt-BR:
     new:
       title: Cadastro
       successfully_registrated: "%{user_name} sua atividade foi criada com sucesso"
+    update:
       successfully_updated: "%{user_name} sua atividade foi atualizada com sucesso"
+    destroy:
       deleted: "%{user_name} sua atividade foi deletada"
     edit:
       title: Editar Atividade
@@ -31,6 +33,11 @@ pt-BR:
       list_empty: Não foram encontrados avaliadores
     status:
       title: Editando Status
+    profileimage:
+      changeImage: Imagem
+      Edit: Editar Imagem do Perfil
+      send: Enviar
+      readmecarefully: (Deixe em branco se não quiser alterar a sua imagem!)
   alunos:
     index:
       title: Página Inicial
@@ -40,6 +47,7 @@ pt-BR:
       RemoveProfileImage: Remover Imagem
       without_activities: Você não possui atividades
       new_activitie: Nova Atividade
+      changepassword: Mude sua senha aqui
     changeimage:
       image_updated: Sua imagem de perfil foi atualizada
     changepassword:
@@ -55,6 +63,8 @@ pt-BR:
       comprovante: Não há comprovante
     profileimage:
       changeImage: Imagem
+      Edit: Editar Imagem do Perfil
+      send: Enviar
       readmecarefully: (Deixe em branco se não quiser alterar a sua imagem!)
   avaliacoes:
     title: Atividades Complementares

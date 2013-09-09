@@ -70,7 +70,6 @@ table#home
     background:#D3E4E5;
     border:1px solid gray;
     border-collapse:collapse;
-    color:#fff;
     font:normal 10px verdana, arial, helvetica, sans-serif;
 }
 
@@ -102,7 +101,7 @@ table#bottom
 
 table#home #bottom caption{ letter-spacing:2px;}
 
-table#home td, th { color:#360036; padding:.4em; text-align:center; }
+table#home td, th { font-weight:bold; color: #363636; padding:.4em; text-align:center; font-size: 12px;}
 td#td1 { font-size: 14px; text-align:center;}
 #td1-size{margin-left:2px;}
 
