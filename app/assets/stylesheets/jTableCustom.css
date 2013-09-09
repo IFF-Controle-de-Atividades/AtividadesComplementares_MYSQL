@@ -71,6 +71,7 @@ table#home
     border:1px solid gray;
     border-collapse:collapse;
     font:normal 10px verdana, arial, helvetica, sans-serif;
+    width: 1171px;
 }
 
 table#home.avaliacoes
