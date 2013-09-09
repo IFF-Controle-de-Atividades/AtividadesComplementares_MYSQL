@@ -65,6 +65,8 @@ pt-BR:
       evaluate_tag: Avaliada
       evaluated_by_tag: Avaliada por
       rate_tag: Avaliar
+    newform:
+      evaluate: "Avaliar %{activitie_name}"
   reviews:
     activities_appointed: "Atividade(s) desiganada(s) para %{appraiser}"
     activitie_evaluated: "Atividade avaliada"

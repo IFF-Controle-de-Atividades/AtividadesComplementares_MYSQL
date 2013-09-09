@@ -4,7 +4,14 @@
 
 <BR />
 
-<strong><p><font size="9" color="red">*</font><label>&nbsp Campos Obrigatórios</strong></label></p>
+<strong>
+  <p>
+    <font size="5" color="red">*</font>
+    <label>
+      &nbsp <%= t('form_messages.requiredfields')%>
+    </label>
+  </p>
+</strong>
 <FIELDSET><LEGEND><h2><label>Cadastrar-se</label></h2></LEGEND>
 <DIV id="localization">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:multipart => true}) do |l| %>

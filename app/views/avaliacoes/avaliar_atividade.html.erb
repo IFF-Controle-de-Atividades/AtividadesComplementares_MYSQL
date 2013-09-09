@@ -1,70 +1,60 @@
-<script language= "JavaScript">
-    function index()
-    {
-        location.href = "/avaliador/home";
-    }
-</script>
+<div id="my_id" >
+    <%= @avaliador = current_avaliador %>
+</div>
 
+<% if @atividade.avaliador_id != current_avaliador.id and current_avaliador.admin == false  %>
+    <%  redirect_to avaliador_index_path, :notice => I18n.t('messages.accesserror') %>
+<% elsif @atividade.avaliador_id == current_avaliador.id and current_avaliador.admin == false %>
+    
+<strong>
+  <p>
+    <font size="5" color="red">*</font>
+    <label>
+      &nbsp <%= t('form_messages.requiredfields')%>
+    </label>
+  </p>
+</strong>
+<FIELDSET>
+  <LEGEND><h1><label><%= t 'avaliacoes.newform.evaluate', :activitie_name=> @atividade.title %></label></h1></LEGEND>
+<%= form_for(@atividade, :url => {:controller => "avaliacoes",:action => "avaliar"}) do |l| %>
+  <% if @atividade.errors.any? %>
+      <div id="error_explanation">
+          <%= t 'general.form_error' %>
+      </div>
+  <% end %>
 
-<% if @atividade_aluno.avaliador_id != current_avaliador.id and current_avaliador.admin == false  %>
-    <% flash[:alert] = "Você não tem permissão de avaliar esta atividade"%>
-<% elsif @atividade_aluno.avaliador_id == current_avaliador.id and current_avaliador.admin == false %>
-    <div id="my_id" >
-      <%= @avaliador = current_avaliador %>
-    </div>
-    <strong><p><font size="9" color="red">*</font><label>&nbsp Campos Obrigatórios</strong></label></p>
-    <FIELDSET>
-        <LEGEND>
-            <h2>
-            <LABEL>
-                Editando Atividade
-            </LABEL>
-            </h2>
-        </LEGEND>
-    <%= form_for(@atividade_aluno, :url => {:controller => "avaliacoes",:action => "avaliar"}) do |l| %>
-        <%= render "shared/error_messages", :target => @atividade_aluno %>
-        <div class="field">
-            <b><%= l.label :nome %>&nbsp<i id="red">*</i>&nbsp
-            <%= l.text_field :nome ,:readonly=>:false %>
-        </div>
+  <div class="field">
+      <%= l.label :horasganhas %>&nbsp<i id="red">*</i>&nbsp<br />
+      <%= l.text_field :horasganhas, :readonly=>:false, :size=>"13" %>
+  </div>
 
-        <div class="field">
-            <%= l.label :descricao %>&nbsp<i id="red">*</i>&nbsp
-            <%= l.text_field :modalidade_nome,:readonly=>:false, :size=>"26" %>
-        </div>
+  <div class="field">
+      <%= l.label :horas_aceitas %>&nbsp<i id="red">*</i>&nbsp<br />
+      <%= l.text_field :horas_aceitas %>
+      <%= error_tag @atividade, :horas_aceitas %>
+  </div>
 
-        <div class="field">
-            <%= l.label :carga_horaria_enviada %>&nbsp<i id="red">*</i>&nbsp
-            <%= l.text_field :carga_horaria, :readonly=>:false, :size=>"13" %>
-        </div>
+  <div class="field">
+      <%= l.label t('avaliacoes.form.rate_tag') %><br />
+      <%= l.radio_button :avaliada, 1 %><label id="ident">&nbsp<%= t('labels._yes')%></label>
+      <%= l.radio_button :avaliada, 0 %><label id="ident">&nbsp<%= t('labels._no')%></label>
+      <%= error_tag @atividade, :avaliada %>
+  </div>
 
-        <div class="field">
-            <%= l.label :carga_horaria_aceita %>&nbsp<i id="red">*</i>&nbsp
-            <%= l.text_field :carga_horaria_aceita, :size=>"15" %>
-        </div>
+  <div class="field">
+      <%= l.label t('views.list_activities.explanation') %><br />
+      <%= l.text_area :justificativa %>
+      <%= error_tag @atividade, :justificativa %>
+  </div>
 
-        <div class="field">
-            <%= l.label "Avaliar ?" %><br />
-            <%= l.radio_button :avaliada, 1 %><label>&nbspSim</label>
-            <%= l.radio_button :avaliada, 0 %><label>&nbspNão</label>
-        </div>
-
-        <div class="field">
-            <%= l.label "Justificativa" %><br />
-            <%= l.text_area :justificativa %>
-        </div>
-
-        <BR /></FIELDSET>
-            <div class="botao_left">
-                <span class="luz">
-                    <%= l.submit "Avaliar", :class=>"botao", :id=>'id_botao' %>
-                </span>
-            </div>
-            <div class="botao_left">
-                <p>
-                <button type="button" class="botao", id='id_botao2' onclick="JavaScript:index()" >
-                    Cancelar&nbsp<font size="30"></p></font>
-                </button>
-            </div>
-    <% end %>
-<%- end -%>
+</FIELDSET>  
+  <div class="botao_left">
+    <span class="luz">
+      <%= l.submit t('links.send'), :class=>"botao", :id=>'id_botao' %>
+    </span>
+  </div>
+  <div class="botao_left">
+    <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+  </div>
+<% end %>
+<% end %>

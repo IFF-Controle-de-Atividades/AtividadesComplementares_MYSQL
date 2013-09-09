@@ -6,11 +6,7 @@
 
       <thead>
           <tr>
-            <% if avaliador_signed_in? and current_avaliador.admin %>
-              <th><%= t('avaliacoes.form.select_tag')%></th>
-            <% else %>
-              <th><%= t('avaliacoes.form.rate_tag')%></th>
-            <%- end -%>
+            <th><%= t('avaliacoes.form.rate_tag')%></th>
             <th><%= t('avaliacoes.form.aluno_tag')%></th>
             <th><%= t('avaliacoes.form.activitie_tag')%></th>
             <th><%= t('avaliacoes.form.beginDate_tag')%></th>
@@ -27,7 +23,7 @@
           <% @atividades.each do |atividade| %>
       
             <tr>
-              <td>Avaliar</td>
+              <td><%= link_to I18n.t('avaliacoes.form.rate_tag'), avaliar_atividade_path(atividade.id) %></td>
               <td><center><%= atividade.aluno.nome %></center></td>
 
               <td><center><%= atividade.title %></center></td>

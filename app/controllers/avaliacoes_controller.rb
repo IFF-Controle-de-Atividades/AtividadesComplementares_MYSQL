@@ -34,7 +34,7 @@ class AvaliacoesController < ApplicationController
     else
       @avaliador = current_avaliador
       @atividades = Atividade.where(:avaliador_id => @avaliador.id).paginate(:page => params[:page], :per_page=>4)
-      #if Atividade.where(:avaliador_id != @avaliador.id)
+      #if @atividades != @avaliador.id
       #  redirect_to avaliadores_index_path, :notice => t('messages.accesserror')
       #end  
     end
@@ -49,7 +49,7 @@ class AvaliacoesController < ApplicationController
   def avaliar
     @atividade = Atividade.find(params[:id])
     if @atividade.update_attributes(params[:atividade])
-      redirect_to :x_list, :notice => I18n.t('reviews.activitie_evaluated')
+      redirect_to appraiser_activities_path, :notice => I18n.t('reviews.activitie_evaluated')
     else
       render :avaliar_atividade
     end

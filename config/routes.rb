@@ -61,8 +61,6 @@ AtividadesComplementares::Application.routes.draw do
 
      match "/lista-de-atividades/:id", :controller => "avaliadores", :action=>"atividades"
      match "/localizar-atividades", :controller => "avaliadores", :action=>"localizar_atividade", :as=>:localizar_atividades
-     match "/avaliar_atividade/:id/avaliar_atividade", :controller => "avaliadores", :action=>"avaliar_atividade", :as => :avaliar_atividade
-     match "/avaliar_atividade/:id/avaliar", :controller => "avaliadores", :action=>"avaliar", :as => :update_avaliar_atividade
      match "/avaliador/editar_status/:id", :controller => "avaliadores", :action =>"status", :as => :editar_avaliador_status
      match "/avaliador/edit_status/:id/atualizar_status", :controller => "avaliadores", :action =>"update_status", :as => :atualizar_avaliador_status
      match "/avaliador/:id/Profileimagem",:controller => "avaliadores", :action=>"profileImage", :as => :selecionar_imagem_avaliador
