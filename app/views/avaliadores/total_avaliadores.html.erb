@@ -3,41 +3,27 @@
     <FIELDSET><LEGEND >
         <div id="FieldButton">
             <%= link_to(I18n.t('avaliadores.list_avaliators.new'), new_avaliador_path, :class=>"buttonx") %>
-        </div></LEGEND>
-<%end %>
-<br />
-<% if avaliador_signed_in? and current_avaliador.admin %>
-    <div class="atividades_table_container">
-        <% if @avaliadores.empty? %>
-            <br /><br />
-            <sidebar class="infobar">
-                <b>
-                    <%= t('avaliadores.list_avaliators.list_empty')%>
-                <b>
-            </sidebar>
-        <% else %>
-            <div>
-                <%= render :partial=>"list_av", :locals=>{:avaliadores=>@avaliadores}%>
-            </div>
-        <% end %>
-   </div>
+        </div></LEGEND><br />
+        <div class="atividades_table_container">
+            <% if @avaliadores.empty? %>
+                <br /><br />
+                <sidebar class="infobar"><b><%= t('avaliadores.list_avaliators.list_empty')%></b></sidebar>
+            <% else %>
+                <div>
+                    <%= render :partial=>"list_av", :locals=>{:avaliadores=>@avaliadores}%>
+                </div>
+            <% end %>
+        </div>
    </FIELDSET>   
 <% else %>
-    <FIELDSET>
+  <FIELDSET id="stomp">
     <div class="atividades_table_container">
-        <% if @avaliadores.empty? %>
-            <br /><br />
-            <sidebar class="infobar">
-                <b>
-                    <%= t('avaliadores.list_avaliators.list_empty')%>
-                <b>
-            </sidebar>
-        <% else %>
-            <div>
-                <%= render :partial=>"list_av", :locals=>{:avaliadores=>@avaliadores}%>
-            </div>
-        <% end %>
+      <% if @avaliadores.empty? %>
+        <br /><br />
+        <sidebar class="infobar"><b><%= t('avaliadores.list_avaliators.list_empty')%></b></sidebar>
+      <% else %>
+        <div><%= render :partial=>"list_av", :locals=>{:avaliadores=>@avaliadores}%></div>
+      <% end %>
    </div>
-   </FIELDSET>
-<%-end-%>
-
+  </FIELDSET>
+<% end %>

@@ -38,6 +38,8 @@ pt-BR:
       signed_in: Logado
       ProfileImage: Atualizar Imagem
       RemoveProfileImage: Remover Imagem
+      without_activities: Você não possui atividades
+      new_activitie: Nova Atividade
     changeimage:
       image_updated: Sua imagem de perfil foi atualizada
     changepassword:

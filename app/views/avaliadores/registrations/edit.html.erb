@@ -49,22 +49,6 @@
     </DIV>
   </div>
 
-  <div class="field">
-    <%= f.label :admin %><br />
-    <DIV class="radio_component">
-      <%= f.radio_button :admin, 1 %><label id="ident">&nbsp<%= t('labels._yes')%></label>
-      <%= f.radio_button :admin, 0 %><label id="ident">&nbsp<%= t('labels._no')%></label>
-    </DIV>
-  </div>
-
-  <div class="field">
-    <%= f.label :status %><br />
-    <DIV class="radio_component">
-      <%= f.radio_button :status, 1 %><label id="ident">&nbsp<%= t('labels._on')%></label>
-      <%= f.radio_button :status, 0 %><label id="ident">&nbsp<%= t('labels._off')%></label>
-    </DIV>
-  </div>
-
   <div class="session">
       <%= f.label :email %>
       <%= f.email_field :email, :placeholder => "example@example.com" %>

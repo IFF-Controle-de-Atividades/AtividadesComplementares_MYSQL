@@ -34,8 +34,8 @@
 <div id="HomeAtividadesPage">
   <div  height='150px'>
     <% if current_aluno.atividades.empty? %>
-      <div class="red_infobar">
-        <div>Você não possui atividades.</div>
+      <div id="notice">
+        <center><%= t('.without_activities')%><br /><%= link_to t('.new_activitie'), new_atividade_path%></center>
       </div>
     <% else %>
       <div id="listaAtividadesHome">
