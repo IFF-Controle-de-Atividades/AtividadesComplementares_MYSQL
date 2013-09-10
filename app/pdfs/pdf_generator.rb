@@ -12,9 +12,9 @@ class PDF_GENERATOR < Prawn::Document
 
     def linha_de_assinatura
         stroke do
-            horizontal_line 200, 520, :at => 10
+            horizontal_line 200, 520, :at => 15
         end
-        draw_text "Assinatura do Coordenador", :at => [280,0.5]
+        draw_text "Assinatura do Coordenador", :at => [270,0.5]
     end
 
     def nome_documento
@@ -27,9 +27,11 @@ class PDF_GENERATOR < Prawn::Document
         table itens do
             row(0).font_style = :bold
             row(0).align = :center
+            row(0).style :background_color => 'EEE9E9'
+            
             columns(1..7).align = :center
-            self.row_colors = ["DDDDDD", "FFFFFF"]
-            self.width = 805
+            self.row_colors = ["FFFFFF", "C1FFC1"]
+            self.width  = 805
             self.header = true
         end
         linha_de_assinatura

@@ -22,8 +22,12 @@ class AvaliacoesController < ApplicationController
 
   def list
     @aluno = Aluno.find(params[:id])
-    @avaliadores= Avaliador.where(:admin => 0)
-    @atividades = Atividade.where(:aluno_id => @aluno ).paginate(:page => params[:page], :per_page=>4)
+    if @aluno.atividades.empty?
+      redirect_to avaliadores_index_path, :notice => t('avaliacoes.list.activitieerror', :user_name => @aluno.nome)
+    else
+      @avaliadores= Avaliador.where(:admin => 0)
+    @atividades = Atividade.where(:aluno_id => @aluno ).paginate(:page => params[:page], :per_page=>4)  
+    end
   end
 
   ######### appraiser_activities Destinado apenas a quem vai avaliar ############

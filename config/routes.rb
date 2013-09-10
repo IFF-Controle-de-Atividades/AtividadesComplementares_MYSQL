@@ -74,18 +74,18 @@ AtividadesComplementares::Application.routes.draw do
      match "/designar-avaliador/atividade/:id/avaliar",:controller => "avaliadores", :action => "avaliar", :as => :designar_atividade
   end
 
-  get "/minhas-atividades" => "pdf_reports#atividadealuno", :format=> :pdf, :as=>:alunoatividades
-  get "/total-avaliadores" => "pdf_reports#avaliadores_pdf", :format => :pdf, :as=> :avaliadores_pdf
-  get "/total-alunos" => "pdf_reports#alunos_pdf", :format => :pdf, :as=> :alunos_pdf
-  get "/total-atividades" => "pdf_reports#total_atividades", :format => :pdf, :as=> :total_atividades
+  get "/minhas-atividades.pdf" => "pdf_reports#atividadealuno", :format=> :pdf, :as=>:alunoatividades
+  get "/total-avaliadores.pdf" => "pdf_reports#avaliadores_pdf", :format => :pdf, :as=> :avaliadores_report_pdf
+  get "/total-alunos.pdf" => "pdf_reports#alunos_pdf", :format => :pdf, :as=> :alunos_pdf
+  get "/total-atividadespdf" => "pdf_reports#total_atividades", :format => :pdf, :as=> :pdf_list_atividades
 
   match "/atividades/:id/delete", :controller => "atividades", :action => "destroy", :as => :excluir_atividade
 
-  get "/pdf_reports/menu"
-  get "/pdf_reports/avaliadores_report" => "pdf_reports#avaliadores_report", :format => :pdf
-  get "/pdf_reports/alunos_report" => "pdf_reports#alunos_report", :format => :pdf
-  get "/pdf_reports/atividades_report" => "pdf_reports#atividades_report", :format => :pdf
-  get "/pdf_reports/total_de_atividades" => "pdf_reports#relatorioAtividades_report",  :format => :pdf, :as=>:pdf_reports_relatorioAtividades
+  #get "/pdf_reports/menu"
+  #get "/pdf_reports/avaliadores_report" => "pdf_reports#avaliadores_report", :format => :pdf
+  #get "/pdf_reports/alunos_report" => "pdf_reports#alunos_report", :format => :pdf, :as=> :alunos_report
+  #get "/pdf_reports/atividades_report" => "pdf_reports#atividades_report", :format => :pdf
+  #get "/pdf_reports/total_de_atividades" => "pdf_reports#relatorioAtividades_report",  :format => :pdf, :as=>:pdf_reports_relatorioAtividades
 
   authenticated :aluno do
     root :to => "alunos#index"

@@ -82,6 +82,8 @@ pt-BR:
       rate_tag: Avaliar
     newform:
       evaluate: "Avaliar %{activitie_name}"
+    list:
+      activitieerror: "%{user_name} não possui atividades"
   reviews:
     activities_appointed: "Atividade(s) desiganada(s) para %{appraiser}"
     activitie_evaluated: "Atividade avaliada"

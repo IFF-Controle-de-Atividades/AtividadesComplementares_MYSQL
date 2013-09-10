@@ -1,5 +1,5 @@
 <% if @alunos.empty? %>
-	<%= flash[:notice] = t('messages.without_students') %>
+	<%= redirect_to avaliadores_index_path, :notice => t('messages.without_students') %>
 <% else %>
 	<div><%= render :partial=>"alunos", :locals=>{:alunos=>@alunos}%></div>
 <% end %>

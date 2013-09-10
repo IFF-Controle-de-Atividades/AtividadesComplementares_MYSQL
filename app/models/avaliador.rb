@@ -18,6 +18,6 @@ class Avaliador < ActiveRecord::Base
   validates_uniqueness_of :nome, :email, :matricula
 
   mount_uploader :image, ImageUploader
+  
   has_many :atividades
-  has_and_belongs_to_many :atividades
 end
