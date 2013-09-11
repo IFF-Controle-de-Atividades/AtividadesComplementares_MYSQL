@@ -1,2 +1,38 @@
-<h1>Avaliacoes#exibir_avaliacoes</h1>
-<p>Find me in app/views/avaliacoes/exibir_avaliacoes.html.erb</p>
+<div class="flickr_pagination pagination">
+  <div class="page_info">
+      <%= will_paginate @atividades, :previous_label => "&laquo; Anterior",
+           :next_label =>"Próxima &raquo;", :container => false %>
+  </div>
+</div>
+<CENTER>
+	<table id="home" class='avaliacoes' summary="Atividades">
+    <caption><H3>Listando Avaliações feitas por <%= @avaliador.nome.capitalize %></caption>
+    <thead>
+        <tr>
+            <th>Aluno</th>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Carga horária enviada</th>
+            <th>Carga horária aceita</th>
+            <th>Avaliada</th>
+            <th>Avaliada por</th>
+        </tr>
+    </thead>
+	  <tbody id="home">
+	    <% @atividades.each do |atividade| %>
+        <tr>
+          <td><%= atividade.aluno.nome %></td>
+          <td><center><%= atividade.title %></center></td>
+          <td><center><%= atividade.modalidade.title %></center></td>
+          <td><center><%= atividade.horasganhas %></center></td>
+          <td><center><%= atividade.horas_aceitas %></center></td>
+          <td><center><%= yes_or_no?(atividade.avaliada) %></center></td>
+          <td><center><%= atividade.avaliador.nome %></center></td>
+        </tr>
+	    <%- end -%>
+	  </tbody>
+	</table>
+<BR /><BR />
+<FIELDSET id="newPage"><LEGEND><%= link_to(I18n.t('avaliadores.list_avaliators.new'), new_avaliador_path, :class=>"buttonx") %></LEGEND>
+  <%= render "avaliadores/list_av", :locals=>{:avaliadores=>@avaliadores}%></FIELDSET>
+</CENTER>

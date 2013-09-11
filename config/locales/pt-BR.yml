@@ -109,6 +109,7 @@ pt-BR:
     forgotten_your_password: Esqueceu sua senha
     send: Enviar
     save_changes: Salvar Alterações
+    reviews: Avalicoes
   form_messages:
     password: Coloque sua senha
     requiredfields: Campos Obrigatórios

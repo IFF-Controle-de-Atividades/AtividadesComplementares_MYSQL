@@ -26,7 +26,7 @@ AtividadesComplementares::Application.routes.draw do
       put "avaliacoes/designar", :as=> :designar
       get "avaliacoes/listar_atividades_complementares" => "avaliacoes#listar_atividades", :as => :atividades_complementares
       get "avaliacoes/listar_avaliacoes"
-      get "avaliacoes/exibir_avaliacoes/:id"=> "avaliacoes#exibir_avaliacoes", :as => :exibir_avaliacoes_complementares
+      get "avaliacoes/exibir_avaliacoes/:id"=> "avaliacoes#exibir_avaliacoes", :as => :exibir_atividades_avaliadas
       
       match "/lista-de-atividades/:id", :controller =>"avaliacoes", :action=>"list", :as=> :listagem_de_atividades_do_aluno_x
       match "/atividades_de/:nome/:id", :controller => "avaliacoes", :action=>"list", :as=> :atividades_de

@@ -13,7 +13,7 @@ class Avaliador < ActiveRecord::Base
 
   validates_length_of   :nome, :in => 10..30, :allow_blank => false
   validates_length_of   :titulacao, :in => 10..30, :allow_blank => true
-  validates_length_of   :matricula, :in => 12..20, :allow_blank => false
+  validates_length_of   :matricula, :maximum=> 12, :allow_blank => false
 
   validates_uniqueness_of :nome, :email, :matricula
 
