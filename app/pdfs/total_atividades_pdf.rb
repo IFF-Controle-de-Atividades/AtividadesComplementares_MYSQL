@@ -32,12 +32,22 @@ class TotalAtividadesPdf < PDF_GENERATOR
     end
 
     def itens_tabela 
-      [ ["Nome","Descrição", "Aluno","Avaliada ?","CH", "Avaliador"] ] +
+      [ ["Atividade","Descrição", "Aluno","Avaliada ?","CH - Aceita", "Avaliador"] ] +
           @report.collect do |item|
           [ 
             item.title, item.modalidade.title,
             item.aluno.nome, self.yes_or_no?(item.avaliada),
-            item.horas_aceitas, item.avaliador.nome
+            if item.horas_aceitas.nil?
+              text = I18n.t('messages.neither')
+            else
+              item.horas_aceitas
+            end, 
+
+            if item.avaliador.nil?
+              text = I18n.t('messages.neither')
+            else
+              item.avaliador.nome
+            end
           ]
       end
     end

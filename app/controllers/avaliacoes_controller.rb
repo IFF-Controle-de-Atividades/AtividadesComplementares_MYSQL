@@ -76,9 +76,6 @@ class AvaliacoesController < ApplicationController
       @avaliadores = Avaliador.where(:admin => 0).paginate(:page => params[:page], :per_page=>4)
       @avaliador = Avaliador.find(params[:id])
       @atividades = Atividade.where(:avaliador_id => @avaliador.id).paginate(:page => params[:page], :per_page=>4)
-      # if @atividades.avaliador.empty?
-      #   redirect_to total_avaliadores_path :alert => I18n.t('reviews.not_hanking', :appraiser=>@avaliador.nome)
-      # end
       if @atividades.empty?
         redirect_to total_avaliadores_path :alert => I18n.t('reviews.not_hanking', :appraiser=>@avaliador.nome)
         flash[:alert] = I18n.t('reviews.not_hanking', :appraiser=>@avaliador.nome)

@@ -41,7 +41,7 @@ class AvaliadoresPdf < PDF_GENERATOR
           item.titulacao, item.matricula, self.yes_or_no?(item.status),
           self.yes_or_no?(item.admin),
             if item.atividades.empty?
-                item = I18n.t('messages.neither')
+                text = I18n.t('messages.neither')
             else
                 item.atividades.count
             end  

@@ -6,16 +6,16 @@
 </div>
 <CENTER>
 	<table id="home" class='avaliacoes' summary="Atividades">
-    <caption><H3>Listando Avaliações feitas por <%= @avaliador.nome.capitalize %></caption>
+    <caption><H3><%= t('avaliacoes.showing_reviews_hanking', :user_name=> @avaliador.nome.capitalize) %></caption>
     <thead>
         <tr>
-            <th>Aluno</th>
-            <th>Nome</th>
-            <th>Descricao</th>
-            <th>Carga horária enviada</th>
-            <th>Carga horária aceita</th>
-            <th>Avaliada</th>
-            <th>Avaliada por</th>
+            <th><%= t('avaliacoes.form.aluno_tag')%></th>
+            <th><%= t('avaliacoes.form.activitie_tag')%></th>
+            <th><%= t('activerecord.attributes.atividade.modalidade')%></th>
+            <th><%= t('activerecord.attributes.atividade.horasganhas')%></th>
+            <th><%= t('activerecord.attributes.atividade.horas_aceitas')%></th>
+            <th><%= t('activerecord.attributes.atividade.avaliada')%></th>
+            <th><%= t('avaliacoes.form.evaluated_by_tag')%></th>
         </tr>
     </thead>
 	  <tbody id="home">

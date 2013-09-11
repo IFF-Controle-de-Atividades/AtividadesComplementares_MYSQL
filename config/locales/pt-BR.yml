@@ -84,10 +84,12 @@ pt-BR:
       evaluate: "Avaliar %{activitie_name}"
     list:
       activitieerror: "%{user_name} não possui atividades"
+    showing_reviews_hanking: "Listando avaliações feitas por %{user_name}"
   reviews:
     activities_appointed: "Atividade(s) desiganada(s) para %{appraiser}"
     activitie_evaluated: "Atividade avaliada"
     not_hanking: "%{appraiser} não fez nenhuma avaliação"
+
   sessions:
     students:
       title: Crie uma conta
@@ -171,6 +173,7 @@ pt-BR:
         comprovante: Comprovante
         view_comprovante: Visualizar comprovante
         horas_aceitas: Horas aceitas
+        avaliada: Avaliada
       avaliador:
         nome: Nome
         matricula: Matricula

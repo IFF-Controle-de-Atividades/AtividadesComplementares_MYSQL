@@ -145,6 +145,7 @@ h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
 label { font-size: 0.8em; font-weight:bold; color:gray;}
 
 fieldset {padding:0 1.4em 1.4em 1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
+fieldset#oldPage {padding:0 1.4em 1.4em 1.4em;margin:0 0 1.5em 0;border:1px solid #fff;}
 fieldset#newPage {margin-left: -10px; padding:9px 0.8em 3em 19px; border:1px solid #fff;}
 legend {font-weight:bold;font-size:1.2em;margin-top:-0.2em;margin-bottom:1em;}
 fieldset, #IE8#HACK {padding-top:1.4em;}
