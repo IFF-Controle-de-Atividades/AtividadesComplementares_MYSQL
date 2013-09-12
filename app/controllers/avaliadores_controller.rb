@@ -68,8 +68,7 @@ class AvaliadoresController < ApplicationController
   #################################################################
 
   ##### Methods for load and remove the profile image #############
-
-
+    
     def myimage
         @avaliador = Avaliador.find(params[:id])
     end
@@ -83,19 +82,6 @@ class AvaliadoresController < ApplicationController
         end
     end
 
-    # def selecionar_image
-    #   @avaliador = Avaliador.find(params[:id ])
-    # end
-
-    # def load_image
-    #   @avaliador = Avaliador.find(params[:id ])
-    #   if @avaliador.update_attributes(params[:avaliador])
-    #     redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)
-    #   else
-    #     redirect_to avaliadores_index_path, :alert => "ERRO"
-    #   end
-    # end
-
     def removeimage
         @avaliador = current_avaliador
         @avaliador.remove_image!
@@ -104,6 +90,23 @@ class AvaliadoresController < ApplicationController
             redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.image_deleted', :user_name=> @avaliador.nome)
         end
     end
+  #################################################################
+
+  ################# Métodos para alterar a senha ##################
+
+    def mypassword
+      @avaliador = Avaliador.find(params[:id])
+    end
+
+    def updatepassword
+      @avaliador = Avaliador.find(params[:id])
+      if @avaliador.update_attributes(params[:password])
+        redirect_to avaliadores_index_path, :notice => t('avaliadores.notifications.password_successfully_updated', :user_name=> @avaliador.nome)
+      else
+        render action: :mypassword
+      end
+    end
+
   #################################################################
 
 end

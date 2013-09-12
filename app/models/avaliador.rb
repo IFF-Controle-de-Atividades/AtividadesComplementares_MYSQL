@@ -8,6 +8,7 @@ class Avaliador < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nome, :titulacao, :matricula, :sexo, :admin, :status, :image
   # attr_accessible :title, :body
+  #attr_accessor :current_password
   
   validates_presence_of :nome, :sexo, :titulacao, :matricula
 

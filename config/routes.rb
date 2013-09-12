@@ -4,7 +4,7 @@ AtividadesComplementares::Application.routes.draw do
 
   # scope "(:locale)", :locale=>LOCALES do
     resources :pdf_reports, only: [:atividadealuno, :alunos_pdf, :avaliadores_pdf, :total_atividades]
-    resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :myimage]
+    resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :myimage, :mypassword]
     resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage, :password,:changepassword]
     resources :atividades
 
@@ -74,6 +74,9 @@ AtividadesComplementares::Application.routes.draw do
      match "/avaliador/myimage/:id/",:controller => "avaliadores", :action=>"myimage", :as => :selecionar_imagem_avaliador
      match "/avaliador/myimage/:id/salveimage",:controller => "avaliadores", :action=>"saveimage", :as => :salvar_imagem_avaliador
      match "/avaliador/:id/removeimagem",:controller => "avaliadores", :action=>"removeimage", :as => :remover_imagem_avaliador
+
+     match "/avaliador/mypassword/:id/",:controller => "avaliadores", :action=>"mypassword", :as => :password_avaliador
+     match "/avaliador/mypassword/:id/updatepassword",:controller => "avaliadores", :action=>"updatepassword", :as => :update_password_avaliador
   end
 
   get "/minhas-atividades.pdf" => "pdf_reports#atividadealuno", :format=> :pdf, :as=>:alunoatividades

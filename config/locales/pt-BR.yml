@@ -21,6 +21,7 @@ pt-BR:
       logout: Sair
       signed_in: Logado
       ProfileImage: Atualizar Imagem
+      ProfilePassword: Atualizar Senha 
       RemoveProfileImage: Remover Imagem
     edit:
       title: Editar Status
@@ -30,6 +31,7 @@ pt-BR:
       status_successfully_updated: Status atualizado
       admin_error: Acesso restrito apenas ao administrador
       image_deleted: "%{user_name} sua imagem do perfil foi removida"
+      password_successfully_updated: "%{user_name} sua senha foi atualizada"
     list_avaliators:
       new: Novo Avaliador
       list_empty: Não foram encontrados avaliadores
@@ -40,6 +42,8 @@ pt-BR:
       edit: Editar Imagem do Perfil
       send: Enviar
       readmecarefully: (Deixe em branco se não quiser alterar a sua imagem!)
+    mypassword:
+      edit: Editar Senha
   alunos:
     index:
       title: Página Inicial
