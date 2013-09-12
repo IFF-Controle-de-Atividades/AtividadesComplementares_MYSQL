@@ -49,6 +49,14 @@
     </DIV>
   </div>
 
+  <div class="field">
+       <b><%= f.label t('avaliadores.profileimage.changeImage') %></b>
+       <i id="blue" class="small"><%= t('avaliadores.profileimage.readmecarefully') %></i>
+       <br>
+       <%= f.file_field :image %><BR /></b>
+       <%= error_tag @avaliador, :image %>
+  </div>
+
   <div class="session">
       <%= f.label :email %>
       <%= f.email_field :email, :placeholder => "example@example.com" %>
