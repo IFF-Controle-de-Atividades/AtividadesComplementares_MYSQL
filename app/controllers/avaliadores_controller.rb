@@ -14,7 +14,7 @@ class AvaliadoresController < ApplicationController
     end
 
     unless current_avaliador.admin
-       redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.admin_error')
+       redirect_to avaliadores_index_path, :alert => I18n.t('avaliadores.notifications.admin_error')
     end  
   end
 
@@ -38,8 +38,7 @@ class AvaliadoresController < ApplicationController
         @avaliador = Avaliador.find(params[:id])
         @admin = current_avaliador
         if @avaliador.update_attributes(params[:avaliador])
-            redirect_to total_avaliadores_path
-            flash[:notice] = "Status  - atualizado"
+            redirect_to total_avaliadores_path, :notice => I18n.t('avaliadores.notifications.status_successfully_updated')
         else
             render action: :status
         end
@@ -70,28 +69,7 @@ class AvaliadoresController < ApplicationController
 
   ##### Methods for load and remove the profile image #############
 
-    def profileImage
-      @avaliador = Avaliador.find(params[:id])
-    end
-
-    def reload
-      @avaliador = Avaliador.find(params[:id])
-      if @avaliador.update_attributes(params[:avaliador])
-        redirect_to avaliadores_index_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)
-      else
-        render action: :index
-      end
-    end
-
-    def remove_imageProfile
-        @avaliador = current_avaliador
-        @avaliador.remove_image!
-        @avaliador.remove_image = true
-        if @avaliador.save
-            flash[:notice] = "Sua imagem foi removida com sucesso"
-            redirect_to avaliadores_index_path
-        end
-    end
+    
   #################################################################
 
 end

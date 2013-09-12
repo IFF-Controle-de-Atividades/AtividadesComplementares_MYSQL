@@ -48,7 +48,6 @@ AtividadesComplementares::Application.routes.draw do
      match "/imagemdoperfil/:id/profileimage",:controller => "alunos", :action=>"profileimage", :as => :profile_image
      match "/imagemdoperfil/:id/salvarimagem",:controller => "alunos", :action=>"reloadimageprofile", :as => :get_image
      match "imagemdoperfil/:id/default",:controller => "alunos", :action=>"removeimage", :as => :default_image
-
   end
 
   as :avaliador do
@@ -68,10 +67,13 @@ AtividadesComplementares::Application.routes.draw do
      match "/localizar-atividades", :controller => "avaliadores", :action=>"localizar_atividade", :as=>:localizar_atividades
      match "/avaliador/editar_status/:id", :controller => "avaliadores", :action =>"status", :as => :editar_avaliador_status
      match "/avaliador/edit_status/:id/atualizar_status", :controller => "avaliadores", :action =>"update_status", :as => :atualizar_avaliador_status
-     match "/avaliador/:id/Profileimagem",:controller => "avaliadores", :action=>"profileImage", :as => :selecionar_imagem_avaliador
-     match "/avaliador/:id/salvar_imagem",:controller => "avaliadores", :action=>"reload", :as => :salvar_imagem_avaliador
-     match "/avaliador/:id/remover_imagem",:controller => "avaliadores", :action=>"remove_imageProfile", :as => :remover_imagem_avaliador
-     match "/designar-avaliador/atividade/:id/avaliar",:controller => "avaliadores", :action => "avaliar", :as => :designar_atividade
+     
+     #match "/designar-avaliador/atividade/:id/avaliar",:controller => "avaliadores", :action => "avaliar", :as => :designar_atividade
+
+
+     match "/avaliador/:id/",:controller => "avaliadores", :action=>"selecionar_image", :as => :selecionar_imagem_avaliador
+     match "/avaliador/:id/salvar_imagem",:controller => "avaliadores", :action=>"load_image", :as => :salvar_imagem_avaliador
+     match "/avaliador/:id/remover_imagem",:controller => "avaliadores", :action=>"remover_image", :as => :remover_imagem_avaliador
   end
 
   get "/minhas-atividades.pdf" => "pdf_reports#atividadealuno", :format=> :pdf, :as=>:alunoatividades

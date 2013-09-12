@@ -27,7 +27,9 @@ pt-BR:
       profile: "Editando perfil de %{name}"
     notifications:
       successfully_registrated: "%{user_name} criado com sucesso"
+      status_successfully_updated: Status atualizado
       admin_error: Acesso restrito apenas ao administrador
+      image_deleted: "%{user_name} sua imagem do perfil foi removida"
     list_avaliators:
       new: Novo Avaliador
       list_empty: Não foram encontrados avaliadores
@@ -35,7 +37,7 @@ pt-BR:
       title: Editando Status
     profileimage:
       changeImage: Imagem
-      Edit: Editar Imagem do Perfil
+      edit: Editar Imagem do Perfil
       send: Enviar
       readmecarefully: (Deixe em branco se não quiser alterar a sua imagem!)
   alunos:

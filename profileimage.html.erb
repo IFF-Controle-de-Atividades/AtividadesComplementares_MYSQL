@@ -1,0 +1,31 @@
+<FIELDSET>
+    <LEGEND><H1><label><%= t('avaliadores.profileimage.edit') %></label></H1></LEGEND>
+<DIV id="localization">
+
+<%= form_for(@avaliador, :url=>{:action=>'load_image'}, :html => { :multipart => true }) do |l| %>
+     <% if @avaliador.errors.any? %>
+        <div id="error_explanation">
+          <%= t 'general.form_error' %>
+        </div>
+    <% end %>
+
+    <div class="field">
+       <b><%= l.label t('avaliadores.profileimage.changeImage') %></b>
+       <i id="blue" class="small"><%= t('avaliadores.profileimage.readmecarefully') %></i>
+       <br>
+       <%= l.file_field :image %><BR /></b>
+       <%= error_tag @avaliador, :image %>
+    </div>
+  
+    <br>
+    <br></FIELDSET>
+    <div class="botao_left">
+        <span class="luz"><%= l.submit t('avaliadores.profileimage.send'), :class=>"botao", :id=>'id_botao' %></span>
+    </div>
+    
+    <div class="botao_left">
+      <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+    </div>
+<%- end -%>
+
+
