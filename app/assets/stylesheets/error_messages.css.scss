@@ -53,7 +53,7 @@ form {
 	padding: 10px;
 	margin: 10px 0;
 	font-weight: bold;
-	width: 500px;
+	width: 1150px;
 }
 
 #error_explanation {
@@ -67,14 +67,18 @@ form {
 	color: $success-text-color;
 	border: 1px solid $success-text-color;
 	@extend .padded_flash;
-	background-color: #DFF0D8;
+	background: #DFF0D8 url(../images/tick.png) no-repeat 5px center;; 
+	margin: 10px 0;
+	text-align: center;
 }
 
 #alert {
 	color: $error-text-color;
 	border: 1px solid $error-text-color;
 	@extend .padded_flash;
-	background-color: #F2DEDE;
+	background: #F2DEDE url(../images/error.png) no-repeat 5px center;
+	margin: 10px 0;
+	text-align: center;
 }
 
 #cancelaccount { margin-left: 42%;}

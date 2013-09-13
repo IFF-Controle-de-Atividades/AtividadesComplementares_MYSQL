@@ -1,25 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div id="notice">
+  <% if @atividade.justificativa.nil? %>
+  	<%= t('atividades.show.noexplanation') %>
+  <%= t('activerecord.attributes.atividade.explanation') %><BR />
+  <%= @atividade.justificativa %>
+</div><BR />
 
-<p>
-  <b>Title:</b>
-  <%= @atividade.title %>
-</p>
-
-<p>
-  <b>Horasganhas:</b>
-  <%= @atividade.horasganhas %>
-</p>
-
-<p>
-  <b>Inicio:</b>
-  <%= @atividade.inicio %>
-</p>
-
-<p>
-  <b>Termino:</b>
-  <%= @atividade.termino %>
-</p>
-
-
-<%= link_to 'Edit', edit_atividade_path(@atividade) %> |
-<%= link_to 'Back', atividades_path %>
+<%= render :partial=>'alunos/listar_atividades', :locals=>{:atividades=>current_aluno.atividades.paginate(:page => params[:page], :per_page=>10)}  %>

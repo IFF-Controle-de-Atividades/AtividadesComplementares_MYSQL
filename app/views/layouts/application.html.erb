@@ -32,16 +32,17 @@
             
             <!-- content -->
             <div class="conteudo">
+            	<% if notice.present? %>
+					<div id="notice"><%= notice %> </div>
+				<% end %>
+				<% if alert.present? %>
+						<div id="alert"><%= alert %> </div>
+				<% end %>
             	<%= render 'layouts/current_user' %>
             	<!-- main -->
 	       		<div></div>
 				<div id="content">
-					<% if notice.present? %>
-						<p id="notice"><%= notice %> </p>
-					<% end %>
-					<% if alert.present? %>
-						<p id="alert"><%= alert %> </p>
-					<% end %>
+					
 					<%= yield %>
 				</div>
 				<!-- end of main -->
