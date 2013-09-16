@@ -1,29 +1,25 @@
 #--*-- coding:UTF-8 --*--
 class ModalidadesController < ApplicationController
-  before_filter :autehticante_avaliador!
+  before_filter :authenticate_avaliador!
   before_filter :current_avaliador
 
   def index
     unless current_avaliador.admin and avaliador_signed_in?
       redirect_to avalidores_index_url, :alert => t('messages.accessrestricted')
     else
-      @modalidades = Modalidades.all  
+      @modalidades = Modalidade.all  
     end  
   end
 
-  def show
-    unless current_avaliador.admin and avaliador_signed_in?
-      redirect_to avalidores_index_url, :alert => t('messages.accessrestricted')
-    else
-      @modalidade = Modalidades.find(params[:id])
-    end
-  end
+  # def show
+  #     @modalidade = Modalidade.find(params[:id])
+  # end
 
   def new
     unless current_avaliador.admin and avaliador_signed_in?
       redirect_to avalidores_index_url, :alert => t('messages.accessrestricted')
     else
-      @modalidade = Modalidades.new
+      @modalidade = Modalidade.new
     end
   end
 
@@ -31,23 +27,23 @@ class ModalidadesController < ApplicationController
     unless current_avaliador.admin and avaliador_signed_in?
       redirect_to avalidores_index_url, :alert => t('messages.accessrestricted')
     else
-      @modalidade = Modalidades.find(params[:id])  
+      @modalidade = Modalidade.find(params[:id])  
     end
   end
 
   def create
-    @modalidade = Modalidades.new(params[:modalidade])
+    @modalidade = Modalidade.new(params[:modalidade])
     if @modalidade.save
-      redirect_to modalidades_path, :notice => t('.successfully_created')
+      redirect_to modalidades_index_path, :notice => t('modalidades.create.successfully_created')
     else
       render :new
     end  
   end
 
   def update
-    @modalidade = Modalidades.find(params[:modalidade])
+    @modalidade = Modalidade.find(params[:modalidade])
     if @modalidade.update_attributes(params[:modalidade])
-      redirect_to modalidades_path, :notice => t('.successfully_updated')
+      redirect_to modalidades_index_path, :notice => t('modalidades.update.successfully_updated')
     else
       render :edit
     end
@@ -57,8 +53,8 @@ class ModalidadesController < ApplicationController
     unless current_avaliador.admin and avaliador_signed_in?
       redirect_to avalidores_index_url, :alert => t('messages.accessrestricted')
     else
-      @modalidade = Modalidades.find(params[:modalidade]).destroy
-      redirect_to modalidades_path, :notice => t('.successfully_destroyed')
+      @modalidade = Modalidade.find(params[:id]).destroy
+      redirect_to modalidades_index_path, :notice => t('modalidades.destroy.successfully_destroyed')
     end
   end
 end

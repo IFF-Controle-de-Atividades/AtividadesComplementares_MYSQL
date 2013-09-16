@@ -1,2 +1,9 @@
-<h1>Modalidades#index</h1>
-<p>Find me in app/views/modalidades/index.html.erb</p>
+<br /><br />
+<FIELDSET id="oldPage"><LEGEND >
+    <div id="FieldButton">
+        <%= link_to(I18n.t('modalidades.new.title'), new_modalidade_path, :class=>"buttonx") %>
+    </div></LEGEND><br />
+    <div class="atividades_table_container">
+      <%= render :partial=>"modalidades", :locals=>{:modalidades=>@modalidades} %>
+    </div>
+</FIELDSET> 

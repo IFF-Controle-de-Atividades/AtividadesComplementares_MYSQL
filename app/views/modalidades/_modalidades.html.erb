@@ -1,0 +1,22 @@
+<table id="home" class='avaliacoes' summary="Atividades">
+    <caption><%= t('activerecord.model.modalidade')%></caption>
+    <thead>
+       <tr>
+          <th><div id="homeleft"><%= t('activerecord.attributes.modalidade.title')%></div></th>
+          <% if avaliador_signed_in? and current_avaliador.admin %>
+            <th></th>
+            <th></th>
+          <%-end-%>
+        </tr>
+     </thead>
+
+     <tbody id="home">
+        <% @modalidades.each do |modalidade| %>
+          <tr>
+            <td><div id="homeleft"><%= modalidade.title %></div></td>
+            <td><center><%= link_to(t('links.edit'),edit_modalidade_path(modalidade)) %></center></td>
+            <td><center><%= link_to(t('links.destroy'), delete_modalidade_path(modalidade), :method => :delete, :confirm => t('messages.areyousure') ) %></center></td>
+          </tr>
+        <% end %>
+      </tbody>
+</table>

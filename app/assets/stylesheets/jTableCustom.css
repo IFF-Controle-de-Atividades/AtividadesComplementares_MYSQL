@@ -1,4 +1,7 @@
-
+div#homeleft{
+  margin-left: 30px;
+  text-align: left;
+}
 .pesquisar
 {
   background-color:#f2f2f2;

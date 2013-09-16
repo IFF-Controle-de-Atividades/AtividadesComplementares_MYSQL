@@ -1,19 +1,6 @@
 # --*-- coding:utf-8 --*--
 AtividadesComplementares::Application.routes.draw do
-  get "modalidades/index"
-
-  get "modalidades/show"
-
-  get "modalidades/new"
-
-  get "modalidades/edit"
-
-  get "modalidades/create"
-
-  get "modalidades/update"
-
-  get "modalidades/destroy"
-
+  
   LOCALES = /en|pt\-BR/
 
   # scope "(:locale)", :locale=>LOCALES do
@@ -21,6 +8,7 @@ AtividadesComplementares::Application.routes.draw do
     resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :myimage, :mypassword]
     resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage, :password,:changepassword]
     resources :atividades
+    resources :modalidades, :only => [:index, :new, :edit, :create, :update, :destroy]
 
     resources :avaliacoes,
               :only =>[
@@ -35,6 +23,14 @@ AtividadesComplementares::Application.routes.draw do
     devise_for :alunos,      :skip => [:sessions]
     devise_for :avaliadores, :skip => [:sessions]
   # end
+
+  as :modalidades do
+    get "modalidades/index" => "modalidades#index", :as => :modalidades_index
+    get "modalidades/new" => "modalidades#new", :as => :new_modalidade
+    get "modalidades/edit" => "modalidades#edit", :as => :edit_modalidade
+    get "modalidades/create" => "modalidades#create", :as => :create_modalidade
+    get "modalidades/update" => "modalidades#update", :as => :update_modalidade
+  end
 
   as :avaliacoes do
       put "avaliacoes/designar", :as=> :designar
@@ -99,6 +95,7 @@ AtividadesComplementares::Application.routes.draw do
   get "/total-atividadespdf" => "pdf_reports#total_atividades", :format => :pdf, :as=> :pdf_list_atividades
 
   match "/atividades/:id/delete", :controller => "atividades", :action => "destroy", :as => :excluir_atividade
+  match "/modalidades/:id/delete", :controller => "modalidades", :action => "destroy", :as => :delete_modalidade
 
   #get "/pdf_reports/menu"
   #get "/pdf_reports/avaliadores_report" => "pdf_reports#avaliadores_report", :format => :pdf

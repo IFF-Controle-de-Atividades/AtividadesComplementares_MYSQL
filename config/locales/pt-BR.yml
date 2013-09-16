@@ -1,6 +1,15 @@
 # encoding: UTF-8
 # pt-BR translations
 pt-BR:
+  modalidades:
+    new:
+      title: Nova Modalidade
+    update:
+      successfully_updated: Modalidade atualizada com sucesso
+    destroy:
+      successfully_destroyed: Modalidade apagada com sucesso
+    create:
+      successfully_created: Modalidade criada com sucesso
   atividades:
     new:
       title: Cadastro
@@ -95,7 +104,6 @@ pt-BR:
     activities_appointed: "Atividade(s) desiganada(s) para %{appraiser}"
     activitie_evaluated: "Atividade avaliada"
     not_hanking: "%{appraiser} não fez nenhuma avaliação"
-
   sessions:
     students:
       title: Crie uma conta
@@ -142,6 +150,7 @@ pt-BR:
         home: Página Inicial
         students: Alunos
         avaliators: Avaliadores
+        models: Modalidades
         pdf_reports: Relatórios em Pdf
     list_activities:
       evaluated: Avaliada
@@ -168,6 +177,7 @@ pt-BR:
       atividade: Atividades
       avaliador: Avaliadores
       aluno: Alunos
+      modalidade: Modalidades
     attributes:
       atividade:
         title: Título
@@ -202,3 +212,5 @@ pt-BR:
         email: E-mail
         password: Senha
         password_confirmation: Confirme sua senha
+      modalidade:
+        title: Descrição
