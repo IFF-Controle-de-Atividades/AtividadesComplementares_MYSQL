@@ -1,5 +1,19 @@
 # --*-- coding:utf-8 --*--
 AtividadesComplementares::Application.routes.draw do
+  get "modalidades/index"
+
+  get "modalidades/show"
+
+  get "modalidades/new"
+
+  get "modalidades/edit"
+
+  get "modalidades/create"
+
+  get "modalidades/update"
+
+  get "modalidades/destroy"
+
   LOCALES = /en|pt\-BR/
 
   # scope "(:locale)", :locale=>LOCALES do
