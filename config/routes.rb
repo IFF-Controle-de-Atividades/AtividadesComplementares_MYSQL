@@ -27,7 +27,7 @@ AtividadesComplementares::Application.routes.draw do
   as :modalidades do
     get "modalidades/index" => "modalidades#index", :as => :modalidades_index
     get "modalidades/new" => "modalidades#new", :as => :new_modalidade
-    get "modalidades/edit" => "modalidades#edit", :as => :edit_modalidade
+    get "modalidades/edit/:id" => "modalidades#edit", :as => :edit_modalidade
     get "modalidades/create" => "modalidades#create", :as => :create_modalidade
     get "modalidades/update" => "modalidades#update", :as => :update_modalidade
   end

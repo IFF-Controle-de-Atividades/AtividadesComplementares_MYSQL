@@ -41,7 +41,7 @@ class ModalidadesController < ApplicationController
   end
 
   def update
-    @modalidade = Modalidade.find(params[:modalidade])
+    @modalidade = Modalidade.find(params[:id])
     if @modalidade.update_attributes(params[:modalidade])
       redirect_to modalidades_index_path, :notice => t('modalidades.update.successfully_updated')
     else
