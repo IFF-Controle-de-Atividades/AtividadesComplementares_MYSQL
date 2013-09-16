@@ -6,7 +6,15 @@ AtividadesComplementares::Application.routes.draw do
   # scope "(:locale)", :locale=>LOCALES do
     resources :pdf_reports, only: [:atividadealuno, :alunos_pdf, :avaliadores_pdf, :total_atividades]
     resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :myimage, :mypassword]
+    
     resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage, :password,:changepassword]
+
+    # resource :aluno, only: [:show] do
+    #   collection do
+    #     patch 'changepassword'
+    #   end
+    # end
+    
     resources :atividades
     resources :modalidades, :only => [:index, :new, :edit, :create, :update, :destroy]
 
@@ -53,7 +61,8 @@ AtividadesComplementares::Application.routes.draw do
      get "/aluno/home/" => "alunos#index", :as => :aluno_index
      get "/listadeatividades" => "alunos#atividades", :as => :listadeatividades
      
-     get "/alterarsenha/:id"=> "alunos#password", :as => :password
+     match "/alterarsenha/mypassword/:id/",:controller => "alunos", :action=>"password", :as => :password
+     match "/alterarsenha/mypassword/:id/changepassword",:controller => "alunos", :action=>"changepassword", :as => :change_password_aluno
 
      match "/imagemdoperfil/:id/profileimage",:controller => "alunos", :action=>"profileimage", :as => :profile_image
      match "/imagemdoperfil/:id/salvarimagem",:controller => "alunos", :action=>"reloadimageprofile", :as => :get_image

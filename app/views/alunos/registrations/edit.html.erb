@@ -46,6 +46,20 @@
             <%= l.text_field :periodo %> 
     </div>
 
+    <%= l.label :password %><br />
+    <i id="blue" class="small"><%= t('alunos.changepassword.edit') %></i><BR />
+    <div class="field">
+        <%= l.password_field :password %>
+        <%= error_tag @aluno, :password %>
+    </div>
+
+    <%= l.label :password_confirmation %><br />
+    <div class="field">
+      <%= l.label :password_confirmation %><br />
+      <%= l.password_field :password_confirmation %>
+      <%= error_tag @aluno, :password_confirmation %>
+    </div>
+
     <%= l.label :current_password %><i id="red">*</i>
     <div class="field">
         <%= l.password_field :current_password %>

@@ -32,9 +32,17 @@ class AlunosController < ApplicationController
   end
 
   def changepassword
-    @aluno = current_aluno
-    if @aluno.update_attributes(params[:password])
+    @aluno = Aluno.find(current_aluno.id)
+    if @aluno.update_attributes(user_params)
+        sign_in @aluno, :bypass => true
         redirect_to aluno_index_path, :notice => t('alunos.changepassword.password_updated')
     end 
   end
+
+  private
+
+    def user_params
+      # NOTE: Using 'strong_parameters' gem
+      params.require(:aluno).permit(:password, :password_confirmation)
+    end
 end

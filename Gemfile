@@ -10,6 +10,7 @@ gem 'bson_ext'
 gem 'rack-raw-upload', '1.1.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'strong_parameters'
 
 group :development, :test do
 	gem 'mysql2'
