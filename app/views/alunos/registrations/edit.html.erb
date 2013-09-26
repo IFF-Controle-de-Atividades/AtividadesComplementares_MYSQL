@@ -1,86 +1,98 @@
-<%  cursos = ['BSI - Sistemas de Informação'] %>
+<% cursos = ['BSI - Sistemas de Informação'] %>
 
-<BR />
+<strong>
+  <p>
+    <font size="5" color="red">*</font>
+    <label>
+      &nbsp <%= t('form_messages.requiredfields')%>
+    </label>
+  </p>
+</strong>
+<% if resource.errors.any? %>
+  <div id="error_explanation" class="alert">
+      <%= t 'general.form_error' %>
+  </div>
+<% end %>
+<FIELDSET><LEGEND><h2><label><%= t('sessions.students.profileEdit')%></label></h2></LEGEND>
 
-<strong><p><font size="9" color="red">*</font><label>&nbsp<%= t 'form_messages.requiredfields' %></strong></label></p>
-<FIELDSET><LEGEND><h2><label></label></h2></LEGEND>
-<DIV id="localization">
+<DIV>
+  <div class="delete_sidebar round">
+    <%= button_to t('links.destroy'), registration_path(resource_name), :data => { :confirm => t('messages.areyousure') }, :method => :delete, :class=>"botaoAzul"%>
+  </div>
+</DIV>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:multipart => true}) do |l| %>
     
-    <% if resource.errors.any? %>
-        <div id="error_explanation">
-            <%= t 'general.form_error' %>
-        </div>
-    <% end %>
+    <DIV id="profileEdit" />
+      <%= l.label :nome %><i id="red">*</i><BR />
+      <div class="session">
+        <%= l.text_field :nome %>
+        <%= error_tag @aluno, :nome %>
+      </div>
 
-    <%= l.label :nome %><i id="red">*</i><BR />
-    <div class="session">
-      <%= l.text_field :nome %>
-      <%= error_tag @aluno, :nome %>
-    </div>
+      <div class="field">
+          <%= l.label :sexo %>
+          <DIV class="radio_component">
+                <%= l.radio_button :sexo, t('labels._masc') %>
+                <label id="ident">&nbsp<%= t('labels._masc') %></label>
+                <%= l.radio_button :sexo, t('labels._feme') %>
+                <label id="ident">&nbsp<%= t('labels._feme') %></label>
+                <%= error_tag @aluno, :sexo %>
+          </DIV>
+      </div>
 
-    <div class="field">
-        <%= l.label :sexo %>
-        <DIV class="radio_component">
-              <%= l.radio_button :sexo, t('labels._masc') %>
-              <label id="ident">&nbsp<%= t('labels._masc') %></label>
-              <%= l.radio_button :sexo, t('labels._feme') %>
-              <label id="ident">&nbsp<%= t('labels._feme') %></label>
-              <%= error_tag @aluno, :sexo %>
-        </DIV>
-    </div>
+      <%= l.label :matricula %><i id="red">*</i>
+      <div class="session">
+            <%= l.text_field :matricula %>
+            <%= error_tag @aluno, :matricula %>
+      </div>
 
-    <%= l.label :matricula %><i id="red">*</i>
-    <div class="session">
-          <%= l.text_field :matricula %>
-          <%= error_tag @aluno, :matricula %>
-    </div>
+      <div class="field">
+         <%= l.label :curso %><BR />
+         <%= l.select :curso, options_for_select(cursos) %> 
+      </div>
 
-    <div class="field">
-       <%= l.label :curso %><BR />
-       <%= l.text_field :curso %> 
-    </div>
+      <div class="field">
+         <%= l.label :periodo, :id=>"aperiodo"%><BR />
+         <%= l.text_field :periodo %>
+      </div>
 
-    <div class="field">
-       <%= l.label :periodo, :id=>"aperiodo"%><BR />
-            <%= l.text_field :periodo %> 
-    </div>
+      <%= l.label :email %><i id="red">*</i>
+      <div class="session">
+          <%= l.email_field :email %>
+          <%= error_tag @aluno, :email %>
+      </div>
 
-    <%= l.label :password %><br />
-    <i id="blue" class="small"><%= t('alunos.changepassword.edit') %></i><BR />
-    <div class="field">
-        <%= l.password_field :password %>
-        <%= error_tag @aluno, :password %>
-    </div>
+      <%= l.label :password %><i id="red">*</i>
+      <div class="session">
+          <%= l.password_field :password %>
+          <%= error_tag @aluno, :password %>
+      </div>
 
-    <%= l.label :password_confirmation %><br />
-    <div class="field">
-      <%= l.label :password_confirmation %><br />
-      <%= l.password_field :password_confirmation %>
-      <%= error_tag @aluno, :password_confirmation %>
-    </div>
+      <%= l.label :password_confirmation %><i id="red">*</i>
+      <div class="field">
+          <%= l.password_field :password_confirmation %>
+          <%= error_tag @aluno, :password_confirmation %>
+      </div>
 
-    <%= l.label :current_password %><i id="red">*</i>
-    <div class="field">
-        <%= l.password_field :current_password %>
-        <%= error_tag @aluno, :current_password %>
-    </div>
-    <br>
-    <br></FIELDSET>
+      <%= l.label :current_password %><i id="red">*</i>
+      <div class="field">
+          <%= l.password_field :current_password %>
+          <%= error_tag @aluno, :current_password %>
+      </div>
+      <br>
+      </FIELDSET>
 
-    <div class="botao_left">
-        <span class="luz"><%= l.submit "Enviar", :class=>"botao", :id=>'id_botao' %></span>
-    </div>
+      <div class="botao_left">
+          <span class="luz"><%= l.submit "Enviar", :class=>"botaoVerde", :id=>'id_botao' %></span>
+      </div>
 
-    <div class="botao_left">
-      <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
-    </div>
-<% end %>
+      <div class="botao_left">
+          <%= link_to t('links.back'), root_path, :class=>"botaoVerde", :id=>'id_botao' %>
+      </div>
 
-<DIV class="alert">
-  <DIV id="cancelaccount"><%= t('registration.cancel_account') %></DIV>
-    <DIV><%=  t('registration.unhappy')%> 
-      
-      <%= button_to t('links.destroy'), registration_path(resource_name), :data => { :confirm => t('messages.areyousure') }, :method => :delete %>
-    </DIV>
-</DIV>
+
+<%- end -%>
+
+
+

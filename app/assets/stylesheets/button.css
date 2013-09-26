@@ -3,65 +3,6 @@
   @group buttons
 */
 
-a.i2Style
-{
-  font:bold 24px Tahoma, Geneva, sans-serif;
-  font-style:normal;
-  color:#ffffff;
-  background:#d63511;
-  border:0px solid #ffffff;
-  text-shadow:0px 2px 5px #222222;
-  box-shadow:2px 2px 5px #000000;
-  -moz-box-shadow:2px 2px 5px #000000;
-  -webkit-box-shadow:2px 2px 5px #000000;
-  border-radius:10px 10px 10px 10px;
-  -moz-border-radius:10px 10px 10px 10px;
-  -webkit-border-radius:10px 10px 10px 10px;
-  padding: 15px 15px 15px;
-}
-a.i2Style:active
-{
-  cursor:pointer;
-  position:relative;
-  top:2px;
-}
-legend.i2Style {margin-left: -25px;}
-
-/* container da tabelas em volta dos botoes */
-div.atividades_table_container{margin-left: -5px; width: 250px; position: relative; left: -19px;}
-
-/*
-* Botao em forma de aba
-*/
-
-a.i2TableButtonStyle
-{
-    font:bold 15px Verdana, Geneva, sans-serif;
-    font-style:normal;
-    color:#ffffff;
-    background:#ff9500;
-    border:2px none #42f9ff;
-    text-shadow:0px 0px 8px #0a0a0a;
-    box-shadow:0px -1px 11px #000000;
-    -moz-box-shadow:0px -1px 11px #000000;
-    -webkit-box-shadow:0px -1px 11px #000000;
-    border-radius:30px 30px 5px 5px;
-    -moz-border-radius:30px 30px 5px 5px;
-    -webkit-border-radius:30px 30px 5px 5px;
-    width:78px;
-    padding:11px 56px;
-    cursor:pointer;
-    margin:0 auto;
-}
-a.i2TableButtonStyle:active
-{
-    cursor:pointer;
-    position:relative;
-    top:2px;
-}
-legend.i2TableButton {margin-left: -25px; margin-top:-4%;}
-
-
 /**
 *
 *
@@ -339,3 +280,51 @@ a.button:hover
     top:1px;
 }
 /*Fim do botão retangular verde */
+
+
+/* Botao Azul retangular */
+.botaoAzul {
+    -moz-box-shadow:inset 0px 1px 0px 0px #b8dcf2;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #b8dcf2;
+    box-shadow:inset 0px 1px 0px 0px #b8dcf2;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c1e2f7), color-stop(1, #adcae3) );
+    background:-moz-linear-gradient( center top, #c1e2f7 5%, #adcae3 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c1e2f7', endColorstr='#adcae3');
+    background-color:#c1e2f7;
+    -webkit-border-top-left-radius:0px;
+    -moz-border-radius-topleft:0px;
+    border-top-left-radius:0px;
+    -webkit-border-top-right-radius:0px;
+    -moz-border-radius-topright:0px;
+    border-top-right-radius:0px;
+    -webkit-border-bottom-right-radius:0px;
+    -moz-border-radius-bottomright:0px;
+    border-bottom-right-radius:0px;
+    -webkit-border-bottom-left-radius:0px;
+    -moz-border-radius-bottomleft:0px;
+    border-bottom-left-radius:0px;
+    text-indent:0;
+    border:1px solid #d2e1f5;
+    display:inline-block;
+    color:#14396a;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    font-style:normal;
+    height:51px;
+    line-height:51px;
+    width:131px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #7cacde;
+}
+.botaoAzul:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #adcae3), color-stop(1, #c1e2f7) );
+    background:-moz-linear-gradient( center top, #adcae3 5%, #c1e2f7 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#adcae3', endColorstr='#c1e2f7');
+    background-color:#adcae3;
+}.botaoAzul:active {
+    position:relative;
+    top:1px;
+}
+/* Fim do botao azul */

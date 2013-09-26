@@ -114,6 +114,7 @@ pt-BR:
                  inserir suas atividades.
       registration: Cadastre-se aqui
       signin: Entrar
+      profileEdit: Edite aqui seu perfil
   registration:
     unhappy: Não está contente
     cancel_account: Cancelar conta
@@ -121,7 +122,7 @@ pt-BR:
     back: Voltar 
     edit: Editar
     show: Exibir
-    destroy: Apagar
+    destroy: Apagar conta
     status: Editar Status
     forgotten_your_password: Esqueceu sua senha
     send: Enviar
@@ -213,5 +214,6 @@ pt-BR:
         email: E-mail
         password: Senha
         password_confirmation: Confirme sua senha
+        current_password: Senha atual
       modalidade:
         title: Descrição

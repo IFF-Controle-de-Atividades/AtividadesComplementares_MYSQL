@@ -666,12 +666,26 @@ div.atividades_table tfoot tr td {text-align: right;}
 #av_email_text_editor{margin-left: 1.9%;}
 #av_pass_text_editor{margin-left: 2.6%;}
 
+.delete_sidebar {
+  padding: 1em;
+  margin-left: 1em auto;
+  width: 130px;
+  background-color: #ffc;
+}
+
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
+
+div.delete_sidebar{
+  margin-top: -30px;
+  margin-left: 915px;
+}
 
 
+div #profileEdit{
 
-
-
-
-
-
-
+  margin-top: -97px;
+}

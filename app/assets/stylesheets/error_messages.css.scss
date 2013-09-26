@@ -104,10 +104,16 @@ form {
 
 .notice 
 {
+	
 	background:#fff6bf;
 	color:#514721;
+	text-align: center;
+	text-ident: 30px;
 	border-color:#ffd324;
+	
 }
+
+div.notice{ position: relative; left: -50px;}
 
 .success 
 {
