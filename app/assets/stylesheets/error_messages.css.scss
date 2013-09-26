@@ -15,10 +15,9 @@ form {
 		margin: 5px 0;
 		color: #444;
 	}
-	input[type=text], input[type=password], textarea {
+	input[type=text], input[type=email],  input[type=password], textarea {
 		color: #444;
 		font-size: 12px;
-		border: 1px solid #ccc;
 		padding: 5px;
 		width: 200px;
 		outline: 0;
@@ -33,12 +32,12 @@ form {
 
 .field_with_errors {
 	padding: 2px; 
-	background-color: #f5f5f5; 
+	background-color: #fff; 
 	display: inline; 
 	label { color: $error-text-color; }
-	input[type=text], input[type=password], textarea {
+	input[type=text], , input[type=email], input[type=password], textarea {
 		border: 2px solid rgba(189,74,72, 0.5);
-		@include shadow(rgba(189,74,72, 0.2), 0px, 0px, 8px);
+		@include shadow(rgba(255,84,72, 0.2), 0px, 0px, 8px);
 		&:focus { border: 1px solid rgba(189,74,72, 0.6); }
 	}
 }
@@ -67,7 +66,7 @@ form {
 	color: $success-text-color;
 	border: 1px solid $success-text-color;
 	@extend .padded_flash;
-	background: #DFF0D8 url(../images/tick.png) no-repeat 5px center;; 
+	background: #DFF0D8 url(../images/tick.png) no-repeat 5px center;
 	margin: 10px 0;
 	text-align: center;
 }
@@ -82,3 +81,43 @@ form {
 }
 
 #cancelaccount { margin-left: 42%;}
+
+
+.error, .alert, .notice, .success, .info 
+{
+	padding:0.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+}
+
+.error, .alert 
+{
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  line-height:30px; 
+  text-indent: 50px;
+  background:#fbe3e4 url('../images/error.png') no-repeat 15px center;
+  color:#8a1f11;
+  border-color:#fbc2c4;
+}
+
+.notice 
+{
+	background:#fff6bf;
+	color:#514721;
+	border-color:#ffd324;
+}
+
+.success 
+{
+	background:#e6efc2;
+	color:#264409;
+	border-color:#c6d880;
+}
+
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}

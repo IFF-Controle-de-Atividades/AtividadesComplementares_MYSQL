@@ -289,3 +289,53 @@ a.button:hover
     background:#228B22;
     border:2px solid #2e3436;
 }
+
+
+
+/* Botão retangular Verde */
+.botaoVerde {
+    -moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+    box-shadow:inset 0px 1px 0px 0px #caefab;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4bd932), color-stop(1, #52b83b) );
+    background:-moz-linear-gradient( center top, #4bd932 5%, #52b83b 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4bd932', endColorstr='#52b83b');
+    background-color:#4bd932;
+    -webkit-border-top-left-radius:20px;
+    -moz-border-radius-topleft:20px;
+    border-top-left-radius:20px;
+    -webkit-border-top-right-radius:20px;
+    -moz-border-radius-topright:20px;
+    border-top-right-radius:20px;
+    -webkit-border-bottom-right-radius:20px;
+    -moz-border-radius-bottomright:20px;
+    border-bottom-right-radius:20px;
+    -webkit-border-bottom-left-radius:20px;
+    -moz-border-radius-bottomleft:20px;
+    border-bottom-left-radius:20px;
+    text-indent:0;
+    border:1px solid #268a16;
+    display:inline-block;
+    color:#eaf5e2;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    font-style:normal;
+    height:56px;
+    line-height:56px;
+    width:131px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #aade7c;
+}
+.botaoVerde:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #52b83b), color-stop(1, #4bd932) );
+    background:-moz-linear-gradient( center top, #52b83b 5%, #4bd932 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#52b83b', endColorstr='#4bd932');
+    background-color:#52b83b;
+    color: black;
+}.botaoVerde:active {
+    position:relative;
+    top:1px;
+}
+/*Fim do botão retangular verde */

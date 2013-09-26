@@ -8,15 +8,15 @@
     </label>
   </p>
 </strong>
-<FIELDSET><LEGEND><h2><label>Cadastrar-se</label></h2></LEGEND>
-<DIV id="localization">
+<% if resource.errors.any? %>
+  <div id="error_explanation" class="alert">
+      <%= t 'general.form_error' %>
+  </div>
+<% end %>
+<FIELDSET><LEGEND><h2><label><%= t('sessions.students.registration')%></label></h2></LEGEND>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:multipart => true}) do |l| %>
     
-    <% if resource.errors.any? %>
-        <div id="error_explanation">
-            <%= t 'general.form_error' %>
-        </div>
-    <% end %>
+    
 
     <%= l.label :nome %><i id="red">*</i><BR />
     <div class="session">
@@ -74,10 +74,10 @@
     <br></FIELDSET>
 
     <div class="botao_left">
-        <span class="luz"><%= l.submit "Enviar", :class=>"botao", :id=>'id_botao' %></span>
+        <span class="luz"><%= l.submit "Enviar", :class=>"botaoVerde", :id=>'id_botao' %></span>
     </div>
 
     <div class="botao_left">
-        <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+        <%= link_to t('links.back'), root_path, :class=>"botaoVerde", :id=>'id_botao' %>
     </div>
 <%- end -%>

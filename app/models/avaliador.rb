@@ -12,7 +12,7 @@ class Avaliador < ActiveRecord::Base
   # attr_accessible :title, :body
   #attr_accessor :current_password
   
-  validates_presence_of :nome, :sexo, :titulacao, :matricula
+  validates_presence_of :nome, :sexo, :titulacao
 
   validates_length_of   :nome, :in => 10..30, :allow_blank => false
   validates_length_of   :titulacao, :in => 10..30, :allow_blank => true

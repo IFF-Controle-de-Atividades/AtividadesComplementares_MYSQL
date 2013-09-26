@@ -94,19 +94,26 @@ class AvaliadoresController < ApplicationController
 
   ################# Métodos para alterar a senha ##################
 
-    def mypassword
-      @avaliador = Avaliador.find(params[:id])
-    end
+    # def mypassword
+    #   @avaliador = current_avaliador
+    # end
 
-    def updatepassword
-      @avaliador = Avaliador.find(params[:id])
-      if @avaliador.update_attributes(params[:password])
-        redirect_to avaliadores_index_path, :notice => t('avaliadores.notifications.password_successfully_updated', :user_name=> @avaliador.nome)
-      else
-        render action: :mypassword
-      end
-    end
+    # def updatepassword
+    #   @avaliador = Avaliador.find(current_avaliador.id)
+    #   if @avaliador.update_attributes(user_params)
+    #     sign_in @avaliador, :bypass => true
+    #     redirect_to avaliadores_index_path, :notice => t('avaliadores.notifications.password_successfully_updated', :user_name=> @avaliador.nome)
+    #   else
+    #     render action: :mypassword
+    #   end
+    # end
 
   #################################################################
 
+  # private
+
+  #   def user_params
+  #     # NOTE: Using 'strong_parameters' gem
+  #     params.require(:avaliador).permit(:password, :password_confirmation)
+  #   end
 end
