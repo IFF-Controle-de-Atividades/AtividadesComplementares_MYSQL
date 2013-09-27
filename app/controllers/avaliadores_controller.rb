@@ -54,7 +54,11 @@ class AvaliadoresController < ApplicationController
     end
 
     def total_alunos
-      @alunos = Aluno.paginate(:page => params[:page], :per_page=>10)
+      if @alunos.nil?
+        redirect_to avaliadores_index_path, :alert => I18n.t('messages.without_students')
+      else
+        @alunos = Aluno.paginate(:page => params[:page], :per_page=>10)
+      end
     end
 
     def total_avaliadores

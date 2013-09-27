@@ -1,5 +1,9 @@
 <% if @alunos.empty? %>
-	<%= redirect_to avaliadores_index_path, :notice => t('messages.without_students') %>
+	<div  height='150px'>
+    <div id="alert">
+      <%= t('messages.without_students') %>
+    </div>
+  </div> 
 <% else %>
 	<div><%= render :partial=>"alunos", :locals=>{:alunos=>@alunos}%></div>
 <% end %>
