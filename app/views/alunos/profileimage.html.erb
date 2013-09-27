@@ -2,12 +2,14 @@
     <LEGEND><H1><label><%= t('.Edit') %></label></H1></LEGEND>
 <DIV id="localization">
 
+<% if @aluno.errors.any? %>
+  <div id="error_explanation">
+    <%= t 'general.form_error' %>
+  </div>
+<% end %>
+
 <%= form_for(@aluno, :url=>{:action=>'reloadimageprofile'}, :html => { :multipart => true }) do |l| %>
-     <% if @aluno.errors.any? %>
-        <div id="error_explanation">
-          <%= t 'general.form_error' %>
-        </div>
-    <% end %>
+     
 
     <div class="field">
        <b><%= l.label t('.changeImage') %></b>

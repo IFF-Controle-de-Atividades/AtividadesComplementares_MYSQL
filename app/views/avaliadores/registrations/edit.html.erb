@@ -9,18 +9,18 @@
   </p>
 </strong>
 
+<% if resource.errors.any? %>
+    <div id="error_explanation" class="alert">
+      <%= t 'general.form_error' %>
+    </div>
+  <% end %>
+
 <FIELDSET>
     <LEGEND>
     <h2><%= label_tag I18n.t('avaliadores.edit.profile', :name=> @user) %></h2>
     </LEGEND>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  
-  <% if resource.errors.any? %>
-    <div id="error_explanation">
-      <%= t 'general.form_error' %>
-    </div>
-  <% end %>
 
   <div class="session">
     <%= f.label :nome %><br />
@@ -70,28 +70,27 @@
       <%= error_tag(@avaliador, :password)%>
   </div>
 
+  <%= f.label :password_confirmation %>
   <div class="session">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, :placeholder => t('form_messages.password') %>
-      <%= error_tag(@avaliador, :password_confirmation)%>
-  </div><BR />
+    <%= f.password_field :password_confirmation, :placeholder => t('form_messages.password') %>
+     <%= error_tag(@avaliador, :password_confirmation)%>
+  </div>
 
+  <%= f.label :current_password %>
   <div class="session">
-      <%= f.label :current_password %>
-      <!-- <i id="blue" class="small"><%= t('form_messages.current_password') %></i><br />  -->
       <%= f.password_field :current_password %>
       <%= error_tag(@avaliador, :current_password)%>
-  </div>
+  </div><BR />
 
 
 
 </FIELDSET>  
 <div class="botao_left">
   <span class="luz">
-    <%= f.submit t('links.send'), :class=>"botao", :id=>'id_botao' %>
+    <%= f.submit t('links.send'), :class=>"botaoVerde", :id=>'id_botao' %>
   </span>
 </div>
 <div class="botao_left">
-    <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+    <%= link_to t('links.back'), avaliadores_index_path, :class=>"botaoVerde", :id=>'id_botao' %>
 </div>
 <% end %>

@@ -30,7 +30,7 @@ def inserir_modalidades
 end
 
 def inserindo_administrador
- 	Avaliador.create(nome: 'Administrador', sexo: 'Masculino', titulacao: 'Alterar sua titulação', email: 'admin@admin.com', password: 'admin', admin: 1, status: 1)
+ 	Avaliador.create(nome: 'Administrador', sexo: 'Masculino', titulacao: 'Alterar sua titulação', matricula: 'Altere depois' ,email: 'admin@admin.com', password: 'admin', admin: 1, status: 1)
 end	
 
 print "\n\n######################################################################################\n"

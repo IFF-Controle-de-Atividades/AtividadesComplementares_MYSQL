@@ -15,7 +15,7 @@
           <tr>
             <td><div id="homeleft"><%= modalidade.title %></div></td>
             <td><center><%= link_to(t('links.edit'),edit_modalidade_path(modalidade.id)) %></center></td>
-            <td><center><%= link_to(t('links.destroy'), delete_modalidade_path(modalidade), :method => :delete, :confirm => t('messages.areyousure') ) %></center></td>
+            <td><center><%= link_to(t('links.destroyModel'), delete_modalidade_path(modalidade), :method => :delete, :confirm => t('messages.areyousure') ) %></center></td>
           </tr>
         <% end %>
       </tbody>
