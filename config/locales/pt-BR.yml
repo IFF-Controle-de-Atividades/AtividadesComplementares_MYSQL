@@ -114,8 +114,13 @@ pt-BR:
                  você deve antes se registrar para então poder
                  inserir suas atividades.
       registration: Cadastre-se aqui
-      signin: Entrar
       profileEdit: Edite aqui seu perfil
+    passwordChange: |
+                      Instruções serão enviadas,
+                      para seu email, para renovação 
+                      da senha.
+    signin: Entrar
+    sendinformation: Enviar informações para alteração de senha
   registration:
     unhappy: Não está contente
     cancel_account: Cancelar conta

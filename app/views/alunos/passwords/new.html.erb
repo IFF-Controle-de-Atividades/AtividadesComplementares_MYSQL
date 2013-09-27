@@ -1,12 +1,24 @@
-<h2>Forgot your password?</h2>
+<FIELDSET><LEGEND><h2 id="signin"><label><%= t('sessions.sendinformation') %></h2></label></LEGEND>
+<div id="sbar">
+  <div class="attention">
+	<p id="passwordchange"><%= t('sessions.passwordChange') %></p>
+  </div>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<SECTION class="passwordChange">
+	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.submit "Send me reset password instructions" %></div>
+  <div class="session">
+			   <%= f.label :email %>
+			   <%= f.email_field :email, :autofocus => true %>
+	</div>
+	<br /><br /></FIELDSET>
+  <div class="botao_left">
+		<%= f.submit t('links.send'), :class=>"botaoVerde", :id=>'id_botao' %>
+	</div>
+	<div class="botao_left">
+	  <%= link_to t('links.back'), new_aluno_session_path, :class=>"botaoVerde", :id=>'id_botao' %>
+	</div>
 <% end %>
-
-<%= render "alunos/shared/links" %>
+</SECTION>
