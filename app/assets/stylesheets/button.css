@@ -126,7 +126,7 @@ a.botao:hover
     margin-left: 50px;
 }
 
-.botao_left{float:left;}
+.botao_left{float:left; margin-left: 9px;}
 
 
 /*******/

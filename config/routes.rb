@@ -7,7 +7,7 @@ AtividadesComplementares::Application.routes.draw do
     resources :pdf_reports, only: [:atividadealuno, :alunos_pdf, :avaliadores_pdf, :total_atividades]
     resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :myimage, :mypassword]
     
-    resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage]
+    resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage, :password, :changepassword]
 
     # resource :aluno, only: [:show] do
     #   collection do

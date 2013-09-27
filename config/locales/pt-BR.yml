@@ -65,9 +65,10 @@ pt-BR:
       changepassword: Mude sua senha aqui
     changeimage:
       image_updated: Sua imagem de perfil foi atualizada
-    changepassword:
+    password:
       edit: Altere sua senha
       password_updated: Sua senha foi atualizada
+      leave_if_you_dont_wanna_change: Deixe em branco se não quiser alterar!
     menu:
       links:
         activities: Minhas atividades
