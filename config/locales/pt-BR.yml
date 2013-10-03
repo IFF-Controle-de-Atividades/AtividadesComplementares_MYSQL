@@ -130,6 +130,7 @@ pt-BR:
     show: Exibir
     destroy: Apagar conta
     destroyModel: Apagar modalidade
+    destroyActivitie: Excluir
     status: Editar Status
     forgotten_your_password: Esqueceu sua senha
     send: Enviar
