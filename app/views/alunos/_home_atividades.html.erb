@@ -9,7 +9,7 @@
 	<thead >
             <tr>
                 <th>Nome</th>
-		<th>Carga horária</th>
+		<th>CH</th>
 		<th>Anexar Comprovante</th>
 		<th>Ver Comprovante</th>
 		<th>Excluir</th>
@@ -19,7 +19,7 @@
 		<% for atividade in atividades %>
 		<tr id="home">
                     <td id="td1"><center><%= atividade.title %></center></td>
-                    <% if atividade.horasganhas.nil? %>
+                    <% if atividade.horas_aceitas.nil? %>
                         <td id="td1"><center><%= t('alunos.atividades.notEvaluated')%></center></td>
                     <% else %>
                         <td id="td1"><center><%= atividade.horas_aceitas %></center></td>
