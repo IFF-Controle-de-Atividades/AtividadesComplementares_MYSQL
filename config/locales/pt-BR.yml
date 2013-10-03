@@ -25,6 +25,7 @@ pt-BR:
       edit: Editar
       modalidade: Modalidade
       horasganhas: Horas
+      noexplanation: Sem Justificativa
   avaliadores:
     index:
       logout: Sair

@@ -22,6 +22,18 @@
 
 ----------------------------------------------------------------------- */
 
+@font-face 
+{
+    font-family: TechFont;
+    src: url(TechFont.ttf);
+}
+
+@font-face 
+{
+    font-family: proFont;
+    src: url(Cowboy_Hippie_Pro.otf);
+}
+
 /* INTERFACE.css */
 html { margin: 0 0 1px 0; padding: 0; font: inherit; vertical-align: baseline; }
 body 
@@ -73,19 +85,16 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%; }
   border-bottom: 6px solid #FF6347;
 }
 
-.header h1 div.headername {
+.header div.headername {
+  font-size:90px; 
+  text-align:center; 
   color: #fff;
-  text-decoration: none;
-  font-weight: normal;
-  font-size: 50px;
-  position:relative;
-  top: -70px;
-  margin-left: 25%;
+  margin-top:-102px;
+  margin-left:170px;
 }
 
 .header div#imagelogo{ position: relative; top: 10%;}
-.header div#info{font-size:70px; text-align:center; color: #fff;margin-top:-70px;
-                 margin-left:270px; font-family: "Ubuntu Condensed" }
+.header div#info{}
 .header h1 { line-height: 240%; margin-left: 21px; padding-top: 30px; }
 .header h1 a:hover { color: #f7f7f7; }
 .header .signin { position: absolute; right: 18px; top: 10px; display: block; color: #fff; font-size: 17px; }
@@ -475,7 +484,7 @@ a.stylish{color:#fff;}
   border-radius:         20px;
 }
 
-div #facemenu ul { margin: 0; padding: 0; list-style: none; width: 170px; }
+div #facemenu ul { margin: 0; padding: 0; list-style: none; width: 150px; }
 
 div #facemenu ul li { position: relative;}
 
@@ -488,7 +497,6 @@ div #facemenu ul li a {
     padding: 5px;
     border: 1px solid #ccc;
     border-bottom: 0;
-    font-size: 16px;
     background: #fff;
     text-align:center;
 }
@@ -507,7 +515,7 @@ div #facemenu ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    width: 160px;
+    width: 150px;
     border-bottom: 1px solid #ccc;
 }
 

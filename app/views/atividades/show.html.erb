@@ -1,8 +1,10 @@
 <div id="notice">
   <% if @atividade.justificativa.nil? %>
   	<%= t('atividades.show.noexplanation') %>
-  <%= t('activerecord.attributes.atividade.explanation') %><BR />
-  <%= @atividade.justificativa %>
+  <% else %>
+  	<%= t('activerecord.attributes.atividade.explanation') %><BR />
+  	<%= @atividade.justificativa %>
+  <% end %>
 </div><BR />
 
 <%= render :partial=>'alunos/listar_atividades', :locals=>{:atividades=>current_aluno.atividades.paginate(:page => params[:page], :per_page=>10)}  %>
