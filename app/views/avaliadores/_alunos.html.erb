@@ -4,7 +4,7 @@
     <th id="nav">    
       <div class="wp-caption wrap">
         <center>
-          <%= image_tag(aluno.image) %>
+          <%= image_tag aluno.image.url, :width=> 200, :height => 140 %>
           <p class="wp-caption-text">
             <% if avaliador_signed_in? and current_avaliador.admin %>
               <%= link_to aluno.nome, listagem_de_atividades_do_aluno_x_path(aluno.id),:id =>aluno %>

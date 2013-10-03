@@ -1,13 +1,14 @@
+<% if @avaliador.errors.any? %>
+  <div id="error_explanation">
+    <%= t 'general.form_error' %>
+  </div>
+<% end %>
 <FIELDSET>
     <LEGEND><H1><label><%= t('.Edit') %></label></H1></LEGEND>
 <DIV id="localization">
 
 <%= form_for(@avaliador, :url=>{:action=>'reload'}, :html => { :multipart => true }) do |l| %>
-     <% if @avaliador.errors.any? %>
-        <div id="error_explanation">
-          <%= t 'general.form_error' %>
-        </div>
-    <% end %>
+     
 
     <div class="field">
        <b><%= l.label t('.changeImage') %></b>

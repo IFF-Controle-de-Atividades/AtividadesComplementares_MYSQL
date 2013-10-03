@@ -10,16 +10,17 @@
     </label>
   </p>
 </strong>
+<% if @atividade.errors.any? %>
+  <div id="error_explanation">
+    <%= t 'general.form_error' %>
+  </div>
+<% end %>
 <FIELDSET>
    <LEGEND>
       <label><%= t 'atividades.new.title'%></label>
     </LEGEND>
   <%= form_for(@atividade) do |f| %>
-    <% if @atividade.errors.any? %>
-      <div id="error_explanation">
-        <%= t 'general.form_error' %>
-      </div>
-    <% end %>
+    
     <div class="field">
           <%= f.hidden_field :aluno_id, :readonly => "true", :value => @aluno.id %>
     </div>

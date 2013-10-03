@@ -14,14 +14,15 @@
     </label>
   </p>
 </strong>
+<% if @atividade.errors.any? %>
+  <div id="error_explanation">
+      <%= t 'general.form_error' %>
+  </div>
+<% end %>
 <FIELDSET>
   <LEGEND><h1><label><%= t 'avaliacoes.newform.evaluate', :activitie_name=> @atividade.title %></label></h1></LEGEND>
 <%= form_for(@atividade, :url => {:controller => "avaliacoes",:action => "avaliar"}) do |l| %>
-  <% if @atividade.errors.any? %>
-      <div id="error_explanation">
-          <%= t 'general.form_error' %>
-      </div>
-  <% end %>
+  
 
   <div class="field">
       <%= l.label :horasganhas %>&nbsp<i id="red">*</i>&nbsp<br />

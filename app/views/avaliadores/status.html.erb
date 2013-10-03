@@ -1,16 +1,14 @@
 <BR />
 
+<% if @avaliador.errors.any? %>
+  <div id="error_explanation">
+    <%= t 'generaf.form_error' %>
+  </div>
+<% end %>
 <FIELDSET>
 <LEGEND><h1><%= label_tag(t('.title')) %></h1></LEGEND>
 
 <%= form_for(@avaliador, :url=>{:action=>'update_status'}) do |f| %>
-  <% if @avaliador.errors.any? %>
-    <div id="error_explanation">
-      <%= t 'generaf.form_error' %>
-    </div>
-  <% end %>
-
-
   <div class="field">
     <%= f.label :nome %><br />
     <%= f.text_field :nome,:readonly=>:false %>
