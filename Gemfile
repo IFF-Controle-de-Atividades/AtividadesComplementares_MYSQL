@@ -2,31 +2,33 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
-gem 'jquery-rails'
-gem 'will_paginate'
-gem 'actionmailer_inline_css'
 gem 'json'
 gem 'bson_ext'
-gem 'rack-raw-upload', '1.1.0'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'strong_parameters'
+gem 'jquery-rails'
 
 group :development, :test do
 	gem 'mysql2'
 	gem 'devise', "2.2.5"
-	gem 'pry'
-	gem 'pry-nav'
-	gem "rspec-rails", ">= 2.12.2"
-	gem 'guard-rspec'
-	gem "rb-fsevent"
-	gem "autotest-standalone"
-	gem "test_notifier"
-	gem 'tlsmail'
 	gem 'prawn'
+	gem 'carrierwave'
+	gem 'mini_magick'
+	gem 'strong_parameters'
+	gem 'rack-raw-upload', '1.1.0'
+	gem 'actionmailer_inline_css'
+
+	gem 'tlsmail'
+	
 	gem 'bcrypt-ruby', '~> 3.0.0'
 	gem 'capybara'
-	gem 'cucumber'
+	
+	gem 'pry'
+	gem 'pry-nav'
+	gem 'will_paginate'
+	gem "rspec-rails", ">= 2.12.2"
+	gem 'guard-rspec'
+	gem 'test_notifier'
+	gem 'autotest-standalone'
+	gem "rb-fsevent"
 end
 
 # Deploy with Capistrano
@@ -46,6 +48,7 @@ group :development do
 end
 
 group :test do
+	gem 'cucumber'
 	gem 'cucumber-rails'
 	gem 'guard-cucumber'
   	gem "spork"

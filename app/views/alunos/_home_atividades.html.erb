@@ -18,30 +18,29 @@
 	<tbody id="home">
 		<% for atividade in atividades %>
 		<tr id="home">
-                    <td id="td1"><center><%= atividade.title %></center></td>
-                    <% if atividade.horas_aceitas.nil? %>
-                        <td id="td1"><center><%= t('alunos.atividades.notEvaluated')%></center></td>
-                    <% else %>
-                        <td id="td1"><center><%= atividade.horas_aceitas %></center></td>
-                    <% end %>
-                    <td cellspacing=2>
-                        <center>
-                            <%= link_to t('links.edit'), edit_atividade_path(atividade) %>
-                        </center>
-                    </td>
-                    <% if atividade.comprovante.path.nil? %>
-                        <TD id="td1"><%= t('alunos.atividades.comprovante')%></TD>
-                    <% else %>
-                        <td id="td1"><center>
-                            <a href = "<%= atividade.comprovante %>" alt="Anexar Comprovante">              
-                                <%= image_tag("fallback/pdf-icon.png", :width=>"60",:height=>"50", :alt=>"Ver Comprovante") %>
-                            </center></a>
-                        </td>
-                    <% end %>
-                    <td id="td1">
-                        <%= link_to t('links.destroyActivitie'), excluir_atividade_path(atividade), 
-                        :method => :delete, :confirm => 'Tem Certeza?'  %>
-                    </td>
+      <td id="td1"><center><%= atividade.title %></center></td>
+      <% if atividade.horas_aceitas.nil? %>
+          <td id="td1"><center><%= t('alunos.atividades.notEvaluated')%></center></td>
+      <% else %>
+          <td id="td1"><center><%= atividade.horas_aceitas %></center></td>
+      <% end %>
+      <td cellspacing=2>
+          <center>
+              <%= link_to t('links.edit'), edit_atividade_path(atividade) %>
+          </center>
+      </td>
+      <% if atividade.comprovante.path.nil? %>
+          <TD id="td1"><%= t('alunos.atividades.comprovante')%></TD>
+      <% else %>
+          <td id="td1"><center>
+              <%= link_to "#{image_tag("fallback/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Anexar Comprovante")}".html_safe, "atividade.comprovante"%>
+              </center>
+          </td>
+      <% end %>
+      <td id="td1">
+          <%= link_to t('links.destroyActivitie'), excluir_atividade_path(atividade), 
+          :method => :delete, :confirm => 'Tem Certeza?'  %>
+      </td>
 		</tr>
 		<%- end -%>
 	</tbody>

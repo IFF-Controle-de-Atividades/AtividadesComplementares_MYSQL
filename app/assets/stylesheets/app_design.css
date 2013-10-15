@@ -59,6 +59,7 @@ ul, li, form, input, dt, dl, dd, ol, div, p, blockquote, h1, h2, h3, h4, h5, h6,
 a { outline: none; }
 a:link, a:visited {  color: #38B; text-decoration: none; }
 a:hover { color: #333; }
+a:visited { color: white;}
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
 
 .container 
@@ -539,10 +540,10 @@ div#localization
 div#HomeAtividadesPage
 {
   position: relative;
-  top: -190px;
-  margin-top: -90px;
-  margin-left: 500px;
+  top: -170px;
+  margin-left: 440px;
 }
+fieldset.toplevel{ margin-top: -50px; }
 div#aData
 {
   position: relative;

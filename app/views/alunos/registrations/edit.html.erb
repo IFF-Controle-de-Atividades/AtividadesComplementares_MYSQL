@@ -31,15 +31,15 @@
       </div>
 
       <div class="field">
-          <%= l.label :sexo %>
-          <DIV class="radio_component">
-                <%= l.radio_button :sexo, t('labels._masc') %>
-                <label id="ident">&nbsp<%= t('labels._masc') %></label>
-                <%= l.radio_button :sexo, t('labels._feme') %>
-                <label id="ident">&nbsp<%= t('labels._feme') %></label>
-                <%= error_tag @aluno, :sexo %>
-          </DIV>
-      </div>
+        <%= l.label :sexo %>
+        <DIV class="radio_component">
+              <%= l.radio_button :sexo, t('labels._masc') %>
+              <label id="ident">&nbsp<%= t('labels._masc') %></label><BR />
+              <%= l.radio_button :sexo, t('labels._feme') %>
+              <label id="ident">&nbsp<%= t('labels._feme') %></label>
+              <%= error_tag @aluno, :sexo %>
+        </DIV>
+    </div>
 
       <%= l.label :matricula %><i id="red">*</i>
       <div class="session">
@@ -47,12 +47,12 @@
             <%= error_tag @aluno, :matricula %>
       </div>
 
-      <div class="field">
+      <div class="session">
          <%= l.label :curso %><BR />
-         <%= l.select :curso, options_for_select(cursos) %> 
+         <%= l.text_field :curso %> 
       </div>
 
-      <div class="field">
+      <div class="session">
          <%= l.label :periodo, :id=>"aperiodo"%><BR />
          <%= l.text_field :periodo %>
       </div>
@@ -70,13 +70,13 @@
       </div>
 
       <%= l.label :password_confirmation %><i id="red">*</i>
-      <div class="field">
+      <div class="session">
           <%= l.password_field :password_confirmation %>
           <%= error_tag @aluno, :password_confirmation %>
       </div>
 
       <%= l.label :current_password %><i id="red">*</i>
-      <div class="field">
+      <div class="session">
           <%= l.password_field :current_password %>
           <%= error_tag @aluno, :current_password %>
       </div>

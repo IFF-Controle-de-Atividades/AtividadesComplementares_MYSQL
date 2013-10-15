@@ -20,7 +20,9 @@
 	<div class="container"> 
 		<!-- header -->
   	<div class="header">
-      <div id="imagelogo"><%= image_tag("IFFLOGO3.png",:width=>'450') %></div>
+      <div id="imagelogo">
+      	 <%= link_to "#{image_tag("IFFLOGO3.png",:width=>"450",:alt=>"Página do IFF")}".html_safe, "http://iff.edu.br/"%>
+      </div>
       	<div class="headername">
       		<font face="TechFont">I</font><font face="proFont">nformática</font>
       	</div>

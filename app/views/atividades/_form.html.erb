@@ -21,39 +21,39 @@
     </LEGEND>
   <%= form_for(@atividade) do |f| %>
     
-    <div class="field">
+    <div class="session">
           <%= f.hidden_field :aluno_id, :readonly => "true", :value => @aluno.id %>
     </div>
-    <div class="field">
-      <%= f.label :title %><i id="red">*</i><BR />
+    <%= f.label :title %><i id="red">*</i>
+    <div class="session">
       <%= f.text_field :title %>
       <%= error_tag @atividade, :title %>
     </div><br />
-    <div class="field">
-      <%= f.label :location %><i id="red">*</i><BR />
+    <%= f.label :location %><i id="red">*</i>
+    <div class="session">
       <%= f.text_field :location %>
       <%= error_tag @atividade, :location %>
     </div><br />
-    <div class="field">
-      <%= f.label :modalidade_id %><i id="red">*</i><BR />
+    <%= f.label :modalidade_id %><i id="red">*</i>
+    <div class="session">
       <%= f.collection_select(:modalidade_id, Modalidade.all, :id, :title, {:prompt => 'Selecione'}) %>
       <%= error_tag @atividade, :modalidade_id %>
     </div><br />
-    <div class="field">
-      <%= f.label :horasganhas %><i id="red">*</i><BR />
+    <%= f.label :horasganhas %><i id="red">*</i>
+    <div class="session">
       <%= f.text_field :horasganhas %>
       <%= error_tag @atividade, :horasganhas %>
     </div><br />
-    <div class="field">
-      <%= f.label :inicio %><BR />
+    <%= f.label :inicio %><BR />
+    <div class="session">
       <%= f.date_select :inicio, :start_year => 2006, :order=> [:day, :month, :year] %>
     </div><br />
-    <div class="field">
-      <%= f.label :termino %><BR />
+    <%= f.label :termino %><BR />
+    <div class="session">
       <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
     </div><BR />
-    <div class="field">
-      <%= f.label :comprovante %><BR />
+    <%= f.label :comprovante %>
+    <div class="session">
       <%= f.file_field :comprovante %><br ><br >
     </div>
 </FIELDSET>
