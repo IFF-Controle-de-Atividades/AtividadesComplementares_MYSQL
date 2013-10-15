@@ -64,4 +64,28 @@ AtividadesComplementares::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+
+  #Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  # #   :location => '/usr/sbin/sendmail',
+  # #   :arguments => '-i -t'
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :domain => 'gmail.com',
+      :authentication => :plain,
+      :user_name => 'allexonrails@live.com',
+      :password => 'Ls789*5///201.',
+      :enable_starttls_auto => true
+  }
+  # Defaults to:
+  # # config.action_mailer.sendmail_settings = {
+  # #   :location => '/usr/sbin/sendmail',
+  # #   :arguments => '-i -t'
+  # # }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
 end

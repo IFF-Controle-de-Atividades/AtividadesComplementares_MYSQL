@@ -57,7 +57,7 @@ ul, li, form, input, dt, dl, dd, ol, div, p, blockquote, h1, h2, h3, h4, h5, h6,
 
 
 a { outline: none; }
-a:link, a:visited {  color: #38B; text-decoration: none; }
+a:link, a:visited {  color: white; text-decoration: none; }
 a:hover { color: #333; }
 a:visited { color: white;}
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
@@ -66,12 +66,9 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%; }
 {
   margin: 1em auto;
   text-align: left;
-/*  padding: 10px 40px;*/
   margin-top: 0px;
   width: 1200px;
 }
-
-
 
 /*------------------------------------------------------------------------
  *=HEADER
