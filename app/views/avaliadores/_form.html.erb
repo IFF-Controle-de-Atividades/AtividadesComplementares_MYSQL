@@ -7,49 +7,41 @@
   <LEGEND><h1><label><%= t 'avaliadores.list_avaliators.new'%></label></h1></LEGEND>
 <%= form_for(@avaliador) do |f| %>
     <%= f.label :nome %><br />
-    <div class="field">
+    <div class="session">
       <%= f.text_field :nome %>
       <%= error_tag @avaliador, :nome %>
     </div>
     <%= f.label :matricula %><br />
-    <div class="field">
+    <div class="session">
       <%= f.text_field :matricula %>
       <%= error_tag @avaliador, :matricula %>
     </div><br />
 
     <%= f.label :titulacao %><br />
-    <div class="field">
+    <div class="session">
       <%= f.text_field :titulacao %>
       <%= error_tag @avaliador, :titulacao %>
     </div>
   
     <div class="field">
-      <%= f.label :sexo %>
-      <DIV class="radio_component">
-        <%= f.radio_button :sexo, t('labels._masc') %>
-        <label id="ident">&nbsp<%= t('labels._masc') %></label><BR />
-        <%= f.radio_button :sexo, t('labels._feme') %>
-        <label id="ident">&nbsp<%= t('labels._feme') %></label>
-        <%= error_tag @avaliador, :sexo %>
-      </DIV>
-    </div>
-
-    <%= f.label :admin %><br />
-    <div class="field">
-      <DIV class="radio_component">
-        <%= f.radio_button :admin, 1 %><label id="ident">&nbsp<%= t('labels._yes')%></label><BR />
-        <%= f.radio_button :admin, 0 %><label id="ident">&nbsp<%= t('labels._no')%></label>
-      </DIV>
+        <%= f.label :sexo %>
+        <DIV class="radio_component">
+              <%= f.radio_button :sexo, t('labels._masc') %>
+              <label id="ident">&nbsp<%= t('labels._masc') %></label><BR />
+              <%= f.radio_button :sexo, t('labels._feme') %>
+              <label id="ident">&nbsp<%= t('labels._feme') %></label>
+              <%= error_tag @avaliador, :sexo %>
+        </DIV>
     </div>
 
     <%= f.label :email %><BR />
-    <div class="field">
+    <div class="session">
         <%= f.email_field :email, :placeholder => "example@example.com" %>
         <%= error_tag @avaliador, :email %>
     </div>
 
     <%= f.label :password %><BR />
-    <div class="field">
+    <div class="session">
       <%= f.password_field :password, :placeholder => t('form_messages.password'), :size=>"33" %>
       <%= error_tag @avaliador, :password %>
     </div>

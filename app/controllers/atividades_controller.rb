@@ -50,6 +50,7 @@ class AtividadesController < ApplicationController
     @current_aluno = current_aluno
     respond_to do |format|
       if @atividade.save
+        SendConfirmAtividade.send_atividade_email(@current_aluno, @atividade).deliver
         format.html { redirect_to aluno_index_path, notice: I18n.t('atividades.new.successfully_registrated', :user_name=> @current_aluno.nome) }
         format.json { render json: @atividade, status: :created, location: @atividade }
       else

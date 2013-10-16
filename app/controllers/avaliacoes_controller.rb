@@ -7,12 +7,14 @@ class AvaliacoesController < ApplicationController
   def listar_atividades
     unless current_avaliador.admin
       redirect_to avaliadores_index_path, :notice=> I18n.t('messages.accessrestricted')
+    else
+      @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
+      if @atividades.empty?
+        redirect_to avaliadores_index_path, :alert=> I18n.t('messages.accesserror')
+      end
+    
+      @avaliadores= Avaliador.all
     end
-    @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
-    if @atividades.empty?
-      redirect_to avaliadores_index_path, :alert=> I18n.t('messages.accesserror')
-    end
-    @avaliadores= Avaliador.where(:admin => 0)
   end
 
   def designar

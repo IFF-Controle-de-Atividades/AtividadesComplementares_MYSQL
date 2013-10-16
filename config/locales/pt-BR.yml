@@ -125,6 +125,30 @@ pt-BR:
   registration:
     unhappy: Não está contente
     cancel_account: Cancelar conta
+  sendconfirmatividade:
+    send_atividade_email:
+      subject: 'Atividade Complementares - iff.edu.br'
+      title: 'Atividade inserida com sucesso - aguarde a avaliação'
+      body: |
+              %{user_name} sua atividade, %{atividade_name}, foi inserida 
+              com sucesso aguarde, novas atualizações em relação as 
+              suas horas.
+      gratification_link: 'Para você visualizar sua atividade utilize este link %{link}.'
+      thanks_html: 'Obrigado por inserir essa atividade em %{link}.'
+  avaliador_mailer:
+    new_avaliador_send_mail:
+      subject: 'Atividade Complementares - iff.edu.br'
+      title: 'Seja Bem Vindo as Atividade Complementares'
+      body: |
+              %{user_name} você foi registrado em %{link}, e está apto
+              a realizar avaliações de atividades complementares quando
+              solicitadas por nosso administrador.
+      credenciais:  |
+                      -----------------------------------
+                        Seu Login:
+                                  usuario: %{email}
+                                  senha:   %{password}
+                      -----------------------------------
   links:
     back: Voltar 
     edit: Editar

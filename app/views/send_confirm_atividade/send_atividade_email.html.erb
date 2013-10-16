@@ -1,0 +1,8 @@
+<h1><%= t 'sendconfirmatividade.send_atividade_email.title' %> </h1>
+<p>
+	<%= t 'sendconfirmatividade.send_atividade_email.body', :user_name=> @user.nome, :atividade_name => @atividade.title %>
+</p>
+
+<p>
+	<%= t 'sendconfirmatividade.send_atividade_email.thanks_html', :link => link_to('atividadescomplementares.iff.edu.br', root_url) %>
+</p>

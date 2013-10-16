@@ -14,10 +14,12 @@ group :development, :test do
 	gem 'mini_magick'
 	gem 'strong_parameters'
 	gem 'rack-raw-upload', '1.1.0'
+	
+	gem 'tlsmail'
+	gem "mailcatcher", "~> 0.5.12"
+	gem "mail", "2.4.4"
 	gem 'actionmailer_inline_css'
 
-	gem 'tlsmail'
-	
 	gem 'bcrypt-ruby', '~> 3.0.0'
 	gem 'capybara'
 	
@@ -29,6 +31,8 @@ group :development, :test do
 	gem 'test_notifier'
 	gem 'autotest-standalone'
 	gem "rb-fsevent"
+
+	gem 'bcrypt-ruby', '~> 3.0.0'
 end
 
 # Deploy with Capistrano
@@ -38,6 +42,9 @@ group :assets do
   	gem 'sass-rails',   '~> 3.2.3'
   	gem 'coffee-rails', '~> 3.2.1'
   	gem 'uglifier', '>= 1.0.3'
+  	#gem 'therubyracer', :platforms => :ruby
+	#gem "less-rails"
+	#gem "twitter-bootstrap-rails"
 end
 
 group :development do

@@ -64,10 +64,11 @@
 </table>
 <% if avaliador_signed_in? and current_avaliador.admin %>
     <div class="field">
-      <td><center>
+      <td>
         <%= select_tag 'avaliador_id', options_for_select(@avaliadores.collect{ |u| [u.nome, u.id] }) %>
         <%= submit_tag I18n.t('links.save_changes') %>
-      </td></div>
+      </td>
+    </div>
 <% end %>
 
 <%- end -%>

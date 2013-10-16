@@ -21,6 +21,7 @@ class AvaliadoresController < ApplicationController
   def create
     @avaliador = Avaliador.new(params[:avaliador])
     if @avaliador.save
+      AvaliadorMailer.new_avaliador_send_mail(@avaliador).deliver
       redirect_to total_avaliadores_path, :notice => I18n.t('avaliadores.notifications.successfully_registrated', :user_name=> @avaliador.nome)
     else
       render :action => :new
