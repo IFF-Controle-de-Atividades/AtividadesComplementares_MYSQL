@@ -47,13 +47,13 @@
             <%= error_tag @aluno, :matricula %>
       </div>
 
+      <%= l.label :curso %>
       <div class="session">
-         <%= l.label :curso %><BR />
          <%= l.text_field :curso %> 
       </div>
 
+      <%= l.label :periodo, :id=>"aperiodo"%>
       <div class="session">
-         <%= l.label :periodo, :id=>"aperiodo"%><BR />
          <%= l.text_field :periodo %>
       </div>
 

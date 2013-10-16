@@ -140,15 +140,12 @@ pt-BR:
       subject: 'Atividade Complementares - iff.edu.br'
       title: 'Seja Bem Vindo as Atividade Complementares'
       body: |
-              %{user_name} você foi registrado em %{link}, e está apto
+              %{user_name} você foi registrado em %{link}, e está apto(a)
               a realizar avaliações de atividades complementares quando
               solicitadas por nosso administrador.
       credenciais:  |
-                      -----------------------------------
-                        Seu Login:
-                                  usuario: %{email}
-                                  senha:   %{password}
-                      -----------------------------------
+                      Usuário: %{email}
+                      Senha:   %{password}
   links:
     back: Voltar 
     edit: Editar

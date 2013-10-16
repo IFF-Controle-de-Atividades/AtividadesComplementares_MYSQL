@@ -7,7 +7,8 @@ class AvaliadorMailer < ActionMailer::Base
 			to: user.email,
 			# bbc: ['bbc@rails.app','Nova Atividade Inserida <no-reply@atividadescomeplementares.iff.edu.br>'],
 			subject: I18n.t('sendconfirmatividade.send_atividade_email.subject'),
-			content_type: 'text/html'
+			content_type: 'text/html',
+			:reply_to => 'no-reply@atividadescomeplementares.iff.edu.br'
 		})
   end
 end

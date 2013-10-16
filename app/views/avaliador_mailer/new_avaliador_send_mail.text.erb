@@ -1,3 +1,12 @@
-<h1><%= t 'avaliador_mailer.new_avaliador_send_mail.title' %> </h1>
-<p><%= t 'avaliador_mailer.new_avaliador_send_mail.body', :user_name=> @user.nome, :link => link_to('atividadescomplementares.iff.edu.br', root_url) %></p>
-<%= t 'avaliador_mailer.new_avaliador_send_mail.credenciais', :email=> @user.email, :password => @user.password %></strong>
+<div>
+  <h1><%= t 'avaliador_mailer.new_avaliador_send_mail.title' %> </h1>
+</div>
+
+<div>
+  <%= t 'avaliador_mailer.new_avaliador_send_mail.body', :user_name=> @user.nome, :link => link_to('atividadescomplementares.iff.edu.br', root_url) %>
+</div>
+
+<BR />  
+<div>
+  <strong><%= t 'avaliador_mailer.new_avaliador_send_mail.credenciais', :email=> @user.email, :password => @user.password %></strong>
+</div>

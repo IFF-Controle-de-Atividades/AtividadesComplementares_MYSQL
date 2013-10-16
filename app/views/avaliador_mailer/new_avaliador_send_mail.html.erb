@@ -1,24 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-    <head>
-        <%= stylesheet_link_tag '/stylesheets/mailer/build_mailer' %>
-    </head>
+<style type="text/css">
+  h1 {color:red;}
+  p {color:blue;}
+  #credenciais{
+    display: block;
+    text-align: left;
+    text-indent: 20px;
+  }
+</style>
+<div>
+  <h1><%= t 'avaliador_mailer.new_avaliador_send_mail.title' %> </h1>
+</div>
 
-    <body>
-      <div id="container">
-        <div class="wrapper">
-        	<div class="page-header">
-          	<h1><%= t 'avaliador_mailer.new_avaliador_send_mail.title' %> </h1>
-          </div>
+<div>
+  <%= t 'avaliador_mailer.new_avaliador_send_mail.body', :user_name=> @user.nome, :link => link_to('atividadescomplementares.iff.edu.br', root_url) %>
+</div>
 
-          <dl class="dl-horizontal">
-  					<dt><strong><%= t 'avaliador_mailer.new_avaliador_send_mail.body', :user_name=> @user.nome, :link => link_to('atividadescomplementares.iff.edu.br', root_url) %></strong>
-  					</dt>
-  					<dd>
-  						<strong><%= t 'avaliador_mailer.new_avaliador_send_mail.credenciais', :email=> @user.email, :password => @user.password %></strong>
-  					</dd>
-					</dl>
-        </div>
-    </body>
-</html>
+<BR />
+<p>-----------------------------------<br /></p>
+<div id='credenciais'>
+	<strong><%= t 'avaliador_mailer.new_avaliador_send_mail.credenciais', :email=> @user.email, :password => @user.password %></strong>
+</div><br />
+<p>-----------------------------------<br /></p>
