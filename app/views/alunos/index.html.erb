@@ -32,17 +32,4 @@
     <%= link_to t('.logout'), aluno_session_out_path, :method => :get, :class =>"button" %>
 </fieldset>
 </div>
-<div id="HomeAtividadesPage">
-  <div  height='150px'>
-    <% if current_aluno.atividades.empty? %>
-      <div class="notice">
-        <%= t('.without_activities')%>&nbsp<%= link_to t('.new_activitie'), new_atividade_path, :class=>"botaoAzul"%>
-      </div>
-    <% else %>
-      <div id="listaAtividadesHome">
-        <%= render :partial=>'home_atividades', :locals=>{:atividades=>current_aluno.atividades.paginate(:page => params[:page], :per_page=>2)}  %>
-      </div>
-    <% end %>           
-  </div>
-</div>
 <BR /><BR />

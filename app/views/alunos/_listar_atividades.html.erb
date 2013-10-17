@@ -11,6 +11,7 @@
         <th><%= t('views.list_activities.evaluated') %></th>
         <th><%= t('views.list_activities.evaluated_by') %></th>
         <th><%= t('views.list_activities.explanation') %></th>
+        <th><%= t('views.list_activities.edit') %></th>
         <th><%= t('views.list_activities.destroy') %></th>
     </tr>
     </thead>
@@ -25,15 +26,24 @@
             <% else %>
                 <td><center><%= atividade.horas_aceitas %></center></td>
             <% end %>
-            <td><center><%= link_to "#{image_tag("fallback/pdf.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante")}".html_safe, edit_atividade_path(atividade)%></center></td>
+            <td>
+              <center>
+                <%= link_to "#{image_tag("fallback/pdf.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante")}".html_safe, comprovante_file_path(atividade.id)%>
+              </center>
+            </td>
+            
             <% if atividade.comprovante.path.nil? %>
-                    <center><TD><%= t('messages.without_receipt')%></TD></center>
-                <% else %>
-                    <td><center>
-                        <%= link_to "#{image_tag("fallback/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante")}".html_safe, "atividade.comprovante"%></center></td>
-                        </center>
-                    </td>
-                <%-end-%>
+              <center><TD><%= t('messages.without_receipt')%></TD></center>
+            <% else %>
+              <td>
+                <center>
+                  <a href = "<%= atividade.comprovante %>" alt="Anexar Comprovante">              
+                    <%= image_tag("fallback/pdf-icon.png", :width=>"60",:height=>"50", :alt=>"Ver Comprovante") %>
+                  </a>
+                  </center>
+                </td>
+              </td>
+            <%-end-%>
                 <td><center><%= yes_or_no?(atividade.avaliada) %></center></td>
                 <td>
                     <center>
@@ -46,6 +56,7 @@
                 </td>
 
                 <td><%= link_to t('links.show'), atividade %></td>
+                <td><%= link_to t('links.edit'), edit_atividade_path(atividade) %></td>
                 <td>
                    <%= link_to t('links.destroyActivitie'), excluir_atividade_path(atividade), :method => :delete, :confirm => t('messages.areyousure')  %>
                 </td>

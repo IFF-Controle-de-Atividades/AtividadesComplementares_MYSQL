@@ -67,16 +67,16 @@ class AtividadesPdf < Prawn::Document
     end
 
     def items_tabela
-        [ ["Nome", "Descricao", "Inicio" , "Termino" , "CH" , "CH - Aceita", "Aluno", "Avaliada",
+        [ ["Nome", "Descricao", "Inicio" , "Termino", "CH", "Aluno", "Avaliada",
 "Avaliador"] ] +
             @report.atividades.collect do |item|
                 [ item.title, item.modalidade.title,
                   item.inicio, item.termino,
-                  item.horasganhas, if item.horas_aceitas.nil?
-                                        I18n.t('messages.neither') 
-                                    else
-                                        item.horas_aceitas 
-                                    end,
+                  if item.horas_aceitas.nil?
+                    I18n.t('messages.neither') 
+                  else
+                    item.horas_aceitas 
+                  end,
                   item.aluno.nome, yes_or_no?(item.avaliada), 
                   if  item.avaliador.nil?
                       item = I18n.t('messages.without_avaliador')

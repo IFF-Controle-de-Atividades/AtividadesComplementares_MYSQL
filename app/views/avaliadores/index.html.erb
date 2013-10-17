@@ -1,26 +1,29 @@
+<BR /><BR />
 <div class="button">
-
-<fieldset>
-	<BR />
-	<legend ><%= t('.signed_in') %></legend>
-	<div id="facemenu">
-		<ul>
-			<li>
-				<div class="retrato"><center>
-				<%= image_tag(current_avaliador.image) %>
-				<!---->
-				</center></div>
-			<ul>
-				<li><%= link_to t('.ProfileImage'),selecionar_imagem_avaliador_path(current_avaliador.id)%></li>
+<fieldset class='toplevel'>
+    <legend ><%= label_tag t('.signed_in') %></legend>
+      <div id="facemenu">
+        <ul> 
+          <li>
+            <div class="retrato">
+              <center>
+                <%= image_tag current_avaliador.image %>
+              </center>
+            </div>
+            <ul> 
+              	<li><%= link_to t('.ProfileImage'),selecionar_imagem_avaliador_path(current_avaliador.id)%></li>
 				<li><%= link_to t('.RemoveProfileImage'),remover_imagem_avaliador_path(current_avaliador.id) %></li>
 				<li><%= link_to t('.ProfilePassword'),password_avaliador_path(current_avaliador.id) %></li>
-			</ul>
-</ul></div>
-<p id="loged_in">
-<%= label_tag :nome%> <%= current_avaliador.nome %><br />
-<%= label_tag :titulacao%> <%= current_avaliador.titulacao %><br />
-<%= label_tag :matricula%> <%= current_avaliador.matricula %>
-</p>
-<%= link_to t('.logout'), avaliador_session_out_path, :method => :get, :class =>"button" %>
+            </ul> 
+          </li>
+        </ul>
+      </div>
+      <div class="loged_in">
+        <%= label_tag :nome%> <%= current_avaliador.nome %><br />
+		<%= label_tag :titulacao%> <%= current_avaliador.titulacao %><br />
+		<%= label_tag :matricula%> <%= current_avaliador.matricula %>
+		</div>
+		<%= link_to t('.logout'), avaliador_session_out_path, :method => :get, :class =>"button" %>
 </fieldset>
-</div> 
+</div>
+<BR /><BR /> 

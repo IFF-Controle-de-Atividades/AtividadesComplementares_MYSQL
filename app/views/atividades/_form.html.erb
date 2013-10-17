@@ -28,30 +28,30 @@
     <div class="session">
       <%= f.text_field :title %>
       <%= error_tag @atividade, :title %>
-    </div><br />
+    </div>
     <%= f.label :location %><i id="red">*</i>
     <div class="session">
       <%= f.text_field :location %>
       <%= error_tag @atividade, :location %>
-    </div><br />
+    </div>
     <%= f.label :modalidade_id %><i id="red">*</i>
     <div class="session">
       <%= f.collection_select(:modalidade_id, Modalidade.all, :id, :title, {:prompt => 'Selecione'}) %>
       <%= error_tag @atividade, :modalidade_id %>
-    </div><br />
+    </div>
     <%= f.label :horasganhas %><i id="red">*</i>
     <div class="session">
       <%= f.text_field :horasganhas %>
       <%= error_tag @atividade, :horasganhas %>
-    </div><br />
+    </div>
     <%= f.label :inicio %><BR />
     <div class="session">
       <%= f.date_select :inicio, :start_year => 2006, :order=> [:day, :month, :year] %>
-    </div><br />
+    </div>
     <%= f.label :termino %><BR />
     <div class="session">
       <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
-    </div><BR />
+    </div>
     <%= f.label :comprovante %>
     <div class="session">
       <%= f.file_field :comprovante %><br ><br >

@@ -1,0 +1,41 @@
+<div id="my_id" >
+ <%= @aluno = current_aluno  %>
+</div>
+
+<strong>
+  <p>
+    <font size="5" color="red">*</font>
+    <label>
+      &nbsp <%= t('form_messages.requiredfields')%>
+    </label>
+  </p>
+</strong>
+<% if @atividade.errors.any? %>
+  <div id="error_explanation">
+    <%= t 'general.form_error' %>
+  </div>
+<% end %>
+<FIELDSET>
+   <LEGEND>
+      <label><%= t 'atividades.new.title'%></label>
+    </LEGEND>
+  <%= form_for(@atividade) do |f| %>
+    
+    <div class="session">
+          <%= f.hidden_field :aluno_id, :readonly => "true", :value => @aluno.id %>
+    </div>
+
+    <%= f.label :comprovante %>
+    <div class="session">
+      <%= f.file_field :comprovante %><br ><br >
+    </div>    
+</FIELDSET>
+
+<div class="botao_left">
+    <%= f.submit "Enviar", :class=>"botaoVerde", :id=>'id_botao' %>
+</div>
+
+<div class="botao_left">
+    <%= link_to t('links.back'), aluno_index_path, :class=>"botaoVerde", :id=>'id_botao' %>
+</div>
+<% end %>

@@ -189,6 +189,7 @@ pt-BR:
       evaluated_by: Avaliada por
       explanation: Justificativa
       destroy: Excluir
+      edit: Editar
   labels:
     log_in: Login
     options: Opções

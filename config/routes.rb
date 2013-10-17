@@ -32,6 +32,10 @@ AtividadesComplementares::Application.routes.draw do
     devise_for :avaliadores, :skip => [:sessions]
   # end
 
+  as :atividades do
+    get "/atividades/:id/comprovante_file" => "atividades#comprovante_file", :as => :comprovante_file
+  end
+
   as :modalidades do
     get "modalidades/index" => "modalidades#index", :as => :modalidades_index
     get "modalidades/new" => "modalidades#new", :as => :new_modalidade

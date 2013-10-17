@@ -87,4 +87,14 @@ class AtividadesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # GET /atividades/1/comprovante_file
+  def comprovante_file
+    unless aluno_signed_in? and current_aluno
+      redirect_to root_path :alert => I18n.t('messages.accessrestricted')
+    else
+      @atividade = Atividade.find(params[:id])
+      @current_aluno = current_aluno
+    end
+  end
 end

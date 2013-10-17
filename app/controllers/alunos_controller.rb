@@ -13,7 +13,7 @@ class AlunosController < ApplicationController
 
   def reloadimageprofile
     @aluno = current_aluno
-    if @aluno.update_attributes(params[:aluno])
+    if @aluno.update_attributes(user_image)
         redirect_to aluno_index_path, :notice => t('alunos.changeimage.image_updated')
     end
   end
@@ -43,5 +43,10 @@ class AlunosController < ApplicationController
     def user_params
       # NOTE: Using 'strong_parameters' gem
       params.require(:aluno).permit(:password, :password_confirmation)
+    end
+
+    def user_image
+      # NOTE: Using 'strong_parameters' gem
+      params.require(:aluno).permit(:image)
     end
 end
