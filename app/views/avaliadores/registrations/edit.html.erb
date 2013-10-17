@@ -1,11 +1,12 @@
 <% @user = current_avaliador.nome %>
-
+<Br />
 <strong>
   <p>
     <font size="5" color="red">*</font>
       <%= label_tag I18n.t('form_messages.requiredfields')%>
   </p>
 </strong>
+<Br />
 
 <% if resource.errors.any? %>
   <div id="error_explanation" class="alert">
@@ -39,18 +40,17 @@
   <div class="field">
     <%= f.label :sexo %>
     <DIV class="radio_component">
-      <%= f.radio_button :sexo, t('labels._masc') %>
-      <label id="ident">&nbsp<%= t('labels._masc') %></label>
-      <%= f.radio_button :sexo, t('labels._feme') %>
-      <label id="ident">&nbsp<%= t('labels._feme') %></label>
-      <%= error_tag @avaliador, :sexo %>
+          <%= f.radio_button :sexo, t('labels._masc') %>
+          <label id="ident">&nbsp<%= t('labels._masc') %></label><BR />
+          <%= f.radio_button :sexo, t('labels._feme') %>
+          <label id="ident">&nbsp<%= t('labels._feme') %></label>
+          <%= error_tag @avaliador, :sexo %>
     </DIV>
   </div>
 
+  <b><%= f.label t('avaliadores.profileimage.changeImage') %></b><BR />
+  <i id="blue" class="small"><%= t('avaliadores.profileimage.readmecarefully') %></i>
   <div class="field">
-       <b><%= f.label t('avaliadores.profileimage.changeImage') %></b>
-       <i id="blue" class="small"><%= t('avaliadores.profileimage.readmecarefully') %></i>
-       <br>
        <%= f.file_field :image %><BR /></b>
        <%= error_tag @avaliador, :image %>
   </div>
