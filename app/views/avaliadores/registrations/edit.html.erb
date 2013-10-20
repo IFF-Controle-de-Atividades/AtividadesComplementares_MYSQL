@@ -53,7 +53,7 @@
   </div>
 
   <b><%= f.label t('avaliadores.profileimage.changeImage') %></b><BR />
-  <i id="blue" class="small"><%= t('avaliadores.profileimage.readmecarefully') %></i>
+  <i id="blue"><%= t('avaliadores.profileimage.readmecarefully') %></i>
   <div class="field">
        <%= f.file_field :image %><BR /></b>
        <%= error_tag @avaliador, :image %>
@@ -67,7 +67,7 @@
 
   <div class="control-group">
       <%= f.label :password %>
-      <i id="blue" class="small"><%= t('form_messages.password_message') %></i><BR />
+      <i id="blue"><%= t('form_messages.password_message') %></i><BR />
       <%= f.password_field :password, :placeholder => t('form_messages.password') %>
       <%= error_tag(@avaliador, :password)%>
   </div>

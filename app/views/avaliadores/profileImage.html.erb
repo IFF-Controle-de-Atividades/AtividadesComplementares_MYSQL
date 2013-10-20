@@ -10,9 +10,9 @@
 <%= form_for(@avaliador, :url=>{:action=>'reload'}, :html => { :multipart => true }) do |l| %>
      
 
-    <div class="field">
+    <div class="control-group">
        <b><%= l.label t('.changeImage') %></b>
-       <i id="blue" class="small"><%= t('.readmecarefully') %></i>
+       <i id="blue"><%= t('.readmecarefully') %></i>
        <br>
        <%= l.file_field :image %><BR /></b>
        <%= error_tag @avaliador, :image %>

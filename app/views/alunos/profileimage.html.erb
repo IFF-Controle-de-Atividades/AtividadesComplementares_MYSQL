@@ -1,6 +1,6 @@
-<BR /><BR />
+<BR />
 <FIELDSET>
-    <LEGEND><H1><label><%= t('.Edit') %></label></H1></LEGEND>
+    <LEGEND><H1><strong><label><%= t('.Edit') %></label></H1></LEGEND></strong>
 <DIV id="localization">
 
 <% if @aluno.errors.any? %>
@@ -14,7 +14,7 @@
 
     <div class="control-group">
        <b><%= l.label t('.changeImage') %></b>
-       <i id="blue" class="small"><%= t('.readmecarefully') %></i>
+       <i id="blue"><%= t('.readmecarefully') %></i>
        <br>
        <%= l.file_field :image %><BR /></b>
        <%= error_tag @aluno, :image %>

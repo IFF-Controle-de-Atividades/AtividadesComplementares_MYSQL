@@ -1,4 +1,7 @@
-<FIELDSET><LEGEND><h2 id="signin"><label><%= t('labels.log_in')%></h2></label></LEGEND>
+<FIELDSET><LEGEND><STRONG><h1 id="signin"><label><%= t('labels.log_in')%></h1></label></LEGEND></STRONG>
+<BR />
+
+
 <div id="sbar">
   <div class="attention">
     <h3><font id="registration">Senhor(a) Avaliador(a)</font></h3>
@@ -10,30 +13,37 @@
 
 <SECTION class="session">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div class="session">
+    
+    <div class="control-group">
        <%= f.label :email %>
        <%= f.email_field :email %>
     </div>
-    <div class="session">
+    
+    <div class="control-group">
         <%= f.label :password %>
         <%= f.password_field :password %>
     </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div>
-        <%= f.check_box :remember_me %> <%= f.label :remember_me, :class=>"small"  %>
-    <%-end-%>    
-    <%= link_to t('links.forgotten_your_password'), new_password_path(resource_name), :class=>"small"  %>
+    <div class="control-group">
+      <div class="controls">
+        <label <label class="checkbox">
+          <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me %><%= label_tag t('activerecord.attributes.avaliador.remember_me') %>
+          <%-end-%>
+        </label>
       </div>
-<br></FIELDSET>
-<div class="botao_left">
-  <span class="luz">
-    <%= f.submit t('links.send'), :class=>"botaoVerde", :id=>'id_botao' %>
-  </span>
-</div>
-<div class="botao_left">
-  <%= link_to t('links.back'), root_path, :class=>"botaoVerde", :id=>'id_botao' %>
-</div>
-    
+    </div>
+    <%= link_to t('links.forgotten_your_password'), new_password_path(resource_name) %>
+    <br /><br />
+    </FIELDSET>
+    <br /><br />
+
+    <div class="botao_left">
+      <%= f.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
+    </div>
+
+    <div class="botao_left">
+        <%= link_to t('links.back'), root_path, :class=>"btn btn-success btn-large", :id=>'id_botao' %>
+    </div>
 <%- end -%>
 </SECTION>
