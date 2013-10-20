@@ -34,41 +34,19 @@
     src: url(Cowboy_Hippie_Pro.otf);
 }
 
-/* INTERFACE.css */
-html { margin: 0 0 1px 0; padding: 0; font: inherit; vertical-align: baseline; }
-body 
-{
-  line-height:1.5;
-  font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
-  color:#000;
-  background:#000;
-  font-size:16pt;
-}
+/* Fix IE. Hide from IE Mac \*/
+* html ul li { float: left; }
+* html ul li a { height: 1%; }
+/* End */
+
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+
 ul, li, form, input, dt, dl, dd, ol, div, p, blockquote, h1, h2, h3, h4, h5, h6, a 
 {
   margin: 0;
   padding: 0;
 }
 
-/* Fix IE. Hide from IE Mac \*/
-* html ul li { float: left; }
-* html ul li a { height: 1%; }
-/* End */
-
-
-a { outline: none; }
-a:link, a:visited {  color: white; text-decoration: none; }
-a:hover { color: #333; }
-a:visited { color: white;}
-h1, h2, h3, h4, h5, h6 { font-size: 100%; }
-
-.container 
-{
-  margin: 1em auto;
-  text-align: left;
-  margin-top: 0px;
-  width: 1200px;
-}
 
 /*------------------------------------------------------------------------
  *=HEADER
@@ -118,8 +96,6 @@ code {font:.9em "Courier New", Monaco, Courier, monospace;}
 
 a img {border:none;}
 
-p img.top {margin-top:0;}
-
 blockquote {margin:1.5em;padding:1em;font-style:italic;font-size:.9em;}
 
 .small {font-size:0.5em;}
@@ -131,12 +107,7 @@ blockquote {margin:1.5em;padding:1em;font-style:italic;font-size:.9em;}
 .hide {display:none;}
 
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
-/*h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}*/
-/*h2 {font-size:2em;margin-bottom:0.75em;}*/
-/*h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}*/
-/*h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}*/
-/*h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}*/
-/*h6 {font-size:1em;font-weight:bold;}*/
+
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
 
 /* forms.css */
@@ -217,7 +188,16 @@ i#red{ color: red;}
 strong#account-name a { color: #006699; font-weight: bold !important; }
 strong#account-name {
   line-height: 100%;
-  display: block;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #006699;
+  font-weight: bold !important;
+}
+
+strong{
+  line-height: 100%;
+  display: inline-block;
   text-transform: uppercase;
   font-weight: bold;
   color: #006699;

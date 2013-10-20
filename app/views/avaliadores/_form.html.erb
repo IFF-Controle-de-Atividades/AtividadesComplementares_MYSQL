@@ -4,53 +4,61 @@
     </div>
 <% end %>
 <FIELDSET>
-  <LEGEND><h1><label><%= t 'avaliadores.list_avaliators.new'%></label></h1></LEGEND>
-<%= form_for(@avaliador) do |f| %>
-    <%= f.label :nome %><br />
-    <div class="session">
-      <%= f.text_field :nome %>
-      <%= error_tag @avaliador, :nome %>
-    </div>
-    <%= f.label :matricula %><br />
-    <div class="session">
-      <%= f.text_field :matricula %>
-      <%= error_tag @avaliador, :matricula %>
-    </div><br />
+  <LEGEND><h1><label><font size="5" color="red">*</font>&nbsp<%= t('form_messages.requiredfields')%></label></h1></LEGEND>
 
-    <%= f.label :titulacao %><br />
-    <div class="session">
-      <%= f.text_field :titulacao %>
-      <%= error_tag @avaliador, :titulacao %>
-    </div>
-  
-    <div class="field">
-        <%= f.label :sexo %>
-        <DIV class="radio_component">
-              <%= f.radio_button :sexo, t('labels._masc') %>
-              <label id="ident">&nbsp<%= t('labels._masc') %></label><BR />
-              <%= f.radio_button :sexo, t('labels._feme') %>
-              <label id="ident">&nbsp<%= t('labels._feme') %></label>
+  <%= form_for(@avaliador) do |f| %>
+      
+      <div class="control-group">
+        <%= f.label :nome %>
+        <%= f.text_field :nome %>
+        <%= error_tag @avaliador, :nome %>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :matricula %>
+        <%= f.text_field :matricula %>
+        <%= error_tag @avaliador, :matricula %>
+      </div><br />
+
+      <div class="control-group">
+        <%= f.label :titulacao %>
+        <%= f.text_field :titulacao %>
+        <%= error_tag @avaliador, :titulacao %>
+      </div>
+    
+      <div class="control-group">
+          <%= f.label :sexo %>
+          <div class="controls">
+            <DIV class="radio_component">
+              <label class="radio">
+                <%= f.radio_button :sexo, t('labels._masc') %><%= label_tag t('labels._masc') %>
+              </label>
+
+              <label class="radio">
+                <%= f.radio_button :sexo, t('labels._feme') %><%= label_tag t('labels._feme') %>
+              </label>
               <%= error_tag @avaliador, :sexo %>
-        </DIV>
-    </div>
+            </DIV>
+          </div>
+      </div>
+      
+      <div class="control-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, :placeholder => "example@example.com" %>
+          <%= error_tag @avaliador, :email %>
+      </div>
 
-    <%= f.label :email %><BR />
-    <div class="session">
-        <%= f.email_field :email, :placeholder => "example@example.com" %>
-        <%= error_tag @avaliador, :email %>
+      <div class="control-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, :placeholder => t('form_messages.password'), :size=>"33" %>
+        <%= error_tag @avaliador, :password %>
+      </div>
+    <BR /><BR /><BR /><BR />
+    </FIELDSET>
+    <div class="botao_left">
+        <%= f.submit t('links.send'),:class=>"btn btn-success btn-large", :id=>'id_botao' %>
     </div>
-
-    <%= f.label :password %><BR />
-    <div class="session">
-      <%= f.password_field :password, :placeholder => t('form_messages.password'), :size=>"33" %>
-      <%= error_tag @avaliador, :password %>
+    <div class="botao_left">
+      <%= link_to t('links.back'), avaliadores_index_path, :class=>"btn btn-success btn-large", :id=>'id_botao' %>
     </div>
-  <BR />
-  </FIELDSET>
-  <div class="botao_left">
-      <%= f.submit t('links.send'), :class=>"botaoVerde", :id=>'id_botao' %>
-  </div>
-  <div class="botao_left">
-    <%= link_to t('links.back'), avaliadores_index_path, :class=>"botaoVerde", :id=>'id_botao' %>
-  </div>
-<% end %>
+  <% end %>

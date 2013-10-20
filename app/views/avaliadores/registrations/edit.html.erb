@@ -84,11 +84,9 @@
 
 </FIELDSET>  
 <div class="botao_left">
-  <span class="luz">
-    <%= f.submit t('links.send'), :class=>"botaoVerde", :id=>'id_botao' %>
-  </span>
+    <%= f.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
 </div>
 <div class="botao_left">
-    <%= link_to t('links.back'), avaliadores_index_path, :class=>"botaoVerde", :id=>'id_botao' %>
+    <%= link_to t('links.back'), avaliadores_index_path, :class=>"btn btn-success btn-large", :id=>'id_botao' %>
 </div>
 <% end %>

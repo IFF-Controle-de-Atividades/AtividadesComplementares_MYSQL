@@ -13,3 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$("#big-search-box").bind("keyup", function(){
+  $("#big-search-box").addClass("loading");
+  var form = $("#live-search-form");
+  var url = "/avaliadores/live_search";
+  var formData = form.serialize();
+
+  $.get(url, formData, function(html){
+    $("#big-search-box").removeClass("loading");
+    $("#live-search-results").html(html);
+  });
+
+});

@@ -5,7 +5,17 @@ AtividadesComplementares::Application.routes.draw do
 
   # scope "(:locale)", :locale=>LOCALES do
     resources :pdf_reports, only: [:atividadealuno, :alunos_pdf, :avaliadores_pdf, :total_atividades]
-    resources :avaliadores, :only => [:new, :create, :total_alunos, :total_avaliadores,:listar_atividades, :listar_avaliacoes, :myimage, :mypassword]
+    resources :avaliadores, 
+              :only => [
+                          :new, 
+                          :create, 
+                          :total_alunos, 
+                          :total_avaliadores,
+                          :listar_atividades, 
+                          :listar_avaliacoes, 
+                          :myimage, 
+                          :mypassword
+                      ], :collection => { :buscar_index => :get }
     
     resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage, :password, :changepassword]
 
@@ -100,6 +110,8 @@ AtividadesComplementares::Application.routes.draw do
 
      match "/avaliador/mypassword/:id/",:controller => "avaliadores", :action=>"mypassword", :as => :password_avaliador
      match "/avaliador/mypassword/:id/updatepassword",:controller => "avaliadores", :action=>"updatepassword", :as => :update_password_avaliador
+
+     match "/admin/buscar/alunos/index" , :controller => "avaliadores", :action => "buscar_index", :as => :busca_index_alunos
   end
 
   get "/minhas-atividades.pdf" => "pdf_reports#atividadealuno", :format=> :pdf, :as=>:alunoatividades

@@ -69,6 +69,15 @@ class AvaliadoresController < ApplicationController
       @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
     end
 
+    def buscar_index
+      @alunos = Aluno.find(:all, :conditions => ["nome LIKE ?","%#{params[:busca]}%"])
+    end
+
+    def live_search
+      @tasks = Aluno.last params[:q]
+      render :layout => false
+    end
+
   #################################################################
 
   ##### Methods for load and remove the profile image #############

@@ -1,0 +1,14 @@
+<table>
+ <tr>
+ <th>Aluno</th>
+ <th>email</th>
+ <th>Atividades</th>
+ </tr>
+ 
+<% for busca_aluno in @alunos %>
+ <tr>
+ <td><%=h busca_aluno.nome %></td>
+ <td><%=h busca_aluno.email %></td>
+ </tr>
+<% end %>
+</table>

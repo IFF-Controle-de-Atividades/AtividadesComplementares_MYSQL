@@ -1,0 +1,16 @@
+<table>
+ <tr>
+ <th>Aluno</th>
+ <th>email</th>
+ <th>Atividades</th>
+ </tr>
+ 
+<% for busca_aluno in @alunos %>
+	 <tr>
+		 <td><%=h busca_aluno.nome %></td>
+		 <td><%=h busca_aluno.email %></td>
+		 <td><%=h link_to 'atividades', atividades_de_path(busca_aluno.nome, busca_aluno.id) %></td>
+		 
+	 </tr>
+<% end %>
+</table>
