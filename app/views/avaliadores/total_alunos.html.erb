@@ -1,4 +1,4 @@
-	<% if @alunos.empty? %>
+<% if @alunos.empty? %>
 	<div  height='150px'>
     <div id="alert">
       <%= t('messages.without_students') %>
@@ -7,72 +7,3 @@
 <% else %>
 	<div><%= render :partial=>"alunos", :locals=>{:alunos=>@alunos}%></div>
 <% end %>
-
-
-<!-- SCRIPT AJAX PARA EFETUAR A BUSCA DINAMICA -->
-
-<SCRIPT TYPE="text/javascript">
-	$("#big-search-box").bind("keyup", function(){
-		$("#big-search-box").addClass("loading");
-		var form = $("#live-search-form");
-		var url = "/avaliadores/live_search";
-		var formData = form.serialize();
-
-		$.get(url, formData, function(html){
-  		$("#big-search-box").removeClass("loading");
-  		$("#live-search-results").html(html);
-		});
-	});
-</SCRIPT>
-
-<!-- <script>
- 
-	function pesquisa(valor){
- 		 //FUNÇÃO QUE MONTA A URL E CHAMA A FUNÇÃO AJAX
-		//aqui ele vai montando a busca
-		url="/avaliadores/busca_index?busca="+valor+"&commit=Buscar";
- 
-		ajax(url);
- 	}
- 
-	function ajax(url){
- 			//alert(nick);
- 		 //alert(dest);
- 		//alert(msg);
- 
-	  req = null;
- 
-		// Procura por um objeto nativo (Mozilla/Safari)
- 		if (window.XMLHttpRequest) {
- 				req = new XMLHttpRequest();
- 				req.onreadystatechange = processReqChange;
- 				req.open("GET",url,true);
-				req.send(null);
- 
-				// Procura por uma versão ActiveX (IE)
- 		}else if (window.ActiveXObject) {
- 			req = new ActiveXObject("Microsoft.XMLHTTP");
- 			if(req){
- 				req.onreadystatechange = processReqChange;
- 				req.open("GET",url,true);
- 				req.send();
- 			}
- 		}
-	}
- 
-	function processReqChange(){
- 			// apenas quando o estado for "completado"
- 			if (req.readyState == 4){
- 					// apenas se o servidor retornar "OK"
-					if (req.status ==200){
-							// procura pela div id="pagina" e insere o conteudo
- 					 	// retornado nela, como texto HTML
- 						document.getElementById('pagina').innerHTML = req.responseText;
-					}else{
- 						alert("Houve um problema ao obter os dados:n" + req.statusText);
-					}
-			}
- 	}
-</script>
--->
-<!-- FIM DO SCRIPT DINAMICO -->
