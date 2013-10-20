@@ -12,7 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
+
+
+$('input[type=file]').bootstrapFileInput();
+$('.file-inputs').bootstrapFileInput();
+
 
 $("#big-search-box").bind("keyup", function(){
   $("#big-search-box").addClass("loading");

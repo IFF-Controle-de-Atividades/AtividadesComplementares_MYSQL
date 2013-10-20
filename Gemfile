@@ -42,10 +42,10 @@ group :assets do
   	gem 'sass-rails',   '~> 3.2.3'
   	gem 'coffee-rails', '~> 3.2.1'
   	gem 'uglifier', '>= 1.0.3'
-  	#gem 'therubyracer', :platforms => :ruby
-	#gem "less-rails"
-	#gem "twitter-bootstrap-rails"
+  	gem 'therubyracer', :platforms => :ruby
+	gem "less-rails"
 end
+gem "twitter-bootstrap-rails", '~> 2.2.6'
 
 group :development do
 	gem "quiet_assets", ">= 1.0.2"
