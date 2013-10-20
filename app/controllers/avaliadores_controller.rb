@@ -1,5 +1,17 @@
 # --*-- coding:utf-8 --*--
 
+'''
+  ESTE CONTROLLER AvaliadoresController É RESPONSÁVEL
+  POR MANIPULAR E CONTROLAR TODAS AS FUNÇÕES DISPONIVEIS
+  PARA ADMIN/AVALIADOR:
+
+  ADMIN PROCESS:
+    new/create
+    status/update_status
+    admin_live_search
+
+'''
+
 class AvaliadoresController < ApplicationController
   before_filter :authenticate_avaliador!
   before_filter :current_avaliador
@@ -9,12 +21,10 @@ class AvaliadoresController < ApplicationController
   end
 
   def new
-    if current_avaliador.admin
-      @avaliador = Avaliador.new
-    end
-
     unless current_avaliador.admin
        redirect_to avaliadores_index_path, :alert => I18n.t('avaliadores.notifications.admin_error')
+    else
+      @avaliador = Avaliador.new
     end  
   end
 
@@ -31,8 +41,12 @@ class AvaliadoresController < ApplicationController
   #### Metodos para editar o Status de determinado avaliador #####
 
     def status
+      unless current_avaliador.admin
+        redirect_to avaliadores_index_path, :alert => I18n.t('avaliadores.notifications.admin_error')
+      else
         @avaliador = Avaliador.find(params[:id])
         @admin = current_avaliador
+      end
     end
 
     def update_status
@@ -78,7 +92,7 @@ class AvaliadoresController < ApplicationController
       O PRÓPRIO LIVE_SEARCH.
     '''
      
-    def live_search
+    def admin_live_search
       @tasks = Aluno.find(:all, :conditions => ["nome LIKE ? or email LIKE ?","%#{params[:live_search]}%","%#{params[:live_search]}%"])
       if @tasks.empty?
         redirect_to avaliadores_index_path, :alert => I18n.t('messages.no_match', :live_search=> params[:live_search])
