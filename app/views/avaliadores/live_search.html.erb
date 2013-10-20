@@ -1,15 +1,21 @@
-<table>
- <tr>
- <th>Aluno</th>
- <th>email</th>
- <th>Atividades</th>
- </tr>
- 
-<% for busca_aluno in @tasks %>
-	<tr>
-	 <td><%=h busca_aluno.nome %></td>
-	 <td><%=h busca_aluno.email %></td>
-	 <td><%=h link_to 'atividades', atividades_de_path(busca_aluno.nome, busca_aluno.id) %></td>
-	</tr>
-<% end %>
+<BR />
+
+<LEGEND><STRONG><label><%= t('messages.success_comparison', :live_search=> params[:live_search]) %></label></LEGEND></STRONG>
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Aluno</th>
+	 		<th>email</th>
+	 		<th>Atividades</th>
+    </tr>
+  </thead>
+  <% for busca_aluno in @tasks %>
+  	<tbody>
+    	<tr>
+    		<td><%=h busca_aluno.nome %></td>
+			 	<td><%=h busca_aluno.email %></td>
+			 	<td><%=h link_to 'atividades', atividades_de_path(busca_aluno.nome, busca_aluno.id) %></td>
+			</tr>
+  </tbody>	
+	<% end %>  
 </table>
