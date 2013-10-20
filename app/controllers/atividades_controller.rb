@@ -1,4 +1,16 @@
 #--*-- coding:utf-8 --*--
+
+'''
+  ATIVIDADES CONTROLLER É RESPONSAVEL POR 
+  EXPECIFICAR TODAS AS FUNCIONALIDADES DE 
+  ATIVIDADES RELACIONADAS À UM DETERMINADO 
+  ALUNO.
+
+  PARA TANTO ANTES INICIAR QUALQUER O ALUNO
+  DEVERÁ ESTAR LOGADO PARA QUE POSSA ACESSAR
+  AS FUNCIONALIDADES CONTIDAS NESTE MVC.
+'''
+
 class AtividadesController < ApplicationController
   before_filter :authenticate_aluno!
   before_filter :current_aluno
@@ -51,7 +63,7 @@ class AtividadesController < ApplicationController
     respond_to do |format|
       if @atividade.save
         SendConfirmAtividade.send_atividade_email(@current_aluno, @atividade).deliver
-        format.html { redirect_to aluno_index_path, notice: I18n.t('atividades.new.successfully_registrated', :user_name=> @current_aluno.nome) }
+        format.html { redirect_to listadeatividades_path, notice: I18n.t('atividades.new.successfully_registrated', :user_name=> @current_aluno.nome) }
         format.json { render json: @atividade, status: :created, location: @atividade }
       else
         format.html { render action: "new" }
@@ -67,7 +79,7 @@ class AtividadesController < ApplicationController
     @current_aluno = current_aluno
     respond_to do |format|
       if @atividade.update_attributes(params[:atividade])
-        format.html { redirect_to aluno_index_path, notice: I18n.t('atividades.update.successfully_updated', :user_name=> @current_aluno.nome) }
+        format.html { redirect_to listadeatividades_path, notice: I18n.t('atividades.update.successfully_updated', :user_name=> @current_aluno.nome) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -87,6 +99,13 @@ class AtividadesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  '''
+    O METODO ABAIXO É RESPONSAVEL POR
+    ANEXAR UM COMPROVANTE A UMA ATIVIDADE
+    AO TERMINAR ELE REDIRECIONA O USUARIO
+    PARA A LISTA DAS ATIVIDADES DO MESMO.
+  '''
 
   # GET /atividades/1/comprovante_file
   def comprovante_file

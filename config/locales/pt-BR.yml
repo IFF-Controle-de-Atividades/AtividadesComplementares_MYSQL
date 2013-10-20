@@ -4,8 +4,8 @@
 # OBS:
 # NESTE ARQUIVO SE ENCONTRAM TODAS AS TRADUÇÕES
 # OFICIAIS DE ATIVIDADES COMPLEMENTARES O SISTEMA
-# PROPRIAMENTE DITO. QUALQUER MODIFICAÇÃO DEVE SER 
-# FEITA NESSE ARQUIVO E NÃO NOS MODELOS.
+# PROPRIAMENTE DITO. TODA E QUALQUER MODIFICAÇÃO 
+# DEVE SER FEITA NESSE ARQUIVO E NÃO NOS MODELOS.
 
 
 pt-BR:
@@ -34,6 +34,8 @@ pt-BR:
       modalidade: Modalidade
       horasganhas: Horas
       noexplanation: Sem Justificativa
+    comprovante_file:
+      title: "Anexar comprovante em %{name}"
   avaliadores:
     index:
       logout: Sair
