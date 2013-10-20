@@ -69,15 +69,10 @@ class AvaliadoresController < ApplicationController
       @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
     end
 
-    def buscar_index
+    def live_search
       @tasks = Aluno.find(:all, :conditions => ["nome LIKE ? or email LIKE ?","%#{params[:live_search]}%","%#{params[:live_search]}%"])
       # @tasks  = Aluno.find( :all, :conditions => ["nome=? or email=?", params[:live_search], params[:live_search]])
     end
-
-    # def live_search
-    #   @tasks = Aluno.last params[:q]
-    #   render :layout => false
-    # end
 
   #################################################################
 
