@@ -69,14 +69,25 @@ class AvaliadoresController < ApplicationController
       @atividades = Atividade.paginate(:page => params[:page], :per_page=>4)
     end
 
+    '''
+      O METODO LIVE SEARCH ABAIXO É RESPONSÁVEL POR EFETUAR UM BUSCA AO VIVO
+      DOS ALUNOS ENCONTRADOS NO SISTEMA!
+
+      A BUSCA PODE SER FEITA TANTO PELO MAPEAMENTO DO NOME OU POR EMAIL
+      NÃO É FEITO NADA MAIS DO QUE UMA QUERY PASSANDO COMO PARAMENTROS 
+      O PRÓPRIO LIVE_SEARCH.
+    '''
+     
     def live_search
       @tasks = Aluno.find(:all, :conditions => ["nome LIKE ? or email LIKE ?","%#{params[:live_search]}%","%#{params[:live_search]}%"])
-      # @tasks  = Aluno.find( :all, :conditions => ["nome=? or email=?", params[:live_search], params[:live_search]])
+      if @tasks.empty?
+        redirect_to avaliadores_index_path, :alert => I18n.t('messages.no_match', :live_search=> params[:live_search])
+      end
     end
 
   #################################################################
 
-  ##### Methods for load and remove the profile image #############
+  ##### METODOS PARA CARREGAR E REMOVER A IMAGEM DO PERFIL ########
     
     def myimage
         @avaliador = Avaliador.find(params[:id])
@@ -119,6 +130,7 @@ class AvaliadoresController < ApplicationController
 
   #################################################################
 
+  # ESTE METODO DA PERMISSÃO DE MANIPULAÇÃO DOS CAMPOS :password e :password_confirmation
   private
     def user_params
       # NOTE: Using 'strong_parameters' gem

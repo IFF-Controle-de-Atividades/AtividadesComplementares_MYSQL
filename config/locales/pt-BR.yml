@@ -171,6 +171,7 @@ pt-BR:
     accesserror: Sem Atividades para serem avaliadas
     neither: Nenhuma
     without_students: Sem Alunos
+    no_match: "Sem resultados para %{live_search}"
   uploader:
     update_image: Atualizar Imagem
     remove_image: Remover Imagem
