@@ -1,72 +1,95 @@
 <% cursos = ['BSI - Sistemas de Informação'] %>
 
-<strong>
-  <p>
-    <font size="5" color="red">*</font>
-    <label>
-      &nbsp <%= t('form_messages.requiredfields')%>
-    </label>
-  </p>
-</strong>
+<h1><label><font size="5" color="red">*</font>&nbsp<%= t('form_messages.requiredfields')%></label></h1>
+
 <% if resource.errors.any? %>
   <div id="error_explanation" class="alert">
       <%= t 'general.form_error' %>
   </div>
 <% end %>
-<FIELDSET><LEGEND><h2><label><%= t('sessions.students.registration')%></label></h2></LEGEND>
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:multipart => true}) do |l| %>
-    
-    
 
-    <%= l.label :nome %><i id="red">*</i><BR />
-    <div class="session">
+<FIELDSET>
+<LEGEND><h1><STRONG><label><%= t('sessions.students.registration')%></label></h1></LEGEND></STRONG>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => {:multipart => true}) do |l| %>
+
+    <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.aluno.nome') %>
+          <font size="5" color="red">*</font>
+        </label>
+      </h1>
       <%= l.text_field :nome %>
       <%= error_tag @aluno, :nome %>
     </div>
 
-    <div class="field">
-        <%= l.label :sexo %>
-        <DIV class="radio_component">
-              <%= l.radio_button :sexo, t('labels._masc') %>
-              <label id="ident">&nbsp<%= t('labels._masc') %></label><BR />
-              <%= l.radio_button :sexo, t('labels._feme') %>
-              <label id="ident">&nbsp<%= t('labels._feme') %></label>
-              <%= error_tag @aluno, :sexo %>
-        </DIV>
-    </div>
-
-    <%= l.label :matricula %><i id="red">*</i>
-    <div class="session">
+    <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.aluno.matricula') %>
+          <font size="5" color="red">*</font>
+        </label>
+      </h1>
           <%= l.text_field :matricula %>
           <%= error_tag @aluno, :matricula %>
     </div>
 
-    <div class="field">
-       <%= l.label :curso %><BR />
+    <div class="control-group">
+       <%= l.label :curso %>
        <%= l.select :curso, options_for_select(cursos) %> 
     </div>
 
-    <div class="field">
-       <%= l.label :periodo, :id=>"aperiodo"%><BR />
-            <%= l.select :periodo,
-                options_for_select(%w{ 1ºperiodo 2ºperiodo 3ºperiodo 4ºperiodo 
-                5ºperiodo 6ºperiodo 7ºperiodo 8ºperiodo}) %> 
+    <div class="control-group">
+      <%= l.label :periodo, :id=>"aperiodo"%><BR />
+      <%= l.select :periodo, options_for_select(%w{ 1ºperiodo 2ºperiodo 3ºperiodo 4ºperiodo     5ºperiodo 6ºperiodo 7ºperiodo 8ºperiodo}) %> 
     </div>
 
-    <%= l.label :email %><i id="red">*</i>
-    <div class="session">
+    <div class="control-group">
+      <%= l.label :sexo %>
+      <div class="controls">
+        <DIV class="radio_component">
+          <label class="radio">
+            <%= l.radio_button :sexo, t('labels._masc') %><%= label_tag t('labels._masc') %>
+          </label>
+
+          <label class="radio">
+            <%= l.radio_button :sexo, t('labels._feme') %><%= label_tag t('labels._feme') %>
+          </label>
+          <%= error_tag @aluno, :sexo %>
+        </DIV>
+      </div>
+    </div>
+
+    <div class="control-group">
+        <h1>
+          <label>
+            <%= t('activerecord.attributes.aluno.email') %>
+            <font size="5" color="red">*</font>
+          </label>
+        </h1>
         <%= l.email_field :email %>
         <%= error_tag @aluno, :email %>
     </div>
 
-    <%= l.label :password %><i id="red">*</i>
-    <div class="session">
+    <div class="control-group">
+        <h1>
+          <label>
+            <%= t('activerecord.attributes.aluno.password') %>
+            <font size="5" color="red">*</font>
+          </label>
+        </h1>
         <%= l.password_field :password %>
         <%= error_tag @aluno, :password %>
     </div>
 
-    <%= l.label :password_confirmation %><i id="red">*</i>
-    <div class="session">
+    <div class="control-group">
+        <h1>
+          <label>
+            <%= t('activerecord.attributes.aluno.password_confirmation') %>
+            <font size="5" color="red">*</font>
+          </label>
+        </h1>
         <%= l.password_field :password_confirmation %>
         <%= error_tag @aluno, :password_confirmation %>
     </div>
@@ -74,10 +97,10 @@
     <br></FIELDSET>
 
     <div class="botao_left">
-        <span class="luz"><%= l.submit "Enviar", :class=>"botaoVerde", :id=>'id_botao' %></span>
+      <%= l.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
     </div>
 
     <div class="botao_left">
-        <%= link_to t('links.back'), root_path, :class=>"botaoVerde", :id=>'id_botao' %>
+        <%= link_to t('links.back'), root_path, :class=>"btn btn-success btn-large", :id=>'id_botao'%>
     </div>
 <%- end -%>
