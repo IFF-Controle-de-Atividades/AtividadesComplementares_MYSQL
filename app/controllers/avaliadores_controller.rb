@@ -70,13 +70,14 @@ class AvaliadoresController < ApplicationController
     end
 
     def buscar_index
-      @alunos = Aluno.find(:all, :conditions => ["nome LIKE ?","%#{params[:busca]}%"])
+      @tasks = Aluno.find(:all, :conditions => ["nome LIKE ? or email LIKE ?","%#{params[:live_search]}%","%#{params[:live_search]}%"])
+      # @tasks  = Aluno.find( :all, :conditions => ["nome=? or email=?", params[:live_search], params[:live_search]])
     end
 
-    def live_search
-      @tasks = Aluno.last params[:q]
-      render :layout => false
-    end
+    # def live_search
+    #   @tasks = Aluno.last params[:q]
+    #   render :layout => false
+    # end
 
   #################################################################
 

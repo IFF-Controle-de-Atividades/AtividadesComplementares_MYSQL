@@ -111,7 +111,7 @@ AtividadesComplementares::Application.routes.draw do
      match "/avaliador/mypassword/:id/",:controller => "avaliadores", :action=>"mypassword", :as => :password_avaliador
      match "/avaliador/mypassword/:id/updatepassword",:controller => "avaliadores", :action=>"updatepassword", :as => :update_password_avaliador
 
-     match "/admin/buscar/alunos/index" , :controller => "avaliadores", :action => "buscar_index", :as => :busca_index_alunos
+     match "/admin/buscar/alunos/index" , :controller => "avaliadores", :action => "buscar_index", :as => :live_search_alunos
   end
 
   get "/minhas-atividades.pdf" => "pdf_reports#atividadealuno", :format=> :pdf, :as=>:alunoatividades
