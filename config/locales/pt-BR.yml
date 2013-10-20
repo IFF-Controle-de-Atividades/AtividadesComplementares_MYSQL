@@ -12,7 +12,7 @@ pt-BR:
       successfully_created: Modalidade criada com sucesso
   atividades:
     new:
-      title: Cadastro
+      title: Nova Atividade
       successfully_registrated: "%{user_name} sua atividade foi criada com sucesso"
     update:
       successfully_updated: "%{user_name} sua atividade foi atualizada com sucesso"

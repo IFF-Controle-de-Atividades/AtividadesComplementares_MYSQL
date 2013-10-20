@@ -1,3 +1,4 @@
+<BR /><BR />
 <FIELDSET>
     <LEGEND><H1><label><%= t('.Edit') %></label></H1></LEGEND>
 <DIV id="localization">
@@ -11,7 +12,7 @@
 <%= form_for(@aluno, :url=>{:action=>'reloadimageprofile'}, :html => { :multipart => true }) do |l| %>
      
 
-    <div class="field">
+    <div class="control-group">
        <b><%= l.label t('.changeImage') %></b>
        <i id="blue" class="small"><%= t('.readmecarefully') %></i>
        <br>
@@ -22,11 +23,11 @@
     <br>
     <br></FIELDSET>
     <div class="botao_left">
-        <span class="luz"><%= l.submit t('.send'), :class=>"botaoVerde", :id=>'id_botao' %></span>
+        <%= l.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
     </div>
     
     <div class="botao_left">
-        <%= link_to t('links.back'), aluno_index_path,:class=>"botaoVerde", :id=>'id_botao' %>
+        <%= link_to t('links.back'), aluno_index_path, :class=>"btn btn-success btn-large", :id=>'id_botao' %>
     </div>
 <%- end -%>
 

@@ -2,67 +2,91 @@
  <%= @aluno = current_aluno  %>
 </div>
 
-<strong>
-  <p>
-    <font size="5" color="red">*</font>
-    <label>
-      &nbsp <%= t('form_messages.requiredfields')%>
-    </label>
-  </p>
-</strong>
+
+<h1><label><font size="5" color="red">*</font>&nbsp<%= t('form_messages.requiredfields')%></label></h1>
+
 <% if @atividade.errors.any? %>
   <div id="error_explanation">
     <%= t 'general.form_error' %>
   </div>
 <% end %>
+
 <FIELDSET>
    <LEGEND>
-      <label><%= t 'atividades.new.title'%></label>
+      <STRONG><label><%= t 'atividades.new.title'%></label></STRONG>
     </LEGEND>
   <%= form_for(@atividade) do |f| %>
     
-    <div class="session">
-          <%= f.hidden_field :aluno_id, :readonly => "true", :value => @aluno.id %>
+    <div class="control-group">
+      <%= f.hidden_field :aluno_id, :readonly => "true", :value => @aluno.id %>
     </div>
-    <%= f.label :title %><i id="red">*</i>
-    <div class="session">
+
+    <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.atividade.title') %>
+          <font size="5" color="red">*</font>
+        </label>
+      </h1>
       <%= f.text_field :title %>
       <%= error_tag @atividade, :title %>
     </div>
-    <%= f.label :location %><i id="red">*</i>
-    <div class="session">
+
+    <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.atividade.location') %>
+          <font size="5" color="red">*</font>
+        </label>
+      </h1>
       <%= f.text_field :location %>
       <%= error_tag @atividade, :location %>
     </div>
-    <%= f.label :modalidade_id %><i id="red">*</i>
-    <div class="session">
+    
+    <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.atividade.modalidade') %>
+          <font size="5" color="red">*</font>
+        </label>
+      </h1>
       <%= f.collection_select(:modalidade_id, Modalidade.all, :id, :title, {:prompt => 'Selecione'}) %>
       <%= error_tag @atividade, :modalidade_id %>
     </div>
-    <%= f.label :horasganhas %><i id="red">*</i>
-    <div class="session">
+    
+    <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.atividade.horasganhas') %>
+          <font size="5" color="red">*</font>
+        </label>
+      </h1>
       <%= f.text_field :horasganhas %>
       <%= error_tag @atividade, :horasganhas %>
     </div>
-    <%= f.label :inicio %><BR />
-    <div class="session">
+
+    
+    <div class="control-group">
+      <%= f.label :inicio %>
       <%= f.date_select :inicio, :start_year => 2006, :order=> [:day, :month, :year] %>
     </div>
-    <%= f.label :termino %><BR />
-    <div class="session">
+    
+    <div class="control-group">
+      <%= f.label :termino %>
       <%= f.date_select :termino, :start_year => 2006, :order => [:day, :month, :year] %>
     </div>
-    <%= f.label :comprovante %>
-    <div class="session">
-      <%= f.file_field :comprovante %><br ><br >
+    
+    <div class="control-group">
+      <%= f.label :comprovante %>
+      <%= f.file_field :comprovante %>
     </div>
 </FIELDSET>
-
+<BR /><BR /><BR />
 <div class="botao_left">
-    <%= f.submit "Enviar", :class=>"botaoVerde", :id=>'id_botao' %>
+    <%= f.submit t('links.send'),:class=>"btn btn-success btn-large", :id=>'id_botao' %>
 </div>
 
 <div class="botao_left">
-    <%= link_to t('links.back'), aluno_index_path, :class=>"botaoVerde", :id=>'id_botao' %>
+    <%= link_to t('links.back'), aluno_index_path,:class=>"btn btn-success btn-large", :id=>'id_botao' %>
 </div>
 <% end %>
