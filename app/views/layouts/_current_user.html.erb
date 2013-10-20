@@ -61,6 +61,16 @@
       </ul>
     </li>
     <li><span><%= link_to(t('views.menu.links.profile'),edit_avaliador_registration_path)%></span></li>
+    <li><span>
+      <DIV>
+        <SPAN style="text-align:right">
+          <form class="navbar-search pull-left" id="live-search-form" method="get" action="<%= busca_index_alunos_path %>">
+            <input type="text" class="search-query" placeholder="Buscar Alunos" id="big-search-box" name="q" />
+          </form>
+        </SPAN>
+        <div id="live-search-results"></div>
+      </DIV>
+    </span></li>
   </ul>
 </div>
 <% elsif avaliador_signed_in? %>
