@@ -77,9 +77,19 @@
   <div id='cssmenu'>
       <ul>
           <li><span><%= link_to(t('views.menu.links.home'), avaliadores_index_path) %></span></li>
-          <li><span><%= link_to(t('views.menu.links.activities'),appraiser_activities_path)%></span></li>
+          <li><span><%= link_to(t('views.menu.links.activities'),appraiser_activities_path(current_avaliador.nome))%></span></li>
           <li><span><%= link_to(t('views.menu.links.avaliators'), total_avaliadores_path)%></span></li>
           <li><span><%= link_to(t('views.menu.links.profile'),edit_avaliador_registration_path)%></span></li>
+          <li><span>
+            <DIV>
+              <SPAN style="text-align:right">
+                <form class="navbar-search pull-left" id="live-search-form" method="get" action="<%= live_search_atividades_path %>">
+                  <input type="text" class="search-query" placeholder="Buscar Atividades" id="big-search-box" name="live_search" />
+                </form>
+              </SPAN>
+              <div id="live-search-results"></div>
+            </DIV>
+          </span></li>
       </ul>
   </div>
 <% end %>

@@ -6,56 +6,70 @@
     <%  redirect_to avaliador_index_path, :notice => I18n.t('messages.accesserror') %>
 <% elsif @atividade.avaliador_id == current_avaliador.id and current_avaliador.admin == false %>
     
-<strong>
-  <p>
-    <font size="5" color="red">*</font>
-    <label>
-      &nbsp <%= t('form_messages.requiredfields')%>
-    </label>
-  </p>
-</strong>
+
+<h1><STRONG><label><%= t 'avaliacoes.newform.evaluate', :activitie_name=> @atividade.title %></label></h1></STRONG>
+
+
 <% if @atividade.errors.any? %>
   <div id="error_explanation">
       <%= t 'general.form_error' %>
   </div>
 <% end %>
+
 <FIELDSET>
-  <LEGEND><h1><label><%= t 'avaliacoes.newform.evaluate', :activitie_name=> @atividade.title %></label></h1></LEGEND>
+  <LEGEND><h1><label><font size="5" color="red">*</font>&nbsp<%= t('form_messages.requiredfields')%></label></h1></LEGEND>
 <%= form_for(@atividade, :url => {:controller => "avaliacoes",:action => "avaliar"}) do |l| %>
   
 
-  <div class="field">
-      <%= l.label :horasganhas %>&nbsp<i id="red">*</i>&nbsp<br />
+  <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.atividade.horasganhas') %>
+        </label>
+      </h1>
       <%= l.text_field :horasganhas, :readonly=>:false, :size=>"13" %>
   </div>
 
-  <div class="field">
-      <%= l.label :horas_aceitas %>&nbsp<i id="red">*</i>&nbsp<br />
+  <div class="control-group">
+      <h1>
+        <label>
+          <%= t('activerecord.attributes.atividade.horas_aceitas') %>
+          <font size="5" color="red">*</font>
+        </label>
+      </h1>
       <%= l.text_field :horas_aceitas %>
       <%= error_tag @atividade, :horas_aceitas %>
   </div>
 
-  <div class="field">
-      <%= l.label t('avaliacoes.form.rate_tag') %><br />
-      <%= l.radio_button :avaliada, 1 %><label id="ident">&nbsp<%= t('labels._yes')%></label>
-      <%= l.radio_button :avaliada, 0 %><label id="ident">&nbsp<%= t('labels._no')%></label>
-      <%= error_tag @atividade, :avaliada %>
-  </div>
+  <div class="control-group">
+      <%= l.label t('avaliacoes.form.rate_tag') %>
+      <div class="controls">
+        <DIV class="radio_component">
+          <label class="radio">
+            <%= l.radio_button :avaliada, 1 %><%= label_tag t('labels._yes') %>
+          </label>
 
-  <div class="field">
+          <label class="radio">
+            <%= l.radio_button :avaliada, 0 %><%= label_tag t('labels._no') %>
+          </label>
+          <%= error_tag @atividade, :avaliada %>
+        </DIV>
+      </div>
+    </div>
+
+  <div class="control-group">
       <%= l.label t('views.list_activities.explanation') %><br />
       <%= l.text_area :justificativa %>
       <%= error_tag @atividade, :justificativa %>
   </div>
 
 </FIELDSET>  
+<BR /><BR /><BR />
   <div class="botao_left">
-    <span class="luz">
-      <%= l.submit t('links.send'), :class=>"botao", :id=>'id_botao' %>
-    </span>
+    <%= l.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
   </div>
   <div class="botao_left">
-    <%= link_to t('links.back'), avaliadores_index_path, :class=>"botao", :id=>'id_botao' %>
+    <%= link_to t('links.back'), avaliadores_index_path, :class=>"btn btn-success btn-large", :id=>'id_botao'%>
   </div>
 <% end %>
 <% end %>

@@ -1,0 +1,21 @@
+<BR />
+
+<LEGEND><STRONG><label><%= t('messages.success_comparison', :live_search=> params[:live_search]) %></label></LEGEND></STRONG>
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Atividade</th>
+	 		<th>Aluno</th>
+	 		<th>Opção</th>
+    </tr>
+  </thead>
+  <% for live_atividade in @tasks %>
+  	<tbody>
+    	<tr>
+    		<td><%=h live_atividade.title %></td>
+			 	<td><%=h live_atividade.aluno.nome %></td>
+        <td><%=h link_to I18n.t('avaliacoes.form.rate_tag'), avaliar_atividade_path(live_atividade.id) %></td>
+			</tr>
+  </tbody>	
+	<% end %>  
+</table>

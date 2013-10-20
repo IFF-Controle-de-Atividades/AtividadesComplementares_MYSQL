@@ -41,11 +41,28 @@ class AvaliacoesController < ApplicationController
       redirect_to avaliadores_index_path, :notice => t('messages.accessrestricted')
     else
       @avaliador = current_avaliador
-      @atividades = Atividade.where(:avaliador_id => @avaliador.id).paginate(:page => params[:page], :per_page=>4)
+      @atividades = Atividade.where(:avaliador_id => @avaliador.id).paginate(:page => params[:page], :per_page=>10)
       #if @atividades != @avaliador.id
       #  redirect_to avaliadores_index_path, :notice => t('messages.accesserror')
       #end  
     end
+  end
+
+  '''
+    O METODO LIVE SEARCH ABAIXO É RESPONSÁVEL POR EFETUAR UM BUSCA AO VIVO
+    DAS ATIVIDADES ENCONTRADOS NO SISTEMA DESIGNADAS PARA O AVALIADOR AO 
+    QUAL PERTENCE!
+
+    NÃO É FEITO NADA MAIS DO QUE UMA QUERY PASSANDO COMO PARAMENTROS 
+    O PRÓPRIO LIVE_SEARCH DO TIPO ATIVIDADE:TITLE.
+  '''
+
+  def atividade_live_search
+      @avaliador = current_avaliador
+      @tasks = Atividade.where(:avaliador_id => @avaliador.id).paginate(:page => params[:page], :per_page=>10).find(:all, :conditions => ["title LIKE ?","%#{params[:live_search]}%"])
+      if @tasks.empty?
+        redirect_to avaliadores_index_path, :alert => I18n.t('messages.no_match', :live_search=> params[:live_search])
+      end
   end
 
   ################################################################################
@@ -57,7 +74,7 @@ class AvaliacoesController < ApplicationController
   def avaliar
     @atividade = Atividade.find(params[:id])
     if @atividade.update_attributes(params[:atividade])
-      redirect_to appraiser_activities_path, :notice => I18n.t('reviews.activitie_evaluated')
+      redirect_to avaliadores_index_path, :notice => I18n.t('reviews.activitie_evaluated')
     else
       render :avaliar_atividade
     end

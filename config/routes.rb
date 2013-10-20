@@ -65,7 +65,8 @@ AtividadesComplementares::Application.routes.draw do
       match "/avaliar_atividade/:id/", :controller => "avaliacoes", :action=>"avaliar_atividade", :as => :avaliar_atividade
       match "/avaliar_atividade/:id/avaliar", :controller => "avaliacoes", :action=>"avaliar", :as => :update_avaliar_atividade
 
-      get "/avaliador/atividades/designadas/" => "avaliacoes#appraiser_activities", :as=> :appraiser_activities
+      get "/avaliador/:nome/atividades/designadas/" => "avaliacoes#appraiser_activities", :as=> :appraiser_activities
+      match "/buscar/atividade/index" , :controller => "avaliacoes", :action => "atividade_live_search", :as => :live_search_atividades
   end
 
   as :aluno do
