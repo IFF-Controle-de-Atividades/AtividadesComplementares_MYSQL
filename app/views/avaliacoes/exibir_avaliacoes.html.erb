@@ -6,7 +6,7 @@
 </div>
 <CENTER>
 	<table id="home" class='avaliacoes' summary="Atividades">
-    <caption><H3><%= t('avaliacoes.showing_reviews_hanking', :user_name=> @avaliador.nome.capitalize) %></caption>
+    <caption><%= t('avaliacoes.showing_reviews_hanking', :user_name=> @avaliador.nome.capitalize) %></caption>
     <thead>
         <tr>
             <th><%= t('avaliacoes.form.aluno_tag')%></th>
@@ -33,6 +33,12 @@
 	  </tbody>
 	</table>
 <BR /><BR />
-<FIELDSET id="newPage"><LEGEND><%= link_to(I18n.t('avaliadores.list_avaliators.new'), new_avaliador_path, :class=>"buttonx") %></LEGEND>
-  <%= render "avaliadores/list_av", :locals=>{:avaliadores=>@avaliadores}%></FIELDSET>
+<FIELDSET id="oldPage">
+  <LEGEND >
+    <div class="control-group" align='left'>
+      <%= link_to(I18n.t('avaliadores.list_avaliators.new'), new_avaliador_path, :class=>"buttonx") %>
+    </div>
+  </LEGEND>
+  <%= render "avaliadores/list_av", :locals=>{:avaliadores=>@avaliadores}%>
+</FIELDSET>
 </CENTER>

@@ -77,7 +77,7 @@ class AvaliacoesController < ApplicationController
     unless current_avaliador.admin
       redirect_to avaliador_index_path, :notice=> I18n.t('messages.accessrestricted')
     else
-      @avaliadores = Avaliador.where(:admin => 0).paginate(:page => params[:page], :per_page=>4)
+      @avaliadores = Avaliador.paginate(:page => params[:page], :per_page=>4)
       @avaliador = Avaliador.find(params[:id])
       @atividades = Atividade.where(:avaliador_id => @avaliador.id).paginate(:page => params[:page], :per_page=>4)
       if @atividades.empty?
