@@ -32,7 +32,7 @@ class TotalAtividadesPdf < PDF_GENERATOR
     end
 
     def itens_tabela 
-      [ ["Atividade","Descrição", "Aluno","Avaliada ?","CH - Aceita", "Avaliador"] ] +
+      [ ["Atividade","Descrição", "Aluno","Avaliada","CH", "Avaliador"] ] +
           @report.collect do |item|
           [ 
             item.title, item.modalidade.title,
