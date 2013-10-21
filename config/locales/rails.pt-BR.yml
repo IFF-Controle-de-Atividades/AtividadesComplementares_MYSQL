@@ -123,6 +123,14 @@ pt-BR:
       too_long: ! 'é muito longo (máximo: %{count} caracteres)'
       too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
       wrong_length: não possui o tamanho esperado (%{count} caracteres)
+      carrierwave_processing_error: Erro ao processar
+      carrierwave_integrity_error: Não é um tipo válido de arquivo
+      carrierwave_download_error: Erro ao fazer baixar
+      extension_white_list_error: "Você não deveria carregar um arquivo %{extension}, os arquivos permitidos são: %{allowed_types}"
+      extension_black_list_error: "Você não pode carregar um arqivo %{extension}, não são válidos: %{prohibited_types}"
+      rmagick_processing_error: "Erro ao manipular a lib rmagick, talvez isto não seja uma imagem? Erro: %{e}"
+      mime_types_processing_error: "Erro ao processar o arquivo com MIME::Types, talvez não seja um tipo valido? Erro: %{e}"
+      mini_magick_processing_error: "Erro ao manipular MiniMagick, talvez isto não seja uma imagem? Erro: %{e}"
     template:
       body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:

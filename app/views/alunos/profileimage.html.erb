@@ -1,22 +1,21 @@
 <BR />
-<FIELDSET>
-    <LEGEND><H1><strong><label><%= t('.Edit') %></label></H1></LEGEND></strong>
-<DIV id="localization">
-
 <% if @aluno.errors.any? %>
   <div id="error_explanation">
     <%= t 'general.form_error' %>
   </div>
 <% end %>
 
+<FIELDSET>
+    <LEGEND><H1><strong><label><%= t('.Edit') %></label></H1></LEGEND></strong>
+
+<DIV id="localization">
 <%= form_for(@aluno, :url=>{:action=>'reloadimageprofile'}, :html => { :multipart => true }) do |l| %>
      
 
     <div class="control-group">
        <b><%= l.label t('.changeImage') %></b>
-       <i id="blue"><%= t('.readmecarefully') %></i>
-       <br>
-       <%= l.file_field :image %><BR /></b>
+       <i id="blue"><%= t('.readmecarefully') %></i><BR />
+       <%= l.file_field :image %>
        <%= error_tag @aluno, :image %>
     </div>
   

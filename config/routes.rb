@@ -25,7 +25,7 @@ AtividadesComplementares::Application.routes.draw do
     #   end
     # end
     
-    resources :atividades
+    resources :atividades , :only => [:new, :edit, :create, :update, :destroy, :comprovante_file, :anexar_comprovante]
     resources :modalidades, :only => [:index, :new, :edit, :create, :update, :destroy]
 
     resources :avaliacoes,
@@ -44,6 +44,7 @@ AtividadesComplementares::Application.routes.draw do
 
   as :atividades do
     get "/atividades/:id/comprovante_file" => "atividades#comprovante_file", :as => :comprovante_file
+    put "/atividades/comprovante/:id"=> "atividades#anexar_comprovante"
   end
 
   as :modalidades do

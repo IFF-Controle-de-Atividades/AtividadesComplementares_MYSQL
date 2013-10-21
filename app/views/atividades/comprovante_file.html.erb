@@ -12,7 +12,7 @@
    <LEGEND>
       <STRONG><label><%= t '.title', name: @atividade.title %></label></STRONG>
     </LEGEND>
-  <%= form_for(@atividade) do |f| %>
+  <%= form_for(@atividade, :url=>{:action=>'anexar_comprovante'}, :html => { :multipart => true }) do |f| %>
     
     <div class="control-group">
           <%= f.hidden_field :aluno_id, :readonly => "true", :value => @aluno.id %>
@@ -20,10 +20,11 @@
 
     <div class="control-group">
       <%= f.label :comprovante %>
-      <%= f.file_field :comprovante %><br /><br />
+      <%= f.file_field :comprovante %>
+      <%= error_tag @atividade, :comprovante %>
     </div>    
 </FIELDSET>
-<br /><br />
+<br /><br /><br />
 <div class="botao_left">
     <%= f.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
 </div>

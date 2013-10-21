@@ -16,8 +16,11 @@ class ComprovanteUploader < CarrierWave::Uploader::Base
     %w(doc docx pdf odt)
   end
 
+  def extension_black_list
+    %w(jpeg jpg png btm gif js exe)
+  end  
+
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
-
 end

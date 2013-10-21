@@ -116,4 +116,24 @@ class AtividadesController < ApplicationController
       @current_aluno = current_aluno
     end
   end
+
+  def anexar_comprovante
+    @atividade = Atividade.find(params[:id])
+    @current_aluno = current_aluno
+    respond_to do |format|
+      if @atividade.update_attributes(comprovante_params)
+        format.html { redirect_to listadeatividades_path, notice: I18n.t('atividades.update.successfully_updated', :user_name=> @current_aluno.nome) }
+        format.json { head :no_content }
+      else
+        format.html { render action: "comprovante_file" }
+        format.json { render json: @atividade.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+    def comprovante_params
+      # NOTE: Using 'strong_parameters' gem
+      params.require(:atividade).permit(:comprovante)
+    end
 end
