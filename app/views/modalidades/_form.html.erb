@@ -1,33 +1,33 @@
-<strong>
-  <p>
-    <font size="5" color="red">*</font>
-    <label>
-      &nbsp <%= t('form_messages.requiredfields')%>
-    </label>
-  </p>
-</strong>
+<h1><STRONG><label><%= t('modalidades.new.title')%></label></h1></STRONG></H1>
+
+
 <% if @modalidade.errors.any? %>
   <div id="error_explanation" class="alert">
     <%= t 'general.form_error' %>
   </div>
 <% end %>
+
 <FIELDSET>
    <LEGEND>
-      <label><%= t 'modalidades.new.title'%></label>
-    </LEGEND>
+    <h1><label><font size="5" color="red">*</font>&nbsp<%= t('form_messages.requiredfields')%></label></h1></LEGEND>
       <%= form_for(@modalidade) do |f| %>
-        <%= f.label :title %><i id="red">*</i><BR />
-        <div class="field">
+        <div class="control-group">
+           <h1>
+              <label>
+                <%= t('activerecord.attributes.modalidade.title') %>
+                <font size="5" color="red">*</font>
+              </label>
+            </h1>
           <%= f.text_area:title %>
           <%= error_tag @modalidade, :title %>
         </div><br />
 </FIELDSET>
-
+<br /><br />
 <div class="botao_left">
-    <%= f.submit "Enviar", :class=>"botaoVerde", :id=>'id_botao' %>
+   <%= f.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
 </div>
 
 <div class="botao_left">
-    <%= link_to t('links.back'), modalidades_index_path, :class=>"botaoVerde", :id=>'id_botao' %>
+    <%= link_to t('links.back'), modalidades_index_path, :class=>"btn btn-success btn-large", :id=>'id_botao' %>
 </div>
 <% end %>
