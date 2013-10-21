@@ -1,6 +1,6 @@
+# --*-- CODING:UTF-8 --*--
+require 'file_size_validator'
 class Avaliador < ActiveRecord::Base
-
-  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -12,16 +12,17 @@ class Avaliador < ActiveRecord::Base
   # attr_accessible :title, :body
   #attr_accessor :current_password
   
+  has_many :atividades
+
+  mount_uploader :image, ImageUploader
+
   validates_presence_of :nome, :matricula, :titulacao
+  validates :image, :presence => false, :file_size => { :maximum => 10.megabytes.to_i }
 
   validates_length_of   :titulacao, :in => 4..30, :allow_blank => true
   validates_length_of   :matricula, :maximum=> 13, :allow_blank => false
 
   validates_uniqueness_of :nome, :email, :matricula
-
-  mount_uploader :image, ImageUploader
-  
-  has_many :atividades
 
 
   def verify_password?(password)
