@@ -1,10 +1,9 @@
-<table id="home" class='avaliacoes' summary="Atividades">
-    <caption><%= t('activerecord.model.modalidade')%></caption>
+<table class="table table-condensed table-hover">
     <thead>
        <tr>
           <th><div id="homeleft"><%= t('activerecord.attributes.modalidade.title')%></div></th>
           <% if avaliador_signed_in? and current_avaliador.admin %>
-            <th></th>
+            <CENTER><th>OPCOES</th></CENTER>
             <th></th>
           <%-end-%>
         </tr>
@@ -14,8 +13,7 @@
         <% @modalidades.each do |modalidade| %>
           <tr>
             <td><div id="homeleft"><%= modalidade.title %></div></td>
-            <td><center><%= link_to(t('links.edit'),edit_modalidade_path(modalidade.id)) %></center></td>
-            <td><center><%= link_to(t('links.destroyModel'), delete_modalidade_path(modalidade), :method => :delete, :confirm => t('messages.areyousure') ) %></center></td>
+            <td><center><%= link_to(t('links.edit'),edit_modalidade_path(modalidade.id)) %></center><center><%= link_to(t('links.destroyModel'), delete_modalidade_path(modalidade), :method => :delete, :confirm => t('messages.areyousure') ) %></center></td>
           </tr>
         <% end %>
       </tbody>

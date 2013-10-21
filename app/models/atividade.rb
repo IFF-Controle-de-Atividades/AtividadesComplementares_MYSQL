@@ -5,7 +5,7 @@ class Atividade < ActiveRecord::Base
   mount_uploader :comprovante, ComprovanteUploader
   
   validates_presence_of :horasganhas, :title ,:location
-  validates :comprovante, :presence => false, :file_size => { :maximum => 25.megabytes.to_i } 
+  validates :comprovante, :file_size => { :maximum => 25.megabytes.to_i } 
 
   belongs_to :aluno
   has_many :modalidades
