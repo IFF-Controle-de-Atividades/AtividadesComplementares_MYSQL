@@ -23,14 +23,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   end
 
-  def extension_white_list
-    %w(jpg jpeg png)
-  end
-
-  def extension_black_list
-    %w(doc docx pdf odt btm gif js exe)
-  end 
-
   process resize_to_fit: [320, 240]
 
   version :standard do
@@ -44,6 +36,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :small_thumb, :from_version => :thumb do
     process resize_to_fill: [20, 20]
   end
+
+  def extension_white_list
+    %w(jpg jpeg png)
+  end
+
+  def extension_black_list
+    %w(doc docx pdf odt btm gif js exe)
+  end 
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"

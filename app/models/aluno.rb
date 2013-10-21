@@ -23,7 +23,7 @@ class Aluno < ActiveRecord::Base
  
   validates_uniqueness_of :nome, :matricula, :email
 
-  validates :image, :presence => false, :file_size => { :maximum => 10.megabytes.to_i } 
+  # validates :image, :presence => false, :file_size => { :maximum => 10.megabytes.to_i } 
 
   def contar_horas_enviadas(aluno_atual)
     aluno = aluno_atual  

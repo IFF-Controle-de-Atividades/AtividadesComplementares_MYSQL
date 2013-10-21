@@ -17,7 +17,7 @@ class Avaliador < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   validates_presence_of :nome, :matricula, :titulacao
-  validates :image, :presence => false, :file_size => { :maximum => 10.megabytes.to_i }
+  # validates :image, :presence => false, :file_size => { :maximum => 10.megabytes.to_i }
 
   validates_length_of   :titulacao, :in => 4..30, :allow_blank => true
   validates_length_of   :matricula, :maximum=> 13, :allow_blank => false
