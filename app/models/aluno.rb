@@ -1,4 +1,5 @@
 #--*-- coding:utf-8 --*--
+require 'file_size_validator' 
 class Aluno < ActiveRecord::Base
   
   # Include default devise modules. Others available are:
@@ -21,6 +22,8 @@ class Aluno < ActiveRecord::Base
   validates_length_of   :matricula, :maximum=> 12, :allow_blank => false
  
   validates_uniqueness_of :nome, :matricula, :email
+
+  validates :image, :presence => false, :file_size => { :maximum => 25.megabytes.to_i } 
 
   def contar_horas_enviadas(aluno_atual)
     aluno = aluno_atual  

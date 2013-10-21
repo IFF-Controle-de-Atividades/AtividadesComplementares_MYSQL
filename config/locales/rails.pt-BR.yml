@@ -131,6 +131,9 @@ pt-BR:
       rmagick_processing_error: "Erro ao manipular a lib rmagick, talvez isto não seja uma imagem? Erro: %{e}"
       mime_types_processing_error: "Erro ao processar o arquivo com MIME::Types, talvez não seja um tipo valido? Erro: %{e}"
       mini_magick_processing_error: "Erro ao manipular MiniMagick, talvez isto não seja uma imagem? Erro: %{e}"
+      wrong_size: "Tamanho de arquivo inválido (deve ser %{file_size})"
+      size_too_small: "Tamanho de arquivo muito pequeno (deve conter até %{file_size})"
+      size_too_big: "Tamanho de arquivo muito grande (deve conter até %{file_size})"
     template:
       body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
