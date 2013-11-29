@@ -131,7 +131,7 @@ pt-BR:
                       para seu email, para renovação 
                       da senha.
     signin: Entrar
-    sendinformation: Enviar informações para alteração de senha
+    sendinformation: Serão enviadas informações para alteração de senha
   registration:
     unhappy: Não está contente
     cancel_account: Cancelar conta

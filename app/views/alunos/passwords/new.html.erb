@@ -1,24 +1,30 @@
-<FIELDSET><LEGEND><h2 id="signin"><label><%= t('sessions.sendinformation') %></h2></label></LEGEND>
-<div id="sbar">
-  <div class="attention">
-	<p id="passwordchange"><%= t('sessions.passwordChange') %></p>
-  </div>
-</div>
+<FIELDSET>
+	<LEGEND>
+		<h2 id="signin">
+			<STRONG><label><%= t('sessions.sendinformation') %></label></STRONG>
+		</h2>
+	</LEGEND>
+	
+	<% if resource.errors.any? %>
+	  <div id="error_explanation" class="alert">
+	      <%= t 'general.form_error' %>
+	  </div>
+	<% end %>
 
-<SECTION class="passwordChange">
 	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+  	<%= devise_error_messages! %>
 
-  <div class="session">
-			   <%= f.label :email %>
-			   <%= f.email_field :email, :autofocus => true %>
-	</div>
-	<br /><br /></FIELDSET>
-  <div class="botao_left">
-		<%= f.submit t('links.send'), :class=>"botaoVerde", :id=>'id_botao' %>
-	</div>
-	<div class="botao_left">
-	  <%= link_to t('links.back'), new_aluno_session_path, :class=>"botaoVerde", :id=>'id_botao' %>
-	</div>
-<% end %>
-</SECTION>
+  	<div class="session">
+			<%= f.label :email %>
+			<%= f.email_field :email, :autofocus => true %>
+		</div>
+		</FIELDSET>
+  	<br /><br /><br />
+  	<div class="botao_left">
+      <%= f.submit t('links.send'), :class=>"btn btn-success btn-large", :id=>'id_botao' %>
+    </div>
+
+    <div class="botao_left">
+        <%= link_to t('links.back'), new_aluno_session_path, :class=>"btn btn-success btn-large", :id=>'id_botao'%>
+    </div>
+<%- end -%>
