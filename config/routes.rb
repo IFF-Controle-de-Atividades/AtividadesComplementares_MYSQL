@@ -25,7 +25,7 @@ AtividadesComplementares::Application.routes.draw do
     #   end
     # end
     
-    resources :atividades , :only => [:new, :edit, :create, :update, :destroy, :comprovante_file, :anexar_comprovante]
+    resources :atividades , :only => [:new, :show ,:edit, :create, :update, :destroy, :comprovante_file, :anexar_comprovante]
     resources :modalidades, :only => [:index, :new, :edit, :create, :update, :destroy]
 
     resources :avaliacoes,

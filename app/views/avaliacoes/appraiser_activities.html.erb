@@ -42,11 +42,17 @@
                 <% end %>
               </center></td>
 
-              <% unless atividade.comprovante.nil? %>
-                  <center><TD><%= t('messages.without_receipt')%></TD></center>
+              <% if atividade.comprovante.path.nil? %>
+                <center><TD><%= t('messages.without_receipt')%></TD></center>
               <% else %>
-                  <td><center><%= link_to "#{image_tag("samples/pdf-icon.png",:width=>"60",:height=>"50",:alt=>"Ver Comprovante")}".html_safe, "atividade.comprovante"%></center>
+                <td>
+                  <center>
+                    <a href = "<%= atividade.comprovante %>" alt="Anexar Comprovante">
+                      <%= image_tag("fallback/pdf-icon.png", :width=>"60",:height=>"50", :alt=>"Ver Comprovante") %>
+                    </a>
+                  </center>
                   </td>
+                </td>
               <%-end-%>
 
               <td><center><%= yes_or_no?(atividade.avaliada) %></center></td>

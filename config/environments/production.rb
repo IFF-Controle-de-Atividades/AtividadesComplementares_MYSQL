@@ -88,20 +88,25 @@ AtividadesComplementares::Application.configure do
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+
 
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.perform_deliveries = true
-    ActionMailer::Base.raise_delivery_errors = true
-    ActionMailer::Base.smtp_settings = {
-        :address => "smtp.gmail.com",
-        :port => "587",
-        :domain => "gmail.com",
-        :enable_starttls_auto => true,
-        :authentication => :plain,
-        :user_name => "alex.lostcanvas@gmail.com",
-        :password => "SAMPAIO789*5///201"
-    }
-    config.action_mailer.raise_delivery_errors = false
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => "587",
+      :domain => "gmail.com",
+      :enable_starttls_auto => true,
+      :authentication => :plain,
+      :user_name => "allexonrails@gmail.com",
+      :password => "As789*5///201."
+  }
+  config.action_mailer.raise_delivery_errors = false
+
+  #mailcatcher configuration
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
 end
