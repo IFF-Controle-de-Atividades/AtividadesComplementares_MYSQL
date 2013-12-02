@@ -32,7 +32,7 @@ AtividadesComplementares::Application.configure do
   config.action_mailer.smtp_settings   = {address: '127.0.0.1', port: 1025}
 
   # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
+  config.active_record.masws_assignment_sanitizer = :strict
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
