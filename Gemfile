@@ -39,12 +39,13 @@ end
 gem "capistrano"
 
 group :assets do
-  	gem 'sass-rails',   '~> 3.2.3'
-  	gem 'coffee-rails', '~> 3.2.1'
-  	gem 'uglifier', '>= 1.0.3'
-  	gem 'therubyracer', :platforms => :ruby
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+  gem 'therubyracer', :platforms => :ruby
 	gem "less-rails"
 end
+
 gem "twitter-bootstrap-rails", '~> 2.2.6'
 
 group :development do
@@ -58,8 +59,8 @@ group :test do
 	gem 'cucumber'
 	gem 'cucumber-rails'
 	gem 'guard-cucumber'
-  	gem "spork"
-  	gem "guard-spork"
+  gem "spork"
+  gem "guard-spork"
 	gem 'database_cleaner'
 	gem 'growl'
 	gem 'rb-fsevent'

@@ -65,48 +65,20 @@ AtividadesComplementares::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-
-  #Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-  # config.action_mailer.default_url_options = { :host => 'localhost' }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  # #   :location => '/usr/sbin/sendmail',
-  # #   :arguments => '-i -t'
-      # :address => 'smtp.gmail.com',
-      # :port => 587,
-      # :domain => 'gmail.com',
-      # :authentication => :plain,
-      # :user_name => '@gmail.com',
-      # :password => 'keypass',
-      # :enable_starttls_auto => true
-  # }
-  # Defaults to:
-  # # config.action_mailer.sendmail_settings = {
-  # #   :location => '/usr/sbin/sendmail',
-  # #   :arguments => '-i -t'
-  # # }
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
-
-
+  config.action_mailer.default_url_options = { :host => 'localhost' }
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
   ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => "587",
-      :domain => "gmail.com",
-      :enable_starttls_auto => true,
-      :authentication => :plain,
-      :user_name => "allexonrails@gmail.com",
-      :password => "As789*5///201."
-  }
-  config.action_mailer.raise_delivery_errors = false
 
-  #mailcatcher configuration
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
+  ActionMailer::Base.smtp_settings = {
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :domain => 'gmail.com',
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :user_name => 'allexonrails@gmail.com',
+    :password => 'MaP789*5///201;'
+  }
+  
 end

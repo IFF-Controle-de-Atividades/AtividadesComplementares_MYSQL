@@ -17,7 +17,7 @@ AtividadesComplementares::Application.routes.draw do
                           :mypassword
                       ], :collection => { :buscar_index => :get }
     
-    resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage, :password, :changepassword]
+    resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage]
 
     # resource :aluno, only: [:show] do
     #   collection do

@@ -35,26 +35,19 @@ AtividadesComplementares::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  # Aponta o host para o ambiente de desenvolvimento
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
-
-  
+  config.action_mailer.default_url_options = { :host => 'localhost' }
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.perform_deliveries = true
-    ActionMailer::Base.raise_delivery_errors = true
-    ActionMailer::Base.smtp_settings = {
-        :address => "smtp.gmail.com",
-        :port => "587",
-        :domain => "gmail.com",
-        :enable_starttls_auto => true,
-        :authentication => :plain,
-        :user_name => "allexonrails@gmail.com",
-        :password => "As789*5///201."
-    }
-    config.action_mailer.raise_delivery_errors = false
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
 
-  #mailcatcher configuration
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
+  ActionMailer::Base.smtp_settings = {
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :domain => 'gmail.com',
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :user_name => 'allexonrails@gmail.com',
+    :password => 'MaP789*5///201;'
+  }
 end
