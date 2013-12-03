@@ -4,7 +4,7 @@ set :keep_releases, 5               # Isso guardar os 5 últimos deploys
 set :rails_env,   "production"    # O ambiente em que o Rails irá atuar
 
 set :scm, 'git'
-set :repository,  "git@github.com:IFF-Controle-de-Atividades/AtividadesComplementares_MYSQL.git"
+set :repository,  "https://github.com/IFF-Controle-de-Atividades/atividadescomplementares.git"
 set :branch, 'master'
 set :deploy_via, :remote_cache
 ####################### END OF INFORMAÇÕES DA APP ##############################
@@ -13,7 +13,7 @@ set :deploy_via, :remote_cache
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 set :user, "root"
-set :use_sudo, true
+set :use_sudo, false
 server "10.11.10.10:60000", :web, :app, :db, :primary => true
 set :deploy_to, "/u/apps/#{ application }"
 
