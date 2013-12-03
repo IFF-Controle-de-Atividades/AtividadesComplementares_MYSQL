@@ -1,5 +1,5 @@
 ######################### INFORMAÇÕES DA APP ##################################
-set :application, "Sistema de Atividades Complementares" # O nome do projeto
+set :application, "AtividadesComplementares" # O nome do projeto
 set :keep_releases, 5               # Isso guardar os 5 últimos deploys
 set :rails_env,   "production"    # O ambiente em que o Rails irá atuar
 
@@ -12,17 +12,17 @@ set :deploy_via, :remote_cache
 ######################### INFORMAÇÕES DO SERVIDOR #############################
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :user, "manut"
-set :use_sudo, false
+set :user, "root"
+set :use_sudo, true
 server "10.11.10.10:60000", :web, :app, :db, :primary => true
-set :deploy_to, "/app_rails.atividadescomplementares.iff.edu.br/#{application}"
+set :deploy_to, "/u/apps/#{ application }"
 
 ############################# END OF SERVIDOR #################################
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "10.11.10.10:60000"                          # Your HTTP server, Apache/etc
+#role :web, "10.11.10.10:60000"                          # Your HTTP server, Apache/etc
 #role :app, "your app-server here"                          # This may be the same as your `Web` server
 #role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
