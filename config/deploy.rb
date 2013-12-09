@@ -10,7 +10,7 @@ set :rails_env,       "production"
 set :deploy_to,       "/home/deployer/apps/atividadescomplementares"
 set :normalize_asset_timestamps, false
 
-set :user,            "deployer"
+set :user,            "root"
 set :group,           "staff"
 set :use_sudo,        false
 
@@ -29,10 +29,10 @@ set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEA
 default_environment["RAILS_ENV"] = 'production'
 
 # Use our ruby-1.9.2-p290@my_site gemset
-default_environment["PATH"]         = "--"
-default_environment["GEM_HOME"]     = "--"
-default_environment["GEM_PATH"]     = "--"
-default_environment["RUBY_VERSION"] = "ruby 2.0.0p356"
+default_environment["PATH"]         = "/usr/local/rvm/gems/ruby-2.0.0-p353@rails3/bin:/usr/local/rvm/gems/ruby-2.0.0-p353@global/bin:/usr/local/rvm/rubies/ruby-2.0.0-p353/bin:/usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+default_environment["GEM_HOME"]     = "/usr/local/rvm/gems/ruby-2.0.0-p353@rails3"
+default_environment["GEM_PATH"]     = "/usr/local/rvm/gems/ruby-2.0.0-p353@rails3:/usr/local/rvm/gems/ruby-2.0.0-p353@global"
+default_environment["RUBY_VERSION"] = "/usr/local/rvm/rubies/ruby-2.0.0-p353"
 
 default_run_options[:shell] = 'bash'
 
