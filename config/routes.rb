@@ -5,26 +5,11 @@ AtividadesComplementares::Application.routes.draw do
 
   # scope "(:locale)", :locale=>LOCALES do
     resources :pdf_reports, only: [:atividadealuno, :alunos_pdf, :avaliadores_pdf, :total_atividades]
-    resources :avaliadores, 
-              :only => [
-                          :new, 
-                          :create, 
-                          :total_alunos, 
-                          :total_avaliadores,
-                          :listar_atividades, 
-                          :listar_avaliacoes, 
-                          :myimage, 
-                          :mypassword
-                      ], :collection => { :buscar_index => :get }
+    resources :avaliadores, :only => [ :new, :create, :total_alunos, :total_avaliadores, :listar_atividades, :listar_avaliacoes, :myimage, :mypassword ],
+                            :collection => { :buscar_index => :get }
     
-    resources :alunos,      :only => [:index, :profileimage, :reloadimageprofile, :removeimage]
+    resources :alunos, :only => [:index, :profileimage, :reloadimageprofile, :removeimage, :password]
 
-    # resource :aluno, only: [:show] do
-    #   collection do
-    #     patch 'changepassword'
-    #   end
-    # end
-    
     resources :atividades , :only => [:new, :show ,:edit, :create, :update, :destroy, :comprovante_file, :anexar_comprovante]
     resources :modalidades, :only => [:index, :new, :edit, :create, :update, :destroy]
 
@@ -77,8 +62,8 @@ AtividadesComplementares::Application.routes.draw do
      get "/aluno/home/" => "alunos#index", :as => :aluno_index
      get "/listadeatividades" => "alunos#atividades", :as => :listadeatividades
      
-     match "/alterarsenha/mypassword/:id/",:controller => "alunos", :action=>"password", :as => :password
-     match "/alterarsenha/mypassword/:id/changepassword",:controller => "alunos", :action=>"changepassword", :as => :change_password_aluno
+     match "/aluno/mypassword/:id/",:controller => "alunos", :action=>"alter_password_information", :as => :alter_password_information
+     match "/aluno/mypassword/:id/changepassword",:controller => "alunos", :action=>"changepassword", :as => :change_password_aluno
 
      match "/imagemdoperfil/:id/profileimage",:controller => "alunos", :action=>"profileimage", :as => :profile_image
      match "/imagemdoperfil/:id/salvarimagem",:controller => "alunos", :action=>"reloadimageprofile", :as => :get_image
@@ -110,8 +95,8 @@ AtividadesComplementares::Application.routes.draw do
      match "/avaliador/myimage/:id/salveimage",:controller => "avaliadores", :action=>"saveimage", :as => :salvar_imagem_avaliador
      match "/avaliador/:id/removeimagem",:controller => "avaliadores", :action=>"removeimage", :as => :remover_imagem_avaliador
 
-     match "/avaliador/mypassword/:id/",:controller => "avaliadores", :action=>"mypassword", :as => :password_avaliador
-     match "/avaliador/mypassword/:id/updatepassword",:controller => "avaliadores", :action=>"updatepassword", :as => :update_password_avaliador
+     match "/avaliador/mypassword/:id/",:controller => "avaliadores", :action=>"mypassword", :as => :alter_avaliador_password
+     match "/avaliador/mypassword/:id/updatepassword",:controller => "avaliadores", :action=>"updatepassword", :as => :update_avaliador_password
 
      match "/admin/buscar/alunos/index" , :controller => "avaliadores", :action => "admin_live_search", :as => :live_search_alunos
   end

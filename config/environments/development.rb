@@ -13,9 +13,6 @@ AtividadesComplementares::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  #config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -35,7 +32,10 @@ AtividadesComplementares::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: '127.0.0.1:60000' }
+
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
