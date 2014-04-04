@@ -29,26 +29,26 @@ class AlunosController < ApplicationController
     end
   end
 
-  # def password
-  #   @aluno = current_aluno
-  # end
+  def alter_password_information
+    @aluno = current_aluno
+  end
 
-  # def changepassword
-  #   @aluno = Aluno.find(current_aluno.id)
-  #   if @aluno.update_attributes(user_params)
-  #       sign_in @aluno, :bypass => true
-  #       redirect_to aluno_index_path, :notice => t('alunos.password.password_updated')
-  #   end 
-  # end
+  def changepassword
+    @aluno = Aluno.find(current_aluno.id)
+    if @aluno.update_attributes(user_params)
+        sign_in @aluno, :bypass => true
+        redirect_to aluno_index_path, :notice => t('alunos.password.password_updated')
+    end 
+  end
 
-  # private
-  #   def user_params
-  #     # NOTE: Using 'strong_parameters' gem
-  #     params.require(:aluno).permit(:password, :password_confirmation)
-  #   end
+  private
+    def user_params
+      # NOTE: Using 'strong_parameters' gem
+      params.require(:aluno).permit(:password, :password_confirmation)
+    end
 
-  #   def user_image
-  #     # NOTE: Using 'strong_parameters' gem
-  #     params.require(:aluno).permit(:image)
-  #   end
+    def user_image
+      # NOTE: Using 'strong_parameters' gem
+      params.require(:aluno).permit(:image)
+    end
 end

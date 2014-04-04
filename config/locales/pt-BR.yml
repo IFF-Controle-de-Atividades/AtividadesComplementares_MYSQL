@@ -43,6 +43,7 @@ pt-BR:
       ProfileImage: Atualizar Imagem
       ProfilePassword: Atualizar Senha 
       RemoveProfileImage: Remover Imagem
+      changepassword: Mudar Senha
     edit:
       title: Editar Status
       profile: "Editando perfil de %{name}"

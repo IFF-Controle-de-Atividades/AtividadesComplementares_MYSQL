@@ -13,10 +13,6 @@
                 <%= link_to t('uploader.update_image'), profile_image_path(current_aluno.id) %>
               </span>
             </li>
-            <li class='header-sub '>
-                <span>
-                  <%= link_to "Ajuda?" %></span>
-            </li> 
             <li>
               <%= link_to(t('alunos.index.logout'), aluno_session_out_path, :method => :get, :class=>"button1 fright p6") %>
 
@@ -33,17 +29,8 @@
             </center>
           </div>
           <ul> 
-            <li class='header-sub '>
-              <span>
-                <%= link_to t('uploader.update_image'), selecionar_imagem_avaliador_path(current_avaliador.id) %>
-              </span>
-            </li>
-            <li class='header-sub '>
-                <span>
-                  <%= link_to "Ajuda?" %></span>
-            </li> 
             <li>
-              <%= link_to(t('avaliadores.index.logout'), avaliador_session_out_path, :method => :get, :class=>"button1 fright p6") %>
+              <center><%= link_to(t('avaliadores.index.logout'), avaliador_session_out_path, :method => :get, :class=>"button1 fright p6") %></center>
 
             </li> 
           </ul> 
