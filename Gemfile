@@ -33,6 +33,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Deploy with Capistrano
 gem "capistrano"
+gem "unicorn"
+gem "rvm-capistrano"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
