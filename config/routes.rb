@@ -4,6 +4,7 @@ AtividadesComplementares::Application.routes.draw do
   LOCALES = /en|pt\-BR/
 
   # scope "(:locale)", :locale=>LOCALES do
+    
     resources :pdf_reports, only: [:atividadealuno, :alunos_pdf, :avaliadores_pdf, :total_atividades]
     resources :avaliadores, :only => [ :new, :create, :total_alunos, :total_avaliadores, :listar_atividades, :listar_avaliacoes, :myimage, :mypassword ],
                             :collection => { :buscar_index => :get }
