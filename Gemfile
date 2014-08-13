@@ -6,36 +6,30 @@ gem 'json'
 gem 'bson_ext'
 gem 'jquery-rails'
 
+gem 'mysql2'  
+gem 'devise', "2.2.5"
+gem 'prawn'
 
-group :development, :test do
-	gem 'mysql2'  
-	gem 'devise', "2.2.5"
-	gem 'prawn'
-	
-	gem 'pry'
-	gem 'pry-nav'
-	
-	gem 'will_paginate', '~> 3.0'
-	gem "cancan"
-	
-	gem 'carrierwave'
-	gem 'mini_magick'
-	gem 'strong_parameters'
-	gem 'rack-raw-upload', '1.1.0'
+gem 'pry'
+gem 'pry-nav'
 
-	gem 'tlsmail'
-	gem "mailcatcher"
-	gem "mail"
-	gem 'actionmailer_inline_css'
-end
+gem 'will_paginate', '~> 3.0'
+gem "cancan"
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'strong_parameters'
+gem 'rack-raw-upload', '1.1.0'
+
+gem 'tlsmail'
+gem "mailcatcher"
+gem "mail"
+gem 'actionmailer_inline_css'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Deploy with Capistrano
-#gem "capistrano"
 gem "mina"
 gem "unicorn"
-#gem "rvm-capistrano"
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
